@@ -12,7 +12,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Tree_sd {
-	//WebDriver driver = DriverManager.getdriver();
+	
 	Tree_pf tree_pf = new Tree_pf();
 	@Given("The user is in the Home page after Sign in")
 	public void the_user_is_in_the_home_page_after_sign_in() {

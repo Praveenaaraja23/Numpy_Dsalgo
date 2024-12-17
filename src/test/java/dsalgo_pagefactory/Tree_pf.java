@@ -171,7 +171,6 @@ public class Tree_pf {
 		if(result != null)
 		{
 				System.out.println(result);
-				Thread.sleep(2000);
 				alert.accept();			
 		}
 		}catch(Exception e){
@@ -181,21 +180,26 @@ public class Tree_pf {
 		return result;
 	}
 	
+	public String getTreePageTitle() {
+		String title = driver.getTitle();
+		return title;
+	}
+	
 	public void sign_out() {
 		
 		sign_out.click();
 	}
 	
-	public  void ValidateTreeHomepage() {
-
-		String current_url = driver.getCurrentUrl();
-		if(current_url.equals("https://dsportalapp.herokuapp.com/tree/")) {
-			System.out.println("Validation Successfull");
-		}
-		else {
-			System.out.println("Validation UnSuccessfull and the address bar url is:" + current_url);
-		}
-	}
+//	public  void ValidateTreeHomepage() {
+//
+//		String current_url = driver.getCurrentUrl();
+//		if(current_url.equals("https://dsportalapp.herokuapp.com/tree/")) {
+//			System.out.println("Validation Successfull");
+//		}
+//		else {
+//			System.out.println("Validation UnSuccessfull and the address bar url is:" + current_url);
+//		}
+//	}
 
 
 

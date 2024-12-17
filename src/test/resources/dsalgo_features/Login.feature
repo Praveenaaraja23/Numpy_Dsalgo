@@ -38,7 +38,7 @@ Feature: Testing Login
   #@Login3 @madhu @pusuluri
   #Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
     #Given The user is on the DS Algo Sign in Page	
-    #Then The user clicks login button after entering invalid "<Username>"and valid "<Password>"from excel sheet
+    #when The user clicks login button after entering invalid "<Username>"and valid "<Password>"from excel sheet
   #	Then The user should land in Data Structure Home Page with message "<Message>" 
  #
     #

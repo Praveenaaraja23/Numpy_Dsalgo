@@ -1,5 +1,7 @@
 package dsalgo_stepdefinitions;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 
 import dsalgo_hooks.Hooks;
@@ -73,7 +75,7 @@ public class Tree_sd {
 	    
 	}
 
-	@When("^The user enters the valid and invalid pythoncode (.*) and clicks Run button$")
+	@When("^The user enter the valid and invalid pythoncode (.*) and clicks Run button$")
 	public void the_user_enters_the_valid_and_invalid_pythoncode_and_clicks_run_button(String pythoncode) throws InterruptedException {
 	   tree_pf.Entercode_Tryeditor(pythoncode);
 	   
@@ -85,9 +87,7 @@ public class Tree_sd {
 	public void the_user_should_able_to_see_output_in_the_console_output() {
 		String actualMsg = tree_pf.ActualOutput();
 		LoggerLoad.info("Actual result  :" + actualMsg);
-	//	String actualMsg1 = tree_pf.getErrormsg();
-	//	LoggerLoad.info("Actual result  :" + actualMsg);
-		System.out.println("validation done"); 
+	     System.out.println("validation done"); 
 	}
 	@When("The user clicks on the\"Tree -Terminologies Page\" link")
 	public void the_user_clicks_on_the_tree_terminologies_page_link() {
@@ -305,6 +305,10 @@ public class Tree_sd {
 
 	@Then("The user should be redirected to {string} page")
 	public void the_user_should_be_redirected_to_page(String string) {
+		String Title = tree_pf.getTreePageTitle();
+		LoggerLoad.info("Title of current page is :" + Title);
+		assertEquals(Title, "Practice Questions", "Title do not match");
+		LoggerLoad.info("NO questions found ");
 		
 		System.out.println("validation done");
 	    

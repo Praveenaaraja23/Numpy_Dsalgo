@@ -48,29 +48,29 @@ public void user_should_be_navigated_to_home_page() {
 	
     }
 
-@Given("The user clicks on Register link in home page")
-public void the_user_clicks_on_register_link_in_home_page() {
-	
-	Registerpage.GetStarted();
-	Registerpage.Rlink();
-	
-}
+//@Given("The user clicks on Register link in home page")
+//public void the_user_clicks_on_register_link_in_home_page() {
+//	
+//	Registerpage.GetStarted();
+//	Registerpage.Rlink();
+//	
+//}
 
 
-@When("^The user enters (.*) and (.*) and (.*)$")
-public void the_user_enters_and_and(String username, String password, String confirmpassword) throws InterruptedException {
-	
-	Registerpage.login(username, password, confirmpassword);
-	
-}
-
-@Then("The user should be able to see the error msg {string}")
-public void the_user_should_be_able_to_see_the_error_msg(String Errormsg) {
-	
-	String actualMessage = Registerpage.actMsg();
-	Assert.assertEquals("Please fill out this field", Errormsg, actualMessage);
-    
-}
+//@When("^The user enters (.*) and (.*) and (.*)$")
+//public void the_user_enters_and_and(String username, String password, String confirmpassword) throws InterruptedException {
+//	
+//	Registerpage.login(username, password, confirmpassword);
+//	
+//}
+//
+//@Then("The user should be able to see the error msg {string}")
+//public void the_user_should_be_able_to_see_the_error_msg(String Errormsg) {
+//	
+//	String actualMessage = Registerpage.actMsg();
+//	Assert.assertEquals("Please fill out this field", Errormsg, actualMessage);
+//    
+//}
 
 
 @Given("The user navigates to Register Page in home page")

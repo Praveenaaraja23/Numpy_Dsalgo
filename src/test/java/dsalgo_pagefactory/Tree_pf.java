@@ -1,7 +1,11 @@
 package dsalgo_pagefactory;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
+import static org.testng.Assert.fail;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -13,10 +17,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+
 import dsalgo_hooks.Hooks;
 import dsalgo_pagefactory.Login_pf;
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
+import dsalgo_utils.ExcelReader;
+import dsalgo_utils.LoggerLoad;
 
 public class Tree_pf {
 	//public  WebDriver driver;
@@ -60,10 +68,17 @@ public class Tree_pf {
 	WebElement Implementation_Of_BST;
 	@FindBy(xpath="//a[@href='/tree/practice']")
     WebElement Practice_Questions;
+	@FindBy(xpath="//div[@class='col-sm']/strong/p[@class='bg-secondary text-white']")
+	WebElement Textfrompage;
+	@FindBy(xpath= "//a[text()='NumpyNinja']")
+	WebElement hometext;
+	String result;
+	
 
 	
 	WebDriver driver= DriverManager.getdriver();
 	ConfigReader configFileReader=DriverManager.configReader();
+	public Object alert;
 
 	public Tree_pf() {
 		
@@ -145,10 +160,10 @@ public class Tree_pf {
 
 	}
 
-	public void Entercode_Tryeditor(String pythoncode)  {
+	public void Entercode_Tryeditor(String excelValue)  {
 
-		System.out.println(pythoncode);
-		TryEditor.sendKeys(pythoncode);
+		System.out.println();
+		TryEditor.sendKeys(excelValue);
 
 
 	}
@@ -161,42 +176,67 @@ public class Tree_pf {
 		Runbutton.click();
 		
 	}
+	
 
-
-	public String ActualOutput() {
-		String result;
-		try {
-		Alert alert = driver.switchTo().alert();	
-		result=alert.getText();
-		if(result != null)
-		{
-				System.out.println(result);
-				Thread.sleep(2000);
-				alert.accept();			
-		}
-		}catch(Exception e){
-		 result = Output.getText();
-		 System.out.println("No Alert");
-		}
+	public String getActualResult() {
+		result = Output.getText();
 		return result;
+	}
+
+	public String getErrormsg() {
+		LoggerLoad.info("Entered getErrormsg-");
+		
+		Alert alert = driver.switchTo().alert();	
+			   result=alert.getText();
+			   LoggerLoad.info("Result Alert-"+result);
+		           alert.accept();
+		           LoggerLoad.info("popup alert is :" + result);
+		          
+		return result;
+	}
+
+
+
+	
+	public String getTreePageTitle() {
+		String title = driver.getTitle();
+		return title;
 	}
 	
 	public void sign_out() {
 		
 		sign_out.click();
 	}
-	
-	public  void ValidateTreeHomepage() {
-
-		String current_url = driver.getCurrentUrl();
-		if(current_url.equals("https://dsportalapp.herokuapp.com/tree/")) {
-			System.out.println("Validation Successfull");
-		}
-		else {
-			System.out.println("Validation UnSuccessfull and the address bar url is:" + current_url);
-		}
+	public String getCodefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		LoggerLoad.info("Set the path");
+	   List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
+		LoggerLoad.info("To read the Data from Excelsheet");
+         String pythoncode  = testData.get(Rownumber).get("pythoncode");
+         System.out.println(pythoncode);
+		 LoggerLoad.info("To get data from excel sheet");
+ return pythoncode;
 	}
 
+	public String getoutputfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		LoggerLoad.info("Set the path");
+		
+		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
+		LoggerLoad.info("To read the Data from Excelsheet");
+         String Expectedresult1 = testData.get(Rownumber).get("ExpectedOutput");
+		 LoggerLoad.info("To get data from excel sheet");
+ return Expectedresult1;
+	}
+public String alltreetext() {
+	String Text=Textfrompage.getText();
+	return Text;
+}
+public String Homepagetext() {
+	String hometitle=hometext.getText();
+	return hometitle;
 
-
+}
 }

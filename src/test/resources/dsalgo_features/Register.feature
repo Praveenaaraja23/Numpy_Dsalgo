@@ -35,4 +35,4 @@ Feature: Testing Register Page functionality in dsportalapp.herokuapp.
     Examples:
     | UserName     | Password       | Passwordconfirmation | Message |
     |  vidya       | Kanaka@185     | Kanaka@185           | Login successfull |
-     
+    

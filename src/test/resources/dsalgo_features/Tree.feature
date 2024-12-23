@@ -28,43 +28,65 @@ Feature: Testing Login
   @TS_tree_05
   Scenario Outline: The user is able to run code in tryEditor for Overview of Trees page
     Given The user is in the tryEditor page for Overview of Trees page
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Overview of Trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
+      
   #Tree-Terminologies page
   @TS_tree_06
   Scenario: Verify that user is able to navigate to "Tree -Terminologies Page" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Tree -Terminologies Page" link
-    Then The user should be redirected to the "Tree -Terminologies Page" of tree Page
+    When The user clicks on the "Terminologies" Page link
+    Then The user should be redirected to the "Terminologies" of tree Page
 
   @TS_tree_07
-  Scenario: The user is able to navigate to a page having an tryEditor from "Tree -Types of Tree"page
-    Given The user is in the "Tree -Terminologies Page" page
+  Scenario: The user is able to navigate to a page having an tryEditor from "Terminologies" page
+    Given The user is in the "Terminologies" page
     When The user clicks "Try Here" button in a Tree -Terminologies page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_08
-  Scenario Outline: The user is able to run code in tryEditor for Tree -Terminologies Page
-    Given The user is in the tryEditor page for Tree -Terminologies Page
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
+  @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Tree -Terminologies Page page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Tree -Terminologies Page page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
   #Tree-types of tree
   @TS_tree_09
   Scenario: Verify that user is able to navigate to "Tree -Types of Tree" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Tree -Types of Tree" link
-    Then The user should be redirected to the "Tree -Types of Tree" of tree Page
+    When The user clicks on the "Types of Trees " link
+    Then The user should be redirected to the "Types of Trees" of tree Page
 
   @TS_tree_10
   Scenario: The user is able to navigate to a page having an tryEditor from "Tree -Types of Tree"page
@@ -72,16 +94,27 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Tree -Types of Tree page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_11
+ @TS_tree_05
   Scenario Outline: The user is able to run code in tryEditor for Tree -Types of Tree page
-    Given The user is in the tryEditor page for Tree -Types of Tree page
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Tree -Types of Tree page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
   #Traversals-Illustration
   @TS_tree_12
   Scenario: Verify that user is able to navigate to "Traversals-Illustration" for "Tree - Overview of Trees" page
@@ -95,22 +128,33 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Traversals-Illustration page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_14
-  Scenario Outline: The user is able to run code in tryEditor for Traversals-Illustration
-    Given The user is in the tryEditor page for Traversals-Illustration
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
+  @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Traversals-Illustration page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Traversals-Illustration page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
 
   #Binary Trees
   @TS_tree_15
   Scenario: Verify that user is able to navigate to "Binary Trees" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Binary Trees" link
+    When The user clicks on the "Binary Trees" link
     Then The user should be redirected to the "Binary Trees" of tree Page
 
   @TS_tree_16
@@ -119,21 +163,33 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Binary Trees page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_17
-  Scenario Outline: The user is able to run code in tryEditor for Binary Trees
-    Given The user is in the tryEditor page for Binary Trees
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
+ @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Binary Trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Binary Trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
 
   #Types of Binary Trees
   @TS_tree_18
   Scenario: Verify that user is able to navigate to "Types of Binary Trees" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Types of Binary Trees" link
+    When The user clicks on the "Types of Binary Trees" link
     Then The user should be redirected to the "Types of Binary Trees" of tree Page
 
   @TS_tree_19
@@ -142,21 +198,32 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Types of Binary Trees page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_20
-  Scenario Outline: The user is able to run code in tryEditor for Types of Binary Trees
-    Given The user is in the tryEditor page for Types of Binary Trees
-     When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
+  @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Types of Binary Trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Types of Binary Trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
   #Implementation in Python
   @TS_tree_21
   Scenario: Verify that user is able to navigate to "Implementation in Python" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Implementation in Python" link
+    When The user clicks on the "Implementation in Python" link
     Then The user should be redirected to the "Implementation in Python" of tree Page
 
   @TS_tree_22
@@ -165,22 +232,33 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Implementation in Python page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_23
-  Scenario Outline: The user is able to run code in tryEditor for Implementation in Python
-    Given The user is in the tryEditor page for Implementation in Python
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
+  @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Implementation in Python page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Implementation in Python page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+       
 
   #Binary Tree Traversals
   @TS_tree_24
   Scenario: Verify that user is able to navigate to "Binary Tree Traversals" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Binary Tree Traversals" link
+    When The user clicks on the "Binary Tree Traversals" link
     Then The user should be redirected to the "Binary Tree Traversals" of tree Page
 
   @TS_tree_25
@@ -189,17 +267,27 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Binary Tree Traversals page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_26
-  Scenario Outline: The user is able to run code in tryEditor for Binary Tree Traversals
-    Given The user is in the tryEditor page for Binary Tree Traversals
-   When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
+   @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Binary Tree Traversals page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Binary Tree Traversals page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
   #Implementation of Binary Trees
   @TS_tree_27
   Scenario: Verify that user is able to navigate to "Implementation of Binary Trees" for "Tree - Overview of Trees" page
@@ -213,22 +301,32 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Implementation of Binary Trees page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_29
-  Scenario Outline: The user is able to run code in tryEditor for Implementation of Binary Trees
-    Given The user is in the tryEditor page for Implementation of Binary Trees
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
+  @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Implementation of Binary Trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Implementation of Binary Trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
   #Applications of Binary trees
   @TS_tree_30
   Scenario: Verify that user is able to navigate to "Applications of Binary trees" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Applications of Binary trees" link
+    When The user clicks on the "Applications of Binary trees" link
     Then The user should be redirected to the "Applications of Binary trees" of tree Page
 
   @TS_tree_31
@@ -237,22 +335,32 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Applications of Binary trees page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_32
-  Scenario Outline: The user is able to run code in tryEditor for Applications of Binary trees
-    Given The user is in the tryEditor page for Applications of Binary trees
-     When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
-  #Binary Search Trees
+   @TS_tree_05
+  Scenario Outline: The user is able to run code in tryEditor for Applications of Binary trees page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Applications of Binary trees
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
+ # Binary Search Trees
   @TS_tree_33
   Scenario: Verify that user is able to navigate to "Binary Search Trees" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The user clicks on the"Binary Search Trees" link
+    When The user clicks on the "Binary Search Trees" link
     Then The user should be redirected to the "Binary Search Trees" of tree Page
 
   @TS_tree_34
@@ -261,17 +369,27 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Binary Search Trees page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
-  @TS_tree_35
+  @TS_tree_05
   Scenario Outline: The user is able to run code in tryEditor for Binary Search Trees
-    Given The user is in the tryEditor page for Binary Search Trees
-    When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
-
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_06
+   Scenario Outline: The user is able to run code in tryEditor for Binary Search Trees
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
   #Implementation Of BST
   @TS_tree_36
   Scenario: Verify that user is able to navigate to "Implementation Of BST" for "Tree - Overview of Trees" page
@@ -286,15 +404,26 @@ Feature: Testing Login
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
   @TS_tree_38
-  Scenario Outline: The user is able to run code in tryEditor for Implementation Of BST
-    Given The user is in the tryEditor page for Implementation Of BST
-     When The user enter the valid and invalid pythoncode <pythoncode> and clicks Run button
-    Then The user should able to see output in the console Output
-
-    Examples: 
-      | pythoncode     |
-      | print("hello") |
-      | madhu          |
+  Scenario Outline: The user is able to run code in tryEditor for Implementation Of BST page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
+    
+   
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+     @TS_tree_39
+   Scenario Outline: The user is able to run code in tryEditor for Implementation Of BST page
+    Given The user is in the tryEditor page for Overview of Trees page
+    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+    Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+      
 
   #Practice Questions
   @TS_tree_39

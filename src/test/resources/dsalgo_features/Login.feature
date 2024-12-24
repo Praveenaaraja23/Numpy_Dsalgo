@@ -25,29 +25,60 @@ Feature: Testing Login
    Scenario Outline: user able to land on Home page after entering invalid Username and Password fields
     Given The user is on the DS Algo Sign in Page	
     When The user clicks login button after entering invalid <Username> and <Password>
-  	Then The user should see an <Errormessage>
+  	Then The user should see an <ErrorMessage>
+  	
     Examples:       
- |Username  | Password | Errormessage             |
+ |Username  | Password | ErrorMessage             |
  |madhu     |Kanaka@185| Invalid Username and Password |
- | madhu    | chandu   | Invalid Username and Password |
- | Vidya    | sri      | Invalid Username and Password |
+ |madhu    | chandu   | Invalid Username and Password |
+ |Vidya    | sri      | Invalid Username and Password |
+ 
+  @Login3 @madhu @pusuluri
+   Scenario Outline: user able to land on Home page after entering invalid Username and Password fields
+    Given The user is on the DS Algo Sign in Page	
+    When The user clicks login button after entering invalid <Username> and <Password>
+  	Then The user1 should see an <popupmessage> and takes input <Username> and <Password>
+  	
+    Examples:       
+ |Username  | Password | popupmessage             |
  |          |Kanaka@185| Please fill out this field.   |
- | Vidya    |          | Please fill out this field.    |
+ |Vidya    |          | Please fill out this field.    |
  |          |          | Please fill out this field.    |
       
-  #@Login3 @madhu @pusuluri
-  #Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
-    #Given The user is on the DS Algo Sign in Page	
-    #Then The user clicks login button after entering invalid "<Username>"and valid "<Password>"from excel sheet
-  #	Then The user should land in Data Structure Home Page with message "<Message>" 
- #
-    #
-    #Examples: 
-      #| Sheetname | Rownumber |
-      #|Sheet1    | 0         |
-      #|Sheet1    | 1         |
-      #|Sheet1    | 2         |
-      #|Sheet1    | 3         |
-      #|Sheet1    | 4         |
-      #|Sheet1    | 5         |
+  @Login4 @madhu @pusuluri
+  Scenario Outline: user able to land on Home page after entering valid Username and Password fields from excel sheet
+    Given The user is on the DS Algo Sign in Page	
+    When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>
+    Then user should see an <Sheetname> and <Rownumber> 
+    
+    Examples: 
+      | Sheetname | Rownumber |
+      | Login     | 0         |
+      
+      
+
+   @Login5 @madhu @pusuluri
+  Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
+    Given The user is on the DS Algo Sign in Page	
+    When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>
+    Then user14 should see an <Sheetname> and <Rownumber>
+    
+    Examples: 
+      | Sheetname | Rownumber |
+      |Login1     | 0         |
+      |Login1     | 1         |
+      |Login1     | 2         |
+     
+      
+       @Login5 @madhu @pusuluri
+  Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
+    Given The user is on the DS Algo Sign in Page	
+    When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>
+    Then user15 should see an <Sheetname> and <Rownumber>
+    
+    Examples: 
+      | Sheetname | Rownumber |
+      |Login1     | 3         |
+      |Login1     | 4         |
+      |Login1     | 5         |
           

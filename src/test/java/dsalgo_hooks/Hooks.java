@@ -2,6 +2,7 @@ package dsalgo_hooks;
 
 import java.io.ByteArrayInputStream;
 
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,8 @@ import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 
 public class Hooks {
+	
+	
 	private static WebDriver driver;
 	private static DriverManager driverfactory;
 	ConfigReader configFileReader = new ConfigReader();

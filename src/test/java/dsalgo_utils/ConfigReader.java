@@ -31,24 +31,23 @@ package dsalgo_utils;
 
 		}
 
-//		public static String getBrowserType() {
-//			String browser = properties.getProperty("browser");
-//			LoggerLoad.info("Get property BrowserType");
-//			if (browser != null)
-//				return browser;
-//			else
-//				throw new RuntimeException("browser not specified in the Configuration.properties file.");
-//		}
-//		
 		public static String getApplicationUrl() {
 			String url = properties.getProperty("url");
+			System.out.println(url);
 			if (url != null)
 				return url;
 			else
 				throw new RuntimeException("url not specified in the Configuration.properties file.");
 		}
-		
+		public static String excelpath() {
+			String path = properties.getProperty("path");
+			System.out.println(path);
+			if (path != null)
+				return path;
+			else
+				throw new RuntimeException("url not specified in the Configuration.properties file.");
 		
 	}
 
+	}
 

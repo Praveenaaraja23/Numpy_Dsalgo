@@ -1,6 +1,9 @@
 package dsalgo_pagefactory;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,8 +15,12 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
+import dsalgo_utils.ExcelReader;
+import dsalgo_utils.LoggerLoad;
 
 public class Login_pf {
 
@@ -84,22 +91,15 @@ public class Login_pf {
 		}
 
 	}
+	
+	
 
 
-	public String printsuccessmessage( String SuccessMessage) {
-		try {
-			if(successmsg.getText().equals(SuccessMessage)) {
-				System.out.println(successmsg.getText());		
+	public String printsuccessmessage() {
+		
+		String succesmsg=successmsg.getText();
 
-			}
-			else  {
-				System.out.println("Title Not matched");
-
-			}
-		}catch (Exception e) {
-			System.out.println("Element doesnt exists");
-		}
-		return SuccessMessage;
+		return succesmsg;
 
 	}
 
@@ -109,57 +109,91 @@ public class Login_pf {
 
 
 
-	public void printErrormessage(String Errormessage) {
-
-		try {
-			if(errormessage.getText().equals(Errormessage)) {
-				System.out.println(errormessage.getText());		
-
-			}
-			else  {
-				System.out.println("Title Not matched");
-
-			}
-		} catch (Exception e) {
-			String errormessage1 = username1.getAttribute("validationMessage");
-			if(errormessage1.equals(Errormessage)) {
-				System.out.println("Username Error message : " + errormessage1);
-			}
-			else if (password1.getAttribute("validationMessage").equals(Errormessage)){
-				System.out.println("Password Error message : " + Errormessage);
-			}
-
-
-		} 
-
+	public String printErrormessage() {
+		String errormsg;
+		 errormsg=errormessage.getText();
+		return errormsg;
 	}
-
-
-	public void validatesigninpage() {
-		String expectedusrfield="Username:";
-		String expectedpaswdfield="Password:";
-
-		try {
-			if(usernamefield.getText().equals(expectedusrfield)) {
-				System.out.println("User is in sign in page :" + usernamefield.getText());	
-			}
-			if(passwordfield.getText().equals(expectedpaswdfield)){
-				System.out.println("User is in sign in page :" + passwordfield.getText());	
-
-			}
-			else {
-
-				System.out.println("User is not in sign in page");	
-			}
-
-		}catch(Exception e) {
-
-			System.out.println("Element does not exists");	
+	public String printPopupmessage(String Username, String Password) {
+		String popupmessage="";
+		if(Username.isEmpty() || (Username.isEmpty() && Password.isEmpty()))
+		{
+		 popupmessage = username1.getAttribute("validationMessage");
 		}
-
+		else if (Password.isEmpty())
+		{
+			 popupmessage = password1.getAttribute("validationMessage");
+		}
+		return popupmessage;	
 	}
 
 
 
 
+	public String validatesigninpage() {
+		String username=usernamefield.getText();
+		return username;
+		
+	}
+	
+
+	
+	public String getsuccessmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
+	ExcelReader reader = new ExcelReader();
+	String Excelpath = ConfigReader.excelpath();
+	LoggerLoad.info("Set the path");
+	LoggerLoad.info("ExcelPath-"+Excelpath);
+	LoggerLoad.info("Sheetname-"+Sheetname);
+	  List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
+	LoggerLoad.info("To read the Data from Excelsheet");
+   String SuccessMessage = testData.get(Rownumber).get("SuccessMessage");
+	return SuccessMessage;
+
+}
+	public String getusernamefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		LoggerLoad.info("Set the path");
+		List<Map<String,String>> testData = 
+				reader.getData(Excelpath, Sheetname);
+		
+		String Username  = testData.get(Rownumber).get("Username");
+		return Username;
+}
+	
+	public String getpasswordfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		LoggerLoad.info("Set the path");
+		List<Map<String,String>> testData = 
+				reader.getData(Excelpath, Sheetname);
+		
+		String password  = testData.get(Rownumber).get("Password");
+		return password;
+}
+	
+	public String geterrormsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		LoggerLoad.info("Set the path");
+		List<Map<String,String>> testData = 
+				reader.getData(Excelpath, Sheetname);
+		
+		String ErrorMessage = testData.get(Rownumber).get("ErrorMessage");
+		return ErrorMessage;
+		
+}
+	public String getpopupmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		System.out.println(Excelpath);
+		LoggerLoad.info("Set the path");
+		List<Map<String,String>> testData = 
+				reader.getData(Excelpath, Sheetname);
+		
+		String popupmsg = testData.get(Rownumber).get("ErrorMessage");
+		return popupmsg;
+		
+		
+	}
 }

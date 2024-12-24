@@ -46,7 +46,7 @@ package dsalgo_utils;
 				return path;
 			else
 				throw new RuntimeException("url not specified in the Configuration.properties file.");
-		
+		/*
 		
 		public static String getHomeUrl() {
 			String url = properties.getProperty("url");
@@ -57,7 +57,7 @@ package dsalgo_utils;
 		}
 		
 		
-		
+		*/
 		
 		
 		

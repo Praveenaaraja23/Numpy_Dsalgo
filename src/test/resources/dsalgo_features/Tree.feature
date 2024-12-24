@@ -59,7 +59,7 @@ Feature: Testing Login
     Given The user is in the "Terminologies" page
     When The user clicks "Try Here" button in a Tree -Terminologies page
     Then The user should be redirected to a page having an try Editor with a Run button to test
-
+    
   @TS_tree_09
   Scenario Outline: The user is able to run code in tryEditor for Tree -Terminologies Page page
     Given The user is in the tryEditor page for Tree -Terminologies Page
@@ -97,6 +97,7 @@ Feature: Testing Login
  @TS_tree_12
   Scenario Outline: The user is able to run code in tryEditor for Tree -Types of Tree page
     Given The user is in the tryEditor page for Tree -Types of Tree page
+    
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
     
@@ -163,6 +164,7 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Traversals-Illustration page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
+
   @TS_tree_20
   Scenario Outline: The user is able to run code in tryEditor for Traversals-Illustration page
     Given The user is in the tryEditor page for Traversals-Illustration 
@@ -198,6 +200,7 @@ Feature: Testing Login
     When The user clicks "Try Here" button in a Binary Trees page
     Then The user should be redirected to a page having an try Editor with a Run button to test
 
+
  @TS_tree_24
   Scenario Outline: The user is able to run code in tryEditor for Binary Trees page
     Given The user is in the tryEditor page for Binary Trees 
@@ -219,7 +222,6 @@ Feature: Testing Login
       |phythoncode|         1 |
       |phythoncode|         2 | 
       
-
   #Types of Binary Trees
   @TS_tree_26
   Scenario: Verify that user is able to navigate to "Types of Binary Trees" for "Tree - Overview of Trees" page
@@ -232,6 +234,7 @@ Feature: Testing Login
     Given The user is in the "Types of Binary Trees" page
     When The user clicks "Try Here" button in a Types of Binary Trees page
     Then The user should be redirected to a page having an try Editor with a Run button to test
+
 
   @TS_tree_28
   Scenario Outline: The user is able to run code in tryEditor for Types of Binary Trees page
@@ -254,6 +257,7 @@ Feature: Testing Login
       |phythoncode|         1 |
       |phythoncode|         2 | 
       
+
   #Implementation in Python
   @TS_tree_30
   Scenario: Verify that user is able to navigate to "Implementation in Python" for "Tree - Overview of Trees" page
@@ -270,10 +274,9 @@ Feature: Testing Login
   @TS_tree_32
   Scenario Outline: The user is able to run code in tryEditor for Implementation in Python page
     Given The user is in the tryEditor page for Implementation in Python
-    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+		When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
     
-   
      Examples: 
       |Sheetname  |RowNumber  |
       |phythoncode|         0 |
@@ -288,7 +291,6 @@ Feature: Testing Login
       |phythoncode|         1 |
       |phythoncode|         2 | 
        
-
   #Binary Tree Traversals
   @TS_tree_34
   Scenario: Verify that user is able to navigate to "Binary Tree Traversals" for "Tree - Overview of Trees" page
@@ -357,7 +359,7 @@ Feature: Testing Login
       |phythoncode|         1 |
       |phythoncode|         2 | 
       
-  #Applications of Binary trees
+ #Applications of Binary trees
   @TS_tree_42
   Scenario: Verify that user is able to navigate to "Applications of Binary trees" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
@@ -373,7 +375,7 @@ Feature: Testing Login
    @TS_tree_44
   Scenario Outline: The user is able to run code in tryEditor for Applications of Binary trees page
     Given The user is in the tryEditor page for Applications of Binary trees
-    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+		When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
     
    
@@ -393,6 +395,7 @@ Feature: Testing Login
       
  # Binary Search Trees
   @TS_tree_46
+
   Scenario: Verify that user is able to navigate to "Binary Search Trees" for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
     When The user clicks on the "Binary Search Trees" link
@@ -424,7 +427,7 @@ Feature: Testing Login
       |Sheetname  |RowNumber  |
       |phythoncode|         1 |
       |phythoncode|         2 | 
-      
+
   #Implementation Of BST
   @TS_tree_50
   Scenario: Verify that user is able to navigate to "Implementation Of BST" for "Tree - Overview of Trees" page
@@ -441,7 +444,7 @@ Feature: Testing Login
   @TS_tree_52
   Scenario Outline: The user is able to run code in tryEditor for Implementation Of BST page
     Given The user is in the tryEditor page for Implementation Of BST
-    When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
+		 When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in trees
     
    
@@ -458,7 +461,7 @@ Feature: Testing Login
       |Sheetname  |RowNumber  |
       |phythoncode|         1 |
       |phythoncode|         2 | 
-      
+
 
   #Practice Questions
   @TS_tree_54
@@ -466,3 +469,4 @@ Feature: Testing Login
     Given The user is in the "overview of trees" page
     When The User clicks  " Practice questions"  link
     Then The user should be redirected to "Practice" page
+

@@ -1,33 +1,68 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
+@home
+Feature: User launch dsalgo application and test Home page
 
+  @TS_home_01
+  Scenario: User launch home page of an dsalgo project
+    Given The user opens DS Algo portal link
+    When The user clicks the Get Started button
+    Then The user should be redirected to homepage
+    
+    
 
+  @TS_home_02
+  Scenario Outline: User is on Home page and click getstarted link <option> on home page without sign in
+    Given The user is on Home page
+    When The user clicks on Get Started link on homepage <option> without login
+    Then The user get <warningmessage> 
 
-@OpenDsalgoPortal
- Scenario: Verify that user is able to open the dsAlgo Portal
-    Given The user has browser open
-    When The user enter correct dsAlgo portal URL
-    Then The user should be able to land on dsAlgo portal with Get Started button
+    Examples: 
+      | option         |warningmessage				|
+      | Datastructures |You are not logged in |
+      | Arrays         |You are not logged in |
+      | Linkedlist     |You are not logged in |
+      | Stack          |You are not logged in |
+      | Queue          |You are not logged in |
+      | Tree           |You are not logged in |
+      | Graph          |You are not logged in |
 
- 
-      
-      
+  @TS_home_03
+  Scenario Outline: User is on Home page and click on dropdown <option> without sign in
+    Given The user is on Home page
+    When The user clicks on dropdown <option> without signin
+    Then The user get <warningmessage>
+
+    Examples: 
+      | option         |warningmessage				|
+      | Arrays         |You are not logged in |
+      | Linkedlist     |You are not logged in |
+      | Stack          |You are not logged in |
+      | Queue          |You are not logged in |
+      | Tree           |You are not logged in |
+      | Graph          |You are not logged in |
+
+  @TS_home_04
+  Scenario: User is on Home page and click on sign in
+    Given The user is on Home page
+    When The user clicks on signin link
+    Then The user redirected to login page
+
+  @TS_home_05
+  Scenario: User is on Home page and click on Register
+    Given The user is on Home page
+    When The user clicks on register link
+    Then The user redirected to Registration page
+    
+    
+    
+    
+
+  @TS_home_05
+  Scenario: User is on Home page and click on Register
+    Given The user is on Home page
+    When The user clicks on register link
+    Then The user redirected to Registration page
+    
+    
+    
+    
+

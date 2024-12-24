@@ -46,7 +46,6 @@ package dsalgo_utils;
 				return path;
 			else
 				throw new RuntimeException("url not specified in the Configuration.properties file.");
-				
 		
 	}
 

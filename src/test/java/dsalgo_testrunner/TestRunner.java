@@ -14,8 +14,8 @@ package dsalgo_testrunner;
 		@CucumberOptions(
 				plugin = {"pretty", "html:target/dsAlgoReport.html"}, //reporting purpose
 				monochrome=false,  //console output color
-				//tags =" @Tree", //tags from feature file
-				features = {"src/test/resources/dsalgo_features/Linkedlist.feature"}, //location of feature files
+				tags ="@Graph", //tags from feature file
+				features = {"src/test/resources/dsalgo_features"}, //location of feature files
 				glue= {"dsalgo_stepdefinitions","dsalgo_hooks"})//location of step definition files
 
 

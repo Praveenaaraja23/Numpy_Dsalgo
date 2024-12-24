@@ -50,7 +50,7 @@ public class Tree_sd {
 		tree_pf.GetStarted();
 	}
 
-	@When("The user clicks on the\" Overview of Trees\" link")
+	@When("The user clicks on the \"Overview of Trees\" link")
 	public void the_user_clicks_on_the_overview_of_trees_link() {
 		tree_pf.click_overview_tree();
 	}
@@ -60,10 +60,7 @@ public class Tree_sd {
 		String Title = tree_pf.alltreetext();
 		LoggerLoad.info("Title of current page is : " + Title);
 		assertEquals(Title, string);
-
-
-
-	}
+}
 
 	@Given("The user is in the {string} page")
 	public void the_user_is_in_the_page(String string) {
@@ -124,8 +121,8 @@ public class Tree_sd {
 
 		assertEquals(popup1, excelValue1);
 	}
-	@When("The user clicks on the {string} Page link")
-	public void the_user_clicks_on_the_page_link(String string) {
+	@When("The user clicks on the \"Terminologies\" link")
+	public void the_user_clicks_on_the_Terminologies_link() {
 	   
         tree_pf.click_Tree_terminologies();
 	}
@@ -145,8 +142,8 @@ public class Tree_sd {
 
 	}
 
-	@When("The user clicks on the {string} link")
-	public void the_user_clicks_on_the_link(String string) {
+	@When("The user clicks on the \"Types of Trees\" link")
+	public void the_user_clicks_on_the_Types_of_Trees_link() {
 	   
 		tree_pf.click_Types_of_Trees();
 
@@ -187,7 +184,7 @@ public class Tree_sd {
 
 
 
-	@When("The user clicks on the\"Traversals-Illustration\" link")
+	@When("The user clicks on the \"Traversals-Illustration\" link")
 	public void the_user_clicks_on_the_traversals_illustration_link() {
 		tree_pf.click_Traversals_Illustration();
 
@@ -208,7 +205,7 @@ public class Tree_sd {
 
 	}
 
-	@When("The user clicks on the\"Binary Trees\" link")
+	@When("The user clicks on the \"Binary Trees\" link")
 	public void the_user_clicks_on_the_binary_trees_link() {
 		tree_pf.click_Binary_Trees();
 
@@ -227,7 +224,7 @@ public class Tree_sd {
 		tree_pf.click_Tryherebtn(); 
 	}
 
-	@When("The user clicks on the\"Types of Binary Trees\" link")
+	@When("The user clicks on the \"Types of Binary Trees\" link")
 	public void the_user_clicks_on_the_types_of_binary_trees_link() {
 		tree_pf.click_Types_of_Binary_Trees();
 
@@ -247,7 +244,7 @@ public class Tree_sd {
 
 	}
 
-	@When("The user clicks on the\"Implementation in Python\" link")
+	@When("The user clicks on the \"Implementation in Python\" link")
 	public void the_user_clicks_on_the_implementation_in_python_link() {
 		tree_pf.click_Implementation_in_Python();
 	}
@@ -265,7 +262,7 @@ public class Tree_sd {
 		tree_pf.click_Tryherebtn(); 
 	}
 
-	@When("The user clicks on the\"Binary Tree Traversals\" link")
+	@When("The user clicks on the \"Binary Tree Traversals\" link")
 	public void the_user_clicks_on_the_binary_tree_traversals_link() {
 		tree_pf.Binary_Tree_Traversals();
 	}
@@ -283,7 +280,7 @@ public class Tree_sd {
 		tree_pf.click_Tryherebtn(); 
 	}
 
-	@When("The user clicks on the\"Implementation of Binary Trees\" link")
+	@When("The user clicks on the \"Implementation of Binary Trees\" link")
 	public void the_user_clicks_on_the_implementation_of_binary_trees_link() {
 		tree_pf.click_Implementation_of_Binary_Trees();
 	}
@@ -301,7 +298,7 @@ public class Tree_sd {
 		tree_pf.click_Tryherebtn(); 
 	}
 
-	@When("The user clicks on the\"Applications of Binary trees\" link")
+	@When("The user clicks on the \"Applications of Binary trees\" link")
 	public void the_user_clicks_on_the_applications_of_binary_trees_link() {
 		tree_pf.click_Applications_of_Binary_trees();
 	}
@@ -319,7 +316,7 @@ public class Tree_sd {
 		tree_pf.click_Tryherebtn(); 
 	}
 
-	@When("The user clicks on the\"Binary Search Trees\" link")
+	@When("The user clicks on the \"Binary Search Trees\" link")
 	public void the_user_clicks_on_the_binary_search_trees_link() {
 		tree_pf.click_Binary_Search_Trees();
 	}
@@ -337,7 +334,7 @@ public class Tree_sd {
 		tree_pf.click_Tryherebtn(); 
 	}
 
-	@When("The user clicks on the\"Implementation Of BST\" link")
+	@When("The user clicks on the \"Implementation Of BST\" link")
 	public void the_user_clicks_on_the_implementation_of_bst_link() {
 		tree_pf.click_Implementation_Of_BST();
 	}
@@ -363,7 +360,7 @@ public class Tree_sd {
 	@Then("The user should be redirected to {string} page")
 	public void the_user_should_be_redirected_to_page(String string) {
 		LoggerLoad.info("No practice Questions blank page is displayed");
-		assertEquals(tree_pf.Homepagetext(),"practice Questions");
+		assertEquals(tree_pf.Homepagetext(),"practice Questions");
 		LoggerLoad.info("NO questions found ");
 
 

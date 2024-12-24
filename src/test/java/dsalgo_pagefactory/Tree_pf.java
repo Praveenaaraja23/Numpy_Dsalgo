@@ -168,9 +168,6 @@ public class Tree_pf {
 
 	}
 	
-
-	
-	
 	public void runbtn() {
 
 		Runbutton.click();
@@ -194,9 +191,6 @@ public class Tree_pf {
 		          
 		return result;
 	}
-
-
-
 	
 	public String getTreePageTitle() {
 		String title = driver.getTitle();

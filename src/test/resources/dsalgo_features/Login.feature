@@ -45,7 +45,6 @@ Feature: Testing Login
  |Vidya    |          | Please fill out this field.    |
  |          |          | Please fill out this field.    |
       
-
   @Login4 @madhu @pusuluri
   Scenario Outline: user able to land on Home page after entering valid Username and Password fields from excel sheet
     Given The user is on the DS Algo Sign in Page	
@@ -82,5 +81,4 @@ Feature: Testing Login
       |Login1     | 3         |
       |Login1     | 4         |
       |Login1     | 5         |
-
           

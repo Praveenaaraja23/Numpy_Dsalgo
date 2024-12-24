@@ -26,7 +26,10 @@ public class Tree_sd {
 
 	@Given("The user is in the Home page after Sign in")
 	public void the_user_is_in_the_home_page_after_sign_in() {
-		System.out.println("validation done");
+		
+		String hometitle= tree_pf.Homepagetext();
+		assertEquals(hometitle,"NumpyNinja");
+		LoggerLoad.info("user is in "+hometitle);
 
 	}
 
@@ -162,6 +165,27 @@ public class Tree_sd {
 		tree_pf.click_Types_of_Trees();
 		tree_pf.click_Tryherebtn(); 
 	}
+	
+	
+	@When("The user clicks on the \"Tree Traversals\"link")
+	public void the_user_clicks_on_the_tree_traversals_link() {
+	    tree_pf.click_Tree_Traversal();
+	}
+	@When("The user clicks {string} button in a Tree -Tree Traversals")
+	public void the_user_clicks_button_in_a_tree_tree_traversals(String string) {
+		tree_pf.click_Tryherebtn();
+
+	}
+	@Given("The user is in the tryEditor page for Tree -Tree Traversals")
+	public void the_user_is_in_the_try_editor_page_for_tree_tree_traversals() {
+		tree_pf.GetStarted();
+		tree_pf.click_overview_tree();
+		 tree_pf.click_Tree_Traversal();
+		 tree_pf.click_Tryherebtn();
+
+	}
+
+
 
 	@When("The user clicks on the\"Traversals-Illustration\" link")
 	public void the_user_clicks_on_the_traversals_illustration_link() {

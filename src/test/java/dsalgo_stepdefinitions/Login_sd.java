@@ -1,8 +1,8 @@
 package dsalgo_stepdefinitions;
 
 import static org.testng.Assert.assertEquals;
-
 import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import dsalgo_hooks.Hooks;
 import dsalgo_pagefactory.Login_pf;
 import dsalgo_utils.ConfigReader;
@@ -105,8 +106,11 @@ public class Login_sd {
 		
 		String username =login.getusernamefromExcel(Sheetname, Rownumber);
 		String password =login.getpasswordfromExcel(Sheetname, Rownumber);
-		
+		//String excelSuccess=login.getsuccessmsgfromExcel(Sheetname, Rownumber);
 		login.login(username, password);
+		//String actualSuccess=login.printsuccessmessage();
+		
+		//assertEquals(actualSuccess,excelSuccess);
 		
 		
 		

@@ -38,13 +38,33 @@ Feature: Stack Module
       | printfgh        | 
       |                 |   
   
+  
+   @Try_Editor_in_Operations_in_Stack_in_DataDriven
+  Scenario Outline: The user is able to run code in tryEditor for Operations in Stack page
+    Given The user1 is in the tryEditor page for Operations in Stack
+    When The user1 enter the valid pythoncode input from sheet <Sheetname> and <RowNumber> in Operations in Stack
+    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Stack
+    Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+            
+      
+  @Try_Editor_in_Operations_in_Stack_in_DataDriven_invalid
+  Scenario Outline: The user is able to run code in tryEditor for Operations in Stack
+    Given The user1 is in the tryEditor page for Operations in Stack
+    When The user1 enter the valid pythoncode input from sheet <Sheetname> and <RowNumber> in Operations in Stack
+    Then  in Stack The user1 gets error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 |
    
-    #@Practice_questions_page
-    #Scenario: Verify that user is able to navigate to Practice Questions Page for Operations in Stack page
-    #Given The user is in the Stack page after Sign in    
-    #When The User clicks Practice questions link
-    #Then The user should be redirected to Practice page
-    #
+    @Practice_questions_page
+    Scenario: Verify that user is able to navigate to Practice Questions Page for Operations in Stack page
+    Given The user is in the Stack page after Sign in    
+    When The User clicks Practice questions link
+    Then The user should be redirected to Practice page
+    
    @Implementations_in_Stack
     Scenario: Verify that user is able to navigate to Implementation page
     Given The user is in the Stack page after Sign in    
@@ -69,7 +89,28 @@ Feature: Stack Module
       | TryEditor1      | 
       | print("hello")  |
       | print           | 
-      |                 |       
+      |                 | 
+      
+      
+      @Try_Editor_in_Implementaion_in_Stack_in_DataDriven
+  Scenario Outline: The user is able to run code in tryEditor for Implementaion in Stack page
+    Given The user1 is in the tryEditor page for Implementaion in Stack
+    When The user1 enter the valid pythoncode input from sheet <Sheetname> and <RowNumber> in Implementaion in Stack
+    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Stack
+    Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+            
+      
+  @Try_Editor_in_Implementaion_in_Stack_in_DataDriven_invalid
+  Scenario Outline: The user is able to run code in tryEditor for Implementaion in Stack
+    Given The user1 is in the tryEditor page for Operations in Stack
+    When The user1 enter the valid pythoncode input from sheet <Sheetname> and <RowNumber> in Operations in Stack
+    Then  in Stack The user1 gets error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 |      
       
     @Applications_in_Stack
     Scenario: Verify that user is able to navigate to Application page
@@ -96,4 +137,24 @@ Feature: Stack Module
       | print("hello")  |
       | print           | 
       |                 | 
+      
+       @Try_Editor_in_Application_in_Stack_in_DataDriven
+  Scenario Outline: The user is able to run code in tryEditor for Application in Stack page
+    Given The user1 is in the tryEditor page for Application in Stack
+    When The user1 enter the valid pythoncode input from sheet <Sheetname> and <RowNumber> in Application in Stack
+    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Stack
+    Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+            
+      
+  @Try_Editor_in_Application_in_Stack_in_DataDriven_invalid
+  Scenario Outline: The user is able to run code in tryEditor for Application in Stack
+    Given The user1 is in the tryEditor page for Application in Stack
+    When The user1 enter the valid pythoncode input from sheet <Sheetname> and <RowNumber> in Application in Stack
+    Then  in Stack The user1 gets error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 |
  

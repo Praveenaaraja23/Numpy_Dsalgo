@@ -19,7 +19,7 @@ Feature: Testing linked list Page functionality in dsportalapp.herokuapp.
 
   Scenario: Verify that user is able to navigate to "Introduction" page
     Given The user is on the "Linked list" page after clicks on get started
-   When User clicks on"Introduction" link
+   When User12 click on"Introduction" link
     Then The user should be redirected to the "Introduction" of linked list Page
 
  @TS_linkedlist_03
@@ -58,7 +58,7 @@ Scenario Outline: Verify that user is able to see output for invalid python code
 
   Scenario: Verify that user is able to navigate to "Creating Linked List" page
     Given User is in "Introduction" page
-   When User clicks on the"Creating Linked List" link
+   When User12 click on the"Creating Linked List" link
     Then The user should be redirected to the "Creating Linked List" of linked list Page
 
 @TS_linkedlist_06
@@ -94,7 +94,7 @@ Scenario Outline: Verify that user is able to see output for invalid python code
  @TS_linkedlist_09
   Scenario: Verify that user is able to navigate to "Types of Linked List" page
     Given User is in "Creating Linked List" page
-   When User clicks on"Types of Linked List" link
+   When User12 click on"Types of Linked List" link
     Then The user should be redirected to the "Types of Linked List" of linked list Page
 
 @TS_linkedlist_10
@@ -128,7 +128,7 @@ Scenario Outline: Verify that user is able to see output for invalid python code
  @TS_linkedlist_12
   Scenario: Verify that user is able to navigate to "Implement Linked List in Python" page
     Given User is in "Types of Linked List" page
-    When User clicks on"Implement Linked List in Python" link
+    When User12 click on"Implement Linked List in Python" link
     Then The user should be redirected to the "Implement Linked List in Python" of linked list Page
 
  @TS_linkedlist_13
@@ -163,7 +163,7 @@ Scenario Outline: Verify that user is able to see output for invalid python code
 @TS_linkedlist_16
   Scenario: Verify that user is able to navigate to "Traversal" page
     Given User is in "Implement Linked List in Python" page
-    When User clicks on"Traversal" link
+    When User12 click on"Traversal" link
     Then The user should be redirected to the "Traversal" of linked list Page
 
 @TS_linkedlist_17
@@ -199,7 +199,7 @@ Scenario Outline: Verify that user is able to see output for invalid python code
  @TS_linkedlist_20
   Scenario: Verify that user is able to navigate to "Insertion" page
     Given User is in "Traversal" page
-    When User clicks on"Insertion" link
+    When User12 click on"Insertion" link
     Then The user should be redirected to the "Insertion" of linked list Page
 
  @TS_linkedlist_21
@@ -236,7 +236,7 @@ Scenario Outline: Verify that user is able to see output for invalid python code
 
   Scenario: Verify that user is able to navigate to "Deletion" page
     Given User is in "Insertion" page
-    When User clicks on"Deletion" link
+    When User12 click on"Deletion" link
     Then The user should be redirected to the "Deletion" of linked list Page
 
 @TS_linkedlist_26
@@ -272,7 +272,7 @@ Scenario Outline: Verify that user is able to see output for invalid python code
           
   @TS_linkedlist_29
   Scenario: Verify that user is able to navigate to "Practice Questions" Page for Linked List page
-    Given The user clicks "Introduction" link
-    When The user clicks on the "Practice Questions" link
+    Given User12 clicks "Introduction" link
+    When The user13 clicks on the "Practice Questions" link
     Then The user should be redirected to Practice Questions of Linked List Page
     

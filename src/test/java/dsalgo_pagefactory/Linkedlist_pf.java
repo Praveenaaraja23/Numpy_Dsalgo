@@ -22,6 +22,8 @@ public class Linkedlist_pf {
 	WebDriver driver= DriverManager.getdriver();
 	ConfigReader configFileReader=DriverManager.configReader();
 	String Excelpath = ConfigReader.excelpath();
+	List<Map<String, String>> testdata=null;
+	
    
 	String Pythoncode1;
 	String result;
@@ -50,6 +52,16 @@ public class Linkedlist_pf {
 		 
 		 public void clickLLgetstarted() {
 			 getstartedlinkedlist.click();
+			 
+			 try {
+					readExcel();
+				} catch (InvalidFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		 
 		public void clickIntroductionLink() {
@@ -153,10 +165,6 @@ public String alertmsg() {
 }
  
  public String CodefromExcel(String sheetname, int RowNumber) throws InvalidFormatException, IOException {
-
-		ExcelReader reader = new ExcelReader();
-		List<Map<String, String>> testdata = reader.getData(Excelpath, sheetname);
-		System.out.println("data read from excelsheet");
 		Pythoncode1= testdata.get(RowNumber).get("pythoncode");
 		result = testdata.get(RowNumber).get("ExpectedOutput");
 		return Pythoncode1;
@@ -166,13 +174,15 @@ public String alertmsg() {
  
  
  public String ResultfromExcel(String sheetname, int RowNumber) throws InvalidFormatException, IOException {
-	 ExcelReader reader = new ExcelReader();
-		List<Map<String, String>> testdata = reader.getData(Excelpath, sheetname);
-		result = testdata.get(RowNumber).get("ExpectedOutput");
+	 	result = testdata.get(RowNumber).get("ExpectedOutput");
 		LoggerLoad.info("Expected result from Excel sheetname " + sheetname + " and " + RowNumber + " : " + result);
 		return result;
 	}
-
+ private void readExcel()
+			throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException {
+		ExcelReader excelReader = new ExcelReader();
+		testdata = excelReader.getData(Excelpath, "phythoncode");
+	}
  
  public String getActualResult() {
 		return output.getText();

@@ -27,7 +27,7 @@ public class Linkedlist_sd {
 		
 	@Given("The user is in home page after Sign in")
 	public void the_user_is_in_home_page_after_sign_in() {
-		String hometitle = register.Homepagetext();
+		String hometitle = register.getHomePageText();
 		assertEquals( hometitle, "NumpyNinja");
 		LoggerLoad.info("User is in" +hometitle+ "home page");
 		
@@ -52,8 +52,8 @@ public class Linkedlist_sd {
 	    
 	}
 
-	@When("User clicks on\"Introduction\" link")
-	public void User_clicks_on_introduction_link() {
+	@When("User12 click on\"Introduction\" link")
+	public void User12_click_on_introduction_link() {
 	   linkedlist.clickIntroductionLink();
 	}
 
@@ -95,28 +95,6 @@ public class Linkedlist_sd {
 		 linkedlist.clickTryhere();
 	}
 
-	/*
-
-	@When("^The user tries to enter valid and invalid python code in try Editor (.*) and click on Run$")
-	public void the_user_tries_to_enter_valid_and_invalid_python_code_in_try_editor_and_click_on_run(String Pythoncode) throws InterruptedException {
-		
-		linkedlist.EnterTryeditor(Pythoncode);
-		
-		linkedlist.clickrunbtn();
-		Thread.sleep(2000);
-		
-	}
-
-
-	@When("^User gets valid and invalid inputs from (.*) and (.*) in try Editor and click on Run$")
-	public void user_gets_valid_and_invalid_inputs_from_and_in_try_editor_and_click_on_run(String Sheetname, Integer RowNumber) throws InvalidFormatException, IOException, InterruptedException {
-	String pythoncode= linkedlist.CodefromExcel(Sheetname, RowNumber);
-		linkedlist.EnterTryeditor(pythoncode);
-		linkedlist.clickrunbtn();
-		Thread.sleep(2000);
-	}
-	*/
-
 	@When("^User gets inputs from (.*) and (.*) in try Editor and click on Run")
 	public void user_gets_inputs_from_and_in_try_editor_and_click_on_run(String Sheetname, Integer RowNumber) throws InvalidFormatException, IOException, InterruptedException {
 		String pythoncode= linkedlist.CodefromExcel(Sheetname, RowNumber);
@@ -152,8 +130,8 @@ public class Linkedlist_sd {
 
 
 
-	@When("User clicks on the\"Creating Linked List\" link")
-	public void User_clicks_on_the_creating_linked_list_link() {
+	@When("User12 click on the\"Creating Linked List\" link")
+	public void User12_click_on_the_creating_linked_list_link() {
 		
 		linkedlist.clickCreatingLinkedlistLink();
 	}
@@ -174,8 +152,8 @@ public class Linkedlist_sd {
 	}
 
 
-	@When("User clicks on\"Types of Linked List\" link")
-	public void User_clicks_on_types_of_linked_list_link() {
+	@When("User12 click on\"Types of Linked List\" link")
+	public void User12_click_on_types_of_linked_list_link() {
 		
 		linkedlist.clicktypesOfLinkedlistLink();
 	}
@@ -197,8 +175,8 @@ public class Linkedlist_sd {
 		
 	}
 
-	@When("User clicks on\"Implement Linked List in Python\" link")
-	public void User_clicks_on_implement_linked_list_in_python_link() {
+	@When("User12 click on\"Implement Linked List in Python\" link")
+	public void User12_click_on_implement_linked_list_in_python_link() {
 	  
 		linkedlist.clickimplementLinkedlistInPythonLink();
 	}
@@ -217,8 +195,8 @@ public class Linkedlist_sd {
 		 linkedlist.clickTryhere();
 	}
 
-	@When("User clicks on\"Traversal\" link")
-	public void User_clicks_on_traversal_link() {
+	@When("User12 click on\"Traversal\" link")
+	public void User12_click_on_traversal_link() {
 		
 		linkedlist.clicktraversalLink();
 	   
@@ -240,8 +218,8 @@ public class Linkedlist_sd {
 		 linkedlist.clickTryhere();
 	}
 
-	@When("User clicks on\"Insertion\" link")
-	public void User_clicks_on_insertion_link() {
+	@When("User12 click on\"Insertion\" link")
+	public void User12_click_on_insertion_link() {
 	  
 		linkedlist.clickinsertion();
 	}
@@ -261,8 +239,8 @@ public class Linkedlist_sd {
 		linkedlist.clickTryhere();
 	}
 
-	@When("User clicks on\"Deletion\" link")
-	public void User_clicks_on_deletion_link() {
+	@When("User12 click on\"Deletion\" link")
+	public void User12_click_on_deletion_link() {
 	  
 		linkedlist.clickdeletionLink();
 	}
@@ -282,14 +260,14 @@ public class Linkedlist_sd {
 		linkedlist.clickTryhere();
 	}
 
-	@Given("The user clicks {string} link")
-	public void the_user_clicks_link(String string) {
+	@Given("User12 clicks {string} link")
+	public void User12_clicks_link(String string) {
 		linkedlist.clickLLgetstarted();
 		linkedlist.clickIntroductionLink();
 	   
 	}
 
-	@When("The user clicks on the {string} link")
+	@When("The user13 clicks on the {string} link")
 	public void the_user_clicks_on_the_link(String string) {
 	   linkedlist.clickpracticeQuestion();
 	}
@@ -298,7 +276,7 @@ public class Linkedlist_sd {
 	public void the_user_should_be_redirected_to_practice_questions_of_linked_list_page() {
 		
 		LoggerLoad.info("No practice Questions blank page is displayed");
-		assertEquals(register.Homepagetext(),"practice Questions");
+		assertEquals(register.getHomePageText(),"practice Questions");
 	   
 	}
 

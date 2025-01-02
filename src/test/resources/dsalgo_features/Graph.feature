@@ -23,9 +23,9 @@ Background: The user able to land on Home page after entering valid Username and
       
     @Try_Editor_in_Graph_with_DataDriven 
     Scenario Outline: The user is able to run code in tryEditor for Graph page
-    Given The user1 is in the tryEditor page for Graph page module
-    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph module
-    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Graph module
+    Given The user3 is in the tryEditor page for Graph page module
+    When The user3 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph module
+    Then The user3 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Graph module
     
    
      Examples: 
@@ -35,9 +35,9 @@ Background: The user able to land on Home page after entering valid Username and
       
     @Try_Editor_in_Graph_with_DataDriven_Invaild
    Scenario Outline: The user is able to run code in tryEditor for Graph page
-    Given The user1 is in the tryEditor page for Graph page module
-    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph module
-    Then The user1 get the graph module error message from excelsheet <Sheetname> and <RowNumber>
+    Given The user3 is in the tryEditor page for Graph page module
+    When The user3 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph module
+    Then The user3 get the graph module error message from excelsheet <Sheetname> and <RowNumber>
     Examples:
       |Sheetname  |RowNumber  |
       |phythoncode|         1 |
@@ -56,9 +56,9 @@ Background: The user able to land on Home page after entering valid Username and
       
     @Try_Editor_in_Graph_Representations_with_DataDriven 
     Scenario Outline: The user is able to run code in tryEditor for Graph Representations page
-    Given The user1 is in the tryEditor page for Graph Representations page module
-    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph Representations module
-    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Graph Representations module
+    Given The user3 is in the tryEditor page for Graph Representations page module
+    When The user3 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph Representations module
+    Then The user3 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Graph Representations module
     
    
      Examples: 
@@ -68,9 +68,9 @@ Background: The user able to land on Home page after entering valid Username and
       
      @Try_Editor_in_Graph_Representations_with_DataDriven_Invaild
    Scenario Outline: The user is able to run code in tryEditor for Graph Representations page
-    Given The user1 is in the tryEditor page for Graph Representations page module
-    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph Representations module
-    Then The user1 get the invaild error message from excelsheet <Sheetname> and <RowNumber>
+    Given The user3 is in the tryEditor page for Graph Representations page module
+    When The user3 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph Representations module
+    Then The user3 get the invaild error message from excelsheet <Sheetname> and <RowNumber>
     Examples:
       |Sheetname  |RowNumber  |
       |phythoncode|         1 |
@@ -79,7 +79,7 @@ Background: The user able to land on Home page after entering valid Username and
       
       @PracticeQuestions_Graph
     Scenario: Go to Practice Questions page from Graph page
-    Given The user1 is in the Graph page after logged in
-    When The user1 clicks Practice Questions link in Graph module
-    Then The user1 should be redirected to Practice Questions page in Graph module
+    Given The user3 is in the Graph page after logged in
+    When The user3 clicks Practice Questions link in Graph module
+    Then The user3 should be redirected to Practice Questions page in Graph module
     

@@ -1,12 +1,8 @@
 package dsalgo_testrunner;
-    import org.junit.runner.RunWith;
+    import org.testng.annotations.DataProvider;
 
-	import org.testng.annotations.DataProvider;
-	import org.testng.annotations.Parameters;
-
-	import io.cucumber.junit.Cucumber;
-	import io.cucumber.testng.AbstractTestNGCucumberTests;
-	import io.cucumber.testng.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 
 
@@ -15,19 +11,15 @@ package dsalgo_testrunner;
 		@CucumberOptions(
 				plugin = {"pretty", "html:target/dsAlgoReport.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, //reporting purpose
 				monochrome=false,  //console output color
-<<<<<<< HEAD
-				tags ="@Graph", //tags from feature file
-=======
-				tags ="@TS_tree_02", //tags from feature file
->>>>>>> main
+				//tags ="@Array", //tags from feature file
 				features = {"src/test/resources/dsalgo_features"}, //location of feature files
 				glue= {"dsalgo_stepdefinitions","dsalgo_hooks"})//location of step definition files
 		
 
 		public class TestRunner extends AbstractTestNGCucumberTests {
 			
-			@Override
-		    @DataProvider(parallel =false)
+//			@Override
+		    @DataProvider(parallel =true)
 		    public Object[][]  scenarios() {
 						
 				return super.scenarios();

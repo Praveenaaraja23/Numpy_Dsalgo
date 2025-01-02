@@ -1,6 +1,12 @@
 package dsalgo_stepdefinitions;
 
 
+import static org.testng.Assert.assertEquals;
+
+import java.io.IOException;
+
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+
 import dsalgo_pagefactory.Stack_pf;
 import dsalgo_utils.LoggerLoad;
 import io.cucumber.java.en.Given;
@@ -17,7 +23,8 @@ public class Stack_sd {
 	
 	@Given("The user is in the Home page after Sign in for Stack page")
 	public void the_user_is_in_the_home_page_after_sign_in_for_stack_page() {
-		System.out.println("The user is in Stack Page");
+//		System.out.println("The user is in Stack Page");
+		LoggerLoad.info("The user is in Stack Page");
 	  
 	}	
 
@@ -31,27 +38,34 @@ public class Stack_sd {
 
 	@Then("The user be directed to Stack Data Structure Page")
 	public void the_user_be_directed_to_stack_data_structure_page() {
+		String Title = stack.getStackPageTitle();
+		LoggerLoad.info("Title of current page is : " + Title);
+		assertEquals(Title, "Stack", "Title do not match");
 	    System.out.println("the user is on Stack page");
 	}
 
-	//@Operations_in_Stack
+	
 	
 	@Given("The user is in the Stack page after Sign in")
 	public void the_user_is_in_the_stack_page_after_sign_in() {
-		System.out.println(" the user is in Stack page");
+	LoggerLoad.info(" the user is in Stack page");
 		stack.GetStarted_Stack();
 		
 	}
 
 	@When("The user clicks Operations in Stack button")
 	public void the_user_clicks_operations_in_stack_button() {
-		//stack.GetStarted_Stack();
+	
 		stack.Operations_in_Stack_Link();
 	}
 
 	@Then("The user should be redirected to Operations in Stack page")
 	public void the_user_should_be_redirected_to_operations_in_stack_page() {
 	    System.out.println("the user is on OPerations Stack Page");
+	    String Title = stack.getStackPageTitle();
+		LoggerLoad.info("Title of current page is :" + Title);
+		assertEquals(Title, "Operations in Stack", "Title do not match");
+	    
 	}
 
 	//@Try_Editor_in_Operations_in_Stack1
@@ -69,7 +83,10 @@ public class Stack_sd {
 
 	@Then("The user should be redirected to a page having an TryEditor with a Run button to test in Operations in Stack page")
 	public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_run_button_to_test_in_operations_in_stack_page() {
-		System.out.println("the user is on Editor Page");
+//		System.out.println("the user is on Editor Page");
+		String Title = stack.getStackPageTitle();
+		LoggerLoad.info("Title of current page is :" + Title);
+		assertEquals(Title, "Assessment", "Title do not match");
 	}
 //@Try_Editor_in_Operations_in_Stack2
 	
@@ -86,14 +103,49 @@ public class Stack_sd {
        
 	}
 	@Then("The user should able to see output in the console Stack tryeditor page")
-	public void the_user_should_able_to_see_output_in_the_console_operations_in_stack_tryeditor_page() throws InterruptedException {
-		String actualMsg = stack.ActualOutput();
-		Thread.sleep(1000);
+	public void the_user_should_able_to_see_output_in_the_console_operations_in_stack_tryeditor_page() {
+		String actualMsg = stack.ActualOutput();	
 		LoggerLoad.info("Actual result  :" + actualMsg);
 
 		System.out.println(" the user is on try editor in Python page");
 	}
 	
+	
+	//Try_Editor_in_Operations_in_Stack_in_DataDriven
+	@Given("The user1 is in the tryEditor page for Operations in Stack")
+	public void the_user_is_in_the_try_editor_page_for_operations_in_stack() {
+		
+		   stack.GetStarted_Stack();
+		   stack.Operations_in_Stack_Link();
+		   stack.TryHere_Link();
+	   	}
+	@When("^The user1 enter the valid pythoncode input from sheet (.*) and (.*) in Operations in Stack$")
+	public void the_user_enter_the_valid_pythoncode_input_from_sheet_and_in_operations_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+		String excelValue=stack.getCodefromExcel(Sheetname, Rownumber);
+		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
+				+ " and row number : " + Rownumber);
+
+		stack.Entercode_Tryeditor(excelValue);
+		stack.RunButton();
+	}
+	@Then("^The user1 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Stack$")
+	public void the_user_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+		String excelValue1=stack.getoutputfromExcel(Sheetname, Rownumber);
+		LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
+		String actual1=stack.getActualResult();
+		LoggerLoad.info("Actual result  :" + actual1);
+		assertEquals(actual1, excelValue1);
+	}
+	
+	
+	@Then("^in Stack The user1 gets error message from excelsheet (.*) and (.*)$")
+	public void in_stack_the_user_gets_error_message_from_excelsheet_and(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+		String excelValue1=stack.getoutputfromExcel(Sheetname, Rownumber);
+		String popup1=stack.getErrormsg();
+		LoggerLoad.info("Actual popup :" + popup1);
+
+		assertEquals(popup1, excelValue1);
+	}
 	
 	
 	//@Implementations_in_Stack
@@ -103,10 +155,13 @@ public class Stack_sd {
 	   Thread.sleep(1000);
 	}
 	@Then("The user should be redirected to Implementation page")
-	public void the_user_should_be_redirected_to_implementation_page() throws InterruptedException {
+	public void the_user_should_be_redirected_to_implementation_page() {
 	  
 	   System.out.println("THe user is in Implementaion page");
-	   Thread.sleep(1000);
+	   String Title = stack.getStackPageTitle();
+		LoggerLoad.info("Title of current page is :" + Title);
+		assertEquals(Title, "Implementation", "Title do not match");
+	   
 	}
 
 	
@@ -138,6 +193,27 @@ public class Stack_sd {
 			   stack.TryHere_Link();
 		   
 		}
+		
+		//Try_Editor_in_Implementaion_in_Stack_in_DataDriven
+		@Given("The user1 is in the tryEditor page for Implementaion in Stack")
+		public void the_user1_is_in_the_try_editor_page_for_implementaion_in_stack() {
+			   stack.GetStarted_Stack();
+			   stack.Implementations_Link();
+			   stack.TryHere_Link();
+		}
+		@When("^The user1 enter the valid pythoncode input from sheet (.*) and (.*) in Implementaion in Stack$")
+		public void the_user1_enter_the_valid_pythoncode_input_from_sheet_phythoncode_and_in_implementaion_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+			String excelValue=stack.getCodefromExcel(Sheetname, Rownumber);
+			LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
+					+ " and row number : " + Rownumber);
+
+			stack.Entercode_Tryeditor(excelValue);
+			stack.RunButton();	String excelValue1=stack.getoutputfromExcel(Sheetname, Rownumber);
+			LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
+			String actual1=stack.getActualResult();
+			LoggerLoad.info("Actual result  :" + actual1);
+			assertEquals(actual1, excelValue1);
+		}
 
 
 
@@ -149,7 +225,9 @@ public class Stack_sd {
 
 	@Then("The user should be redirected to Application page")
 	public void the_user_should_be_redirected_to_application_page() {
-	    System.out.println("The user is on Application page");
+		String Title = stack.getStackPageTitle();
+		LoggerLoad.info("Title of current page is :" + Title);
+		assertEquals(Title, "Applications", "Title do not match");
 	}
 //@Try_Editor_in_Application_in_Stack1
 	@Given("The user is on the Application in Stack page")
@@ -178,42 +256,39 @@ public class Stack_sd {
 	   
 	}
 
-	@When("The user enters print\\({string}) and clicks Run button in Application in Stack page")
-	public void the_user_enters_print_and_clicks_run_button_in_application_in_stack_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	//Try_Editor_in_Application_in_Stack_in_DataDriven
+	@Given("The user1 is in the tryEditor page for Application in Stack")
+	public void the_user1_is_in_the_try_editor_page_for_application_in_stack() {
+		stack.GetStarted_Stack();
+	    stack.Applications_Link();
+	    stack.TryHere_Link();
 	}
+	@When("^The user1 enter the valid pythoncode input from sheet (.*) and (.*) in Application in Stack$")
+	public void the_user1_enter_the_valid_pythoncode_input_from_sheet_and_in_application_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+		
+		String excelValue=stack.getCodefromExcel(Sheetname, Rownumber);
+		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
+				+ " and row number : " + Rownumber);
 
-	@Then("The user should able to see hello in the console of the try editor of Application in Stack page")
-	public void the_user_should_able_to_see_hello_in_the_console_of_the_try_editor_of_application_in_stack_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		stack.Entercode_Tryeditor(excelValue);
+		stack.RunButton();
+	    
 	}
-
-	@When("The user enters print and clicks Run button in Application in Stack page")
-	public void the_user_enters_print_and_clicks_run_button_in_application_in_stack_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	
+	//Practice_questions_page
+	@When("The User clicks Practice questions link")
+	public void the_user_clicks_practice_questions_link() {
+		 
+		 stack.Operations_in_Stack_Link();
+		stack.PracticeQuestions_Link(); 
 	}
-
-	@Then("The user should able to see NameError: name {string} is not defined on line {int} in the console of the try editor of Application in Stack page")
-	public void the_user_should_able_to_see_name_error_name_is_not_defined_on_line_in_the_console_of_the_try_editor_of_application_in_stack_page(String string, Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("The user should be redirected to Practice page")
+	public void the_user_should_be_redirected_to_practice_page() {
+		System.out.println("THe user is in Practice questions page");
+		LoggerLoad.info("No practice Questions blank page is displayed");
+		assertEquals(stack.Homepagetext(),"practice Questions");
+		LoggerLoad.info("NO questions found ");
 	}
-
-	@When("The user enters  and clicks Run button in Application in Stack page")
-	public void the_user_enters_and_clicks_run_button_in_application_in_stack_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("The user should able to see Some error should come in the console of the try editor of Application in Stack page")
-	public void the_user_should_able_to_see_some_error_should_come_in_the_console_of_the_try_editor_of_application_in_stack_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
 	
 	
 }

@@ -26,7 +26,7 @@ public class DataStructures_sd {
 	public void the_user_is_in_homepage_after_signin() {
 		String hometitle = ds_pf.pagetitle();
 		assertEquals(hometitle, "NumpyNinja");
-		LoggerLoad.info("User1 is in" + hometitle + " page");
+		LoggerLoad.info("user4 is in" + hometitle + " page");
 		// LoggerLoad.info("You are in DS page");
 	}
 
@@ -39,7 +39,7 @@ public class DataStructures_sd {
 	public void the_user_be_directed_to_data_structures_in_data_structures_page() {
 		String dstitle = ds_pf.pagetitle();
 		assertEquals(dstitle, "Data Structures-Introduction");
-		LoggerLoad.info("User1 is in" + dstitle + " page");
+		LoggerLoad.info("user4 is in" + dstitle + " page");
 		// LoggerLoad.info("The User is on the Data structures page");
 	}
 
@@ -51,7 +51,7 @@ public class DataStructures_sd {
 		// ds_pf.Timecomplexity();
 		String dstitle = ds_pf.pagetitle();
 		assertEquals(dstitle, "Data Structures-Introduction");
-		LoggerLoad.info("User1 is in" + dstitle + " page");
+		LoggerLoad.info("user4 is in" + dstitle + " page");
 
 		// LoggerLoad.info("The User is on the Data structures page");
 	}
@@ -68,7 +68,7 @@ public class DataStructures_sd {
 	public void the_user_be_directed_to_time_complexity_in_data_structures_page() {
 		String dstimetitle = ds_pf.pagetitle();
 		assertEquals(dstimetitle, "Time Complexity");
-		LoggerLoad.info("User1 is in" + dstimetitle + " page");
+		LoggerLoad.info("user4 is in" + dstimetitle + " page");
 		// LoggerLoad.info("The User is on the Timecomplexity page");
 	}
 
@@ -80,7 +80,7 @@ public class DataStructures_sd {
 		ds_pf.Timecomplexity();
 		String dstimetitle = ds_pf.pagetitle();
 		assertEquals(dstimetitle, "Time Complexity");
-		LoggerLoad.info("User1 is in" + dstimetitle + " page");
+		LoggerLoad.info("user4 is in" + dstimetitle + " page");
 		// LoggerLoad.info("The User is on the Timecomplexity page");
 	}
 
@@ -95,21 +95,21 @@ public class DataStructures_sd {
 //		LoggerLoad.info("The User is on the TryHere page");
 		String dstimetryeditortitle = ds_pf.pagetitle();
 		assertEquals(dstimetryeditortitle, "Assessment");
-		LoggerLoad.info("User1 is in" + dstimetryeditortitle + " page");
+		LoggerLoad.info("user4 is in" + dstimetryeditortitle + " page");
 	}
 
 	// @Try_Editor_in_DS_with_DataDriven
 
-	@Given("The user1 is in the tryEditor page for DataStructures page")
-	public void the_user1_is_in_the_try_editor_page_for_data_structures_page() {
+	@Given("The user4 is in the tryEditor page for DataStructures page")
+	public void the_user4_is_in_the_try_editor_page_for_data_structures_page() {
 		ds_pf.GetStarted();
 		ds_pf.Timecomplexity();
 		ds_pf.TryHere();
-		LoggerLoad.info("The User1 is on the Tryeditor page for DataStructures Module");
+		LoggerLoad.info("The user4 is on the Tryeditor page for DataStructures Module");
 	}
 
-	@When("^The user1 enter the valid and invalid pythoncode input from sheet (.*) and (.*) in DataStructures$")
-	public void the_user1_enter_the_valid_and_invalid_pythoncode_input_from_sheet_and_in_data_structures(
+	@When("^The user4 enter the valid and invalid pythoncode input from sheet (.*) and (.*) in DataStructures$")
+	public void the_user4_enter_the_valid_and_invalid_pythoncode_input_from_sheet_and_in_data_structures(
 			String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
 		String excelValue = ds_pf.getCodefromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
@@ -119,8 +119,8 @@ public class DataStructures_sd {
 		ds_pf.Runcommand();
 	}
 
-	@Then("^The user1 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in DataStructures$")
-	public void the_user1_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_data_structures(
+	@Then("^The user4 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in DataStructures$")
+	public void the_user4_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_data_structures(
 			String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
 		String excelValue1 = ds_pf.getoutputfromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
@@ -131,8 +131,8 @@ public class DataStructures_sd {
 
 	// @Try_Editor_in_DS_with_DataDriven_Invaild
 
-	@Then("^The user1 get the error message from excelsheet (.*) and (.*)$")
-	public void The_user1_get_the_error_message_from_excelsheet(String Sheetname, Integer Rownumber)
+	@Then("^The user4 get the error message from excelsheet (.*) and (.*)$")
+	public void The_user4_get_the_error_message_from_excelsheet(String Sheetname, Integer Rownumber)
 			throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 		String excelValue1 = ds_pf.getoutputfromExcel(Sheetname, Rownumber);
 		String popup1 = ds_pf.getErrormsg();
@@ -143,22 +143,22 @@ public class DataStructures_sd {
 
 	// Practice_Questions
 
-	@Given("The user1 is in the Data structures page after logged in")
-	public void the_user1_is_in_the_data_structures_page_after_logged_in() {
+	@Given("The user4 is in the Data structures page after logged in")
+	public void the_user4_is_in_the_data_structures_page_after_logged_in() {
 		ds_pf.GetStarted();
 		ds_pf.Timecomplexity();
 		// ds_pf.TryHere();
 	}
 
-	@When("The user1 clicks Practice Questions link in Data structures")
-	public void the_user1_clicks_practice_questions_link_in_data_structures() throws InterruptedException {
+	@When("The user4 clicks Practice Questions link in Data structures")
+	public void the_user4_clicks_practice_questions_link_in_data_structures() throws InterruptedException {
 
 		ds_pf.click_Practice_Questions();
 		Thread.sleep(1000);
 	}
 
-	@Then("The user1 should be redirected to Practice Questions page in Data structures")
-	public void the_user1_should_be_redirected_to_practice_questions_page_in_data_structures() {
+	@Then("The user4 should be redirected to Practice Questions page in Data structures")
+	public void the_user4_should_be_redirected_to_practice_questions_page_in_data_structures() {
 		LoggerLoad.info("No practice Questions blank page is displayed");
 		assertEquals(ds_pf.Homepagetext1(), "Practice Questions");
 		LoggerLoad.info("NO questions found ");

@@ -18,19 +18,32 @@ Background: The user able to land on Home page after entering valid Username and
     Given The user is on the Graph page    
     When The user clicks Try Here button in Graph page
     Then The user should be redirected to a page having an TryEditor with a Run button to test in Graph page
+ 
+      
+      
+    @Try_Editor_in_Graph_with_DataDriven 
+    Scenario Outline: The user is able to run code in tryEditor for Graph page
+    Given The user1 is in the tryEditor page for Graph page module
+    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph module
+    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Graph module
     
-    
-    
-     @Try_Editor_in_Graph_Page
-    Scenario Outline: Verify that user receives output for different combinations of code when click on Run button for Graph tryEditor
-    Given The user is in the tryEditor page of Graph 
-    When The user enters code in <SampleEditor> and clicks Run button in Graph page
-    Then The user should able to see output in the console graph tryeditor page
+   
      Examples: 
-      | SampleEditor    | 
-      | print("hello")  |
-      | print           | 
-      |                 |
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+      
+    @Try_Editor_in_Graph_with_DataDriven_Invaild
+   Scenario Outline: The user is able to run code in tryEditor for Graph page
+    Given The user1 is in the tryEditor page for Graph page module
+    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph module
+    Then The user1 get the graph module error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+   
+      
     
     
     @Graph_Representations
@@ -40,23 +53,33 @@ Background: The user able to land on Home page after entering valid Username and
     Then The user should be redirected to Graph Representations in Graph page
    
 
-    @Try_Editor_in_Graph_Representations
-    Scenario Outline: Verify that user is able to navigate to try Editor page for Graph Representations page in the Graph page
-    Given The user1 is on the Graph Representations in Graph Representations page    
-    When The user1 enters code in <SampleEditor> and clicks Run button in Graph Representations page
-    Then The user1 should able to see output in the console graph Representations tryeditor page
-     Examples: 
-      | SampleEditor    | 
-      | print("hello")  |
-      | print           | 
-      |                 |
-    
+      
+    @Try_Editor_in_Graph_Representations_with_DataDriven 
+    Scenario Outline: The user is able to run code in tryEditor for Graph Representations page
+    Given The user1 is in the tryEditor page for Graph Representations page module
+    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph Representations module
+    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in Graph Representations module
     
    
-   #@PracticeQueforGraphPage
-    #Scenario: Verify that user is able to navigate to Practice Questions for Graph page
-    #Given The user is in the Graph page after Sign in
-    #When The user clicks Practice Questions button
-    #Then The user should be redirected to Practice page
-    #
-#
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+      
+     @Try_Editor_in_Graph_Representations_with_DataDriven_Invaild
+   Scenario Outline: The user is able to run code in tryEditor for Graph Representations page
+    Given The user1 is in the tryEditor page for Graph Representations page module
+    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in Graph Representations module
+    Then The user1 get the invaild error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+   
+      
+      @PracticeQuestions_Graph
+    Scenario: Go to Practice Questions page from Graph page
+    Given The user1 is in the Graph page after logged in
+    When The user1 clicks Practice Questions link in Graph module
+    Then The user1 should be redirected to Practice Questions page in Graph module
+    

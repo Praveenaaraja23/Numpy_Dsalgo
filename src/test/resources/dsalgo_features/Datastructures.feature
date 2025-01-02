@@ -25,26 +25,38 @@
     When The user clicks Try Here button in Time Complexity page
     Then The user should be redirected to a page having an "TryEditor" with a Run button to test in the Time Complexity page
     
-    @Try_Editor_in_DS
-    Scenario Outline: Verify that user receives output for different combinations of code when click on Run button for DataStructures tryEditor
-    Given The user is in the tryEditor page of DataStructures   
-    When The user enters code in <SampleEditor> and clicks Run button in DataStructures page
-    Then The user should able to see output in the console DataStructures tryeditor page
-    Examples: 
-      | SampleEditor    | 
-      | print("hello")  |
-      | print           | 
-      |                 |
+     
+    @Try_Editor_in_DS_with_DataDriven 
+    Scenario Outline: The user is able to run code in tryEditor for DataStructures page
+    Given The user1 is in the tryEditor page for DataStructures page
+    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in DataStructures
+    Then The user1 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in DataStructures
+    
    
-    #
-     #@PracticeQuestions
-  #Scenario: Go to Practice Questions page from Data structures page
-    #Given The user is in the Data structures page after logged in
-    #When The user clicks Practice Questions link in Data structures
-    #Then The user should be redirected to Practice Questions page in Data structures
-    #
-    #
-    #
-    #
-    #
+     Examples: 
+      |Sheetname  |RowNumber  |
+      |phythoncode|         0 |
+      
+      
+    @Try_Editor_in_DS_with_DataDriven_Invaild
+   Scenario Outline: The user is able to run code in tryEditor for DataStructures page
+    Given The user1 is in the tryEditor page for DataStructures page
+    When The user1 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in DataStructures
+    Then The user1 get the error message from excelsheet <Sheetname> and <RowNumber>
+    Examples:
+      |Sheetname  |RowNumber  |
+      |phythoncode|         1 |
+      |phythoncode|         2 | 
+   
+    
+    @PracticeQuestions_DS
+    Scenario: Go to Practice Questions page from Data structures page
+    Given The user1 is in the Data structures page after logged in
+    When The user1 clicks Practice Questions link in Data structures
+    Then The user1 should be redirected to Practice Questions page in Data structures
+    
+    
+    
+    
+    
    

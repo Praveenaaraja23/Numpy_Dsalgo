@@ -2,6 +2,12 @@
 
 package dsalgo_stepdefinitions;
 
+import static org.testng.Assert.assertEquals;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.JavascriptExecutor;
 
 import dsalgo_pagefactory.Datastructures_pf;
 //import dsalgo_pagefactory.Tree_pf;
@@ -11,14 +17,17 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DataStructures_sd {
-	
+
 	Datastructures_pf ds_pf = new Datastructures_pf();
 
-	//DataStructures
-	
+	// DataStructures
+
 	@Given("The user is in homepage after signin")
 	public void the_user_is_in_homepage_after_signin() {
-	    System.out.println("You are in DS page");
+		String hometitle = ds_pf.pagetitle();
+		assertEquals(hometitle, "NumpyNinja");
+		LoggerLoad.info("User1 is in" + hometitle + " page");
+		// LoggerLoad.info("You are in DS page");
 	}
 
 	@When("The user clicks the Getting Started button in DataStructures Panel OR The user select DataStructures item from the drop down menu")
@@ -28,92 +37,130 @@ public class DataStructures_sd {
 
 	@Then("The user be directed to Data Structures in Data Structures Page")
 	public void the_user_be_directed_to_data_structures_in_data_structures_page() {
-		 System.out.println("The User is on the Data structures page");
-			}
-	
-	 //TimeComplexity
-	
+		String dstitle = ds_pf.pagetitle();
+		assertEquals(dstitle, "Data Structures-Introduction");
+		LoggerLoad.info("User1 is in" + dstitle + " page");
+		// LoggerLoad.info("The User is on the Data structures page");
+	}
+
+	// TimeComplexity
+
 	@Given("The user is in Data Structures page")
 	public void the_user_is_in_data_structures_page() {
-		System.out.println("The User is on the Data structures page");
+		ds_pf.GetStarted();
+		// ds_pf.Timecomplexity();
+		String dstitle = ds_pf.pagetitle();
+		assertEquals(dstitle, "Data Structures-Introduction");
+		LoggerLoad.info("User1 is in" + dstitle + " page");
+
+		// LoggerLoad.info("The User is on the Data structures page");
 	}
 
 	@When("The user clicks the Time Complexity button in Data Structures Page")
-	public void the_user_clicks_the_time_complexity_button_in_data_structures_page() {
-		ds_pf.GetStarted();
+	public void the_user_clicks_the_time_complexity_button_in_data_structures_page() throws InterruptedException {
+		// ds_pf.GetStarted();
+		Thread.sleep(1000);
 		ds_pf.Timecomplexity();
+
 	}
 
 	@Then("The user be directed to Time Complexity in Data Structures Page")
 	public void the_user_be_directed_to_time_complexity_in_data_structures_page() {
-		System.out.println("The User is on the Timecomplexity page");
+		String dstimetitle = ds_pf.pagetitle();
+		assertEquals(dstimetitle, "Time Complexity");
+		LoggerLoad.info("User1 is in" + dstimetitle + " page");
+		// LoggerLoad.info("The User is on the Timecomplexity page");
 	}
-	
-	//Try_Editor_in_TimeComplexity
-	
+
+	// Try_Editor_in_TimeComplexity
+
 	@Given("The user is on the Time Complexity in Data Structures page")
 	public void the_user_is_on_the_time_complexity_in_data_structures_page() {
-		System.out.println("The User is on the Timecomplexity page");
+		ds_pf.GetStarted();
+		ds_pf.Timecomplexity();
+		String dstimetitle = ds_pf.pagetitle();
+		assertEquals(dstimetitle, "Time Complexity");
+		LoggerLoad.info("User1 is in" + dstimetitle + " page");
+		// LoggerLoad.info("The User is on the Timecomplexity page");
 	}
 
 	@When("The user clicks Try Here button in Time Complexity page")
 	public void the_user_clicks_try_here_button_in_time_complexity_page() {
-		ds_pf.GetStarted();
-		ds_pf.Timecomplexity();
 		ds_pf.TryHere();
 	}
 
 	@Then("The user should be redirected to a page having an {string} with a Run button to test in the Time Complexity page")
-	public void the_user_should_be_redirected_to_a_page_having_an_with_a_run_button_to_test_in_the_time_complexity_page(String string) throws InterruptedException {
-		Thread.sleep(1000);
-		System.out.println("The User is on the TryHere page");
+	public void the_user_should_be_redirected_to_a_page_having_an_with_a_run_button_to_test_in_the_time_complexity_page(
+		String string) throws InterruptedException {
+//		LoggerLoad.info("The User is on the TryHere page");
+		String dstimetryeditortitle = ds_pf.pagetitle();
+		assertEquals(dstimetryeditortitle, "Assessment");
+		LoggerLoad.info("User1 is in" + dstimetryeditortitle + " page");
 	}
-	
-	@Given("The user is in the tryEditor page of DataStructures")
-	public void the_user_is_in_the_try_editor_page_of_data_structures() {
+
+	// @Try_Editor_in_DS_with_DataDriven
+
+	@Given("The user1 is in the tryEditor page for DataStructures page")
+	public void the_user1_is_in_the_try_editor_page_for_data_structures_page() {
 		ds_pf.GetStarted();
 		ds_pf.Timecomplexity();
 		ds_pf.TryHere();
-		System.out.println("The User is on the Tryeditor page");
+		LoggerLoad.info("The User1 is on the Tryeditor page for DataStructures Module");
 	}
-	
-	@When("^The user enters code in (.*) and clicks Run button in DataStructures page$")
-	public void the_user_enters_code_in_and_clicks_run_button_in_data_structures_page(String string) {
-	   ds_pf.Entercode_Tryeditor(string);
-	   ds_pf.Runcommand();
+
+	@When("^The user1 enter the valid and invalid pythoncode input from sheet (.*) and (.*) in DataStructures$")
+	public void the_user1_enter_the_valid_and_invalid_pythoncode_input_from_sheet_and_in_data_structures(
+			String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
+		String excelValue = ds_pf.getCodefromExcel(Sheetname, Rownumber);
+		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
+				+ " and row number : " + Rownumber);
+
+		ds_pf.Entercode_Tryeditor(excelValue);
+		ds_pf.Runcommand();
 	}
-	
-	@Then("The user should able to see output in the console DataStructures tryeditor page")
-	public void the_user_should_able_to_see_output_in_the_console_data_structures_tryeditor_page() throws InterruptedException {
-		String actualMsg = ds_pf.ActualOutput();
-		LoggerLoad.info("Actual result  :" + actualMsg);
+
+	@Then("^The user1 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in DataStructures$")
+	public void the_user1_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_data_structures(
+			String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
+		String excelValue1 = ds_pf.getoutputfromExcel(Sheetname, Rownumber);
+		LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
+		String actual1 = ds_pf.getActualResult();
+		LoggerLoad.info("Actual result  :" + actual1);
+		assertEquals(actual1, excelValue1);
+	}
+
+	// @Try_Editor_in_DS_with_DataDriven_Invaild
+
+	@Then("^The user1 get the error message from excelsheet (.*) and (.*)$")
+	public void The_user1_get_the_error_message_from_excelsheet(String Sheetname, Integer Rownumber)
+			throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+		String excelValue1 = ds_pf.getoutputfromExcel(Sheetname, Rownumber);
+		String popup1 = ds_pf.getErrormsg();
+		LoggerLoad.info("Actual popup :" + popup1);
+
+		assertEquals(popup1, excelValue1);
+	}
+
+	// Practice_Questions
+
+	@Given("The user1 is in the Data structures page after logged in")
+	public void the_user1_is_in_the_data_structures_page_after_logged_in() {
+		ds_pf.GetStarted();
+		ds_pf.Timecomplexity();
+		// ds_pf.TryHere();
+	}
+
+	@When("The user1 clicks Practice Questions link in Data structures")
+	public void the_user1_clicks_practice_questions_link_in_data_structures() throws InterruptedException {
+
+		ds_pf.click_Practice_Questions();
 		Thread.sleep(1000);
-        System.out.println(" the user is on try editor in DS page");
 	}
 
-
-	@When("The user gave sample code as  wrongcode in tryeditor and click run button in Time Complexity page")
-	public void the_user_gave_sample_code_as_wrongcode_in_tryeditor_and_click_run_button_in_time_complexity_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("The user1 should be redirected to Practice Questions page in Data structures")
+	public void the_user1_should_be_redirected_to_practice_questions_page_in_data_structures() {
+		LoggerLoad.info("No practice Questions blank page is displayed");
+		assertEquals(ds_pf.Homepagetext1(), "Practice Questions");
+		LoggerLoad.info("NO questions found ");
 	}
-
-	@Then("The user should get NameError:name'wrongcode'	is not defined on line {int}")
-	public void the_user_should_get_name_error_name_wrongcode_is_not_defined_on_line(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@When("The user gave sample code as   in tryeditor and click run button in Time Complexity page")
-	public void the_user_gave_sample_code_as_in_tryeditor_and_click_run_button_in_time_complexity_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("The user should get Some error should come")
-	public void the_user_should_get_some_error_should_come() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
 }

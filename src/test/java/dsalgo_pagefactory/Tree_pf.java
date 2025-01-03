@@ -51,49 +51,46 @@ public class Tree_pf {
 	@FindBy(xpath="//a[@href='/tree/traversals-illustration/']")
 	WebElement Traversals_Illustration;
 	@FindBy(xpath="//a[@href='/tree/binary-trees/']")
-    WebElement Binary_Trees;
+	WebElement Binary_Trees;
 	@FindBy(xpath="//a[@href='/tree/types-of-binary-trees/']")
-    WebElement Types_of_Binary_Trees;
+	WebElement Types_of_Binary_Trees;
 	@FindBy(xpath="//a[@href='/tree/implementation-in-python/']")
-    WebElement Implementation_in_Python;
+	WebElement Implementation_in_Python;
 	@FindBy(xpath="//a[@href='/tree/binary-tree-traversals/']")
-    WebElement Binary_Tree_Traversals;
+	WebElement Binary_Tree_Traversals;
 	@FindBy(xpath="//a[@href='/tree/implementation-of-binary-trees/']")
-    WebElement Implementation_of_Binary_Trees;
+	WebElement Implementation_of_Binary_Trees;
 	@FindBy(xpath="//a[@href='/tree/applications-of-binary-trees/']")
-    WebElement Applications_of_Binary_trees;
+	WebElement Applications_of_Binary_trees;
 	@FindBy(xpath="//a[@href='/tree/binary-search-trees/']")
 	WebElement Binary_Search_Trees;
 	@FindBy(xpath="//a[@href='/tree/implementation-of-bst/']")
 	WebElement Implementation_Of_BST;
 	@FindBy(xpath="//a[@href='/tree/practice']")
-    WebElement Practice_Questions;
+	WebElement Practice_Questions;
 	@FindBy(xpath="//div[@class='col-sm']/strong/p[@class='bg-secondary text-white']")
 	WebElement Textfrompage;
 	@FindBy(xpath= "//a[text()='NumpyNinja']")
 	WebElement hometext;
 	String result;
-	
+	ExcelReader reader = new ExcelReader();
+	String Excelpath = ConfigReader.excelpath();
 
-	
+
+
 	WebDriver driver= DriverManager.getdriver();
 	ConfigReader configFileReader=DriverManager.configReader();
 	public Object alert;
 
 	public Tree_pf() {
-		
+
 		PageFactory.initElements(driver , this);
 	}
-
-
-
 
 	public void GetStarted() {
 		Tree_Getstarted.click();
 
 	}
-
-
 
 	public void click_overview_tree() {
 		OverviewofTrees.click();
@@ -123,7 +120,7 @@ public class Tree_pf {
 		Types_of_Binary_Trees.click();
 
 	}
-	
+
 	public void click_Implementation_in_Python() {
 		Implementation_in_Python.click();
 
@@ -152,9 +149,7 @@ public class Tree_pf {
 		Practice_Questions.click();
 
 	}
-	
-	
-	
+
 	public void click_Tryherebtn() {
 		TryHere.click();
 
@@ -162,18 +157,20 @@ public class Tree_pf {
 
 	public void Entercode_Tryeditor(String excelValue)  {
 
-		System.out.println();
+		//		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(20)); 
+		//		WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(TryEditor));
+		//		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		//		executor.executeScript("arguments[0].click();", element1);
+		//		executor.executeScript("arguments[0].click().sendKeys(excelValue)", element1);
 		TryEditor.sendKeys(excelValue);
-
-
 	}
-	
+
 	public void runbtn() {
 
 		Runbutton.click();
-		
+
 	}
-	
+
 
 	public String getActualResult() {
 		result = Output.getText();
@@ -182,55 +179,53 @@ public class Tree_pf {
 
 	public String getErrormsg() {
 		LoggerLoad.info("Entered getErrormsg-");
-		
+
 		Alert alert = driver.switchTo().alert();	
-			   result=alert.getText();
-			   LoggerLoad.info("Result Alert-"+result);
-		           alert.accept();
-		           LoggerLoad.info("popup alert is :" + result);
-		          
+		result=alert.getText();
+		LoggerLoad.info("Result Alert-"+result);
+		alert.accept();
+		LoggerLoad.info("popup alert is :" + result);
+
 		return result;
 	}
-	
+
 	public String getTreePageTitle() {
 		String title = driver.getTitle();
 		return title;
 	}
-	
+
 	public void sign_out() {
-		
+
 		sign_out.click();
 	}
 	public String getCodefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
-		ExcelReader reader = new ExcelReader();
-		String Excelpath = ConfigReader.excelpath();
+		
 		LoggerLoad.info("Set the path");
-	   List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
+		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
 		LoggerLoad.info("To read the Data from Excelsheet");
-         String pythoncode  = testData.get(Rownumber).get("pythoncode");
-         System.out.println(pythoncode);
-		 LoggerLoad.info("To get data from excel sheet");
- return pythoncode;
+		String pythoncode  = testData.get(Rownumber).get("pythoncode");
+		System.out.println(pythoncode);
+		LoggerLoad.info("To get data from excel sheet");
+		return pythoncode;
 	}
 
 	public String getoutputfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
-		ExcelReader reader = new ExcelReader();
-		String Excelpath = ConfigReader.excelpath();
-		LoggerLoad.info("Set the path");
 		
+		LoggerLoad.info("Set the path");
+
 		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
 		LoggerLoad.info("To read the Data from Excelsheet");
-         String Expectedresult1 = testData.get(Rownumber).get("ExpectedOutput");
-		 LoggerLoad.info("To get data from excel sheet");
- return Expectedresult1;
+		String Expectedresult1 = testData.get(Rownumber).get("ExpectedOutput");
+		LoggerLoad.info("To get data from excel sheet");
+		return Expectedresult1;
 	}
-public String alltreetext() {
-	String Text=Textfrompage.getText();
-	return Text;
-}
-public String Homepagetext() {
-	String hometitle=hometext.getText();
-	return hometitle;
+	public String alltreetext() {
+		String Text=Textfrompage.getText();
+		return Text;
+	}
+	public String Homepagetext() {
+		String hometitle=hometext.getText();
+		return hometitle;
 
-}
+	}
 }

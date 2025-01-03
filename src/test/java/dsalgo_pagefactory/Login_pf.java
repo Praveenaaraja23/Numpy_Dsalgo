@@ -54,7 +54,8 @@ public class Login_pf {
 	WebElement loginpage;
 	String expectedname = "Sign in";
 	String expectedname2 = "Sign out";
-
+	ExcelReader reader = new ExcelReader();
+	String Excelpath = ConfigReader.excelpath();
 
 	public Login_pf() {
 
@@ -65,9 +66,7 @@ public class Login_pf {
 
 	public void GetStarted() {
 		getstarted.click();
-
-
-	}
+     }
 
 	public void clicksign() {
 		System.out.println("User is about to enter sign in");
@@ -91,109 +90,92 @@ public class Login_pf {
 		}
 
 	}
-	
-	
 
+    public String printsuccessmessage() {
 
-	public String printsuccessmessage() {
-		
 		String succesmsg=successmsg.getText();
 
 		return succesmsg;
 
 	}
 
-    public  void Signout() {		
+	public  void Signout() {		
 		signout.click();
 	}	
 
-
-
-	public String printErrormessage() {
+     public String printErrormessage() {
 		String errormsg;
-		 errormsg=errormessage.getText();
+		errormsg=errormessage.getText();
 		return errormsg;
 	}
 	public String printPopupmessage(String Username, String Password) {
 		String popupmessage="";
 		if(Username.isEmpty() || (Username.isEmpty() && Password.isEmpty()))
 		{
-		 popupmessage = username1.getAttribute("validationMessage");
+			popupmessage = username1.getAttribute("validationMessage");
 		}
 		else if (Password.isEmpty())
 		{
-			 popupmessage = password1.getAttribute("validationMessage");
+			popupmessage = password1.getAttribute("validationMessage");
 		}
 		return popupmessage;	
 	}
 
-
-
-
-	public String validatesigninpage() {
+    public String validatesigninpage() {
 		String username=usernamefield.getText();
 		return username;
-		
+
 	}
-	
 
-	
-	public String getsuccessmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-	ExcelReader reader = new ExcelReader();
-	String Excelpath = ConfigReader.excelpath();
-	LoggerLoad.info("Set the path");
-	LoggerLoad.info("ExcelPath-"+Excelpath);
-	LoggerLoad.info("Sheetname-"+Sheetname);
-	  List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
-	LoggerLoad.info("To read the Data from Excelsheet");
-   String SuccessMessage = testData.get(Rownumber).get("SuccessMessage");
-	return SuccessMessage;
+    public String getsuccessmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
+		
+		LoggerLoad.info("Set the path");
+		LoggerLoad.info("ExcelPath-"+Excelpath);
+		LoggerLoad.info("Sheetname-"+Sheetname);
+		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
+		LoggerLoad.info("To read the Data from Excelsheet");
+		String SuccessMessage = testData.get(Rownumber).get("SuccessMessage");
+		return SuccessMessage;
 
-}
+	}
 	public String getusernamefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		ExcelReader reader = new ExcelReader();
-		String Excelpath = ConfigReader.excelpath();
+		
 		LoggerLoad.info("Set the path");
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
-		
+
 		String Username  = testData.get(Rownumber).get("Username");
 		return Username;
-}
-	
+	}
+
 	public String getpasswordfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		ExcelReader reader = new ExcelReader();
-		String Excelpath = ConfigReader.excelpath();
+		
 		LoggerLoad.info("Set the path");
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
-		
+
 		String password  = testData.get(Rownumber).get("Password");
 		return password;
-}
-	
+	}
+
 	public String geterrormsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		ExcelReader reader = new ExcelReader();
-		String Excelpath = ConfigReader.excelpath();
 		LoggerLoad.info("Set the path");
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
-		
+
 		String ErrorMessage = testData.get(Rownumber).get("ErrorMessage");
 		return ErrorMessage;
-		
-}
+
+	}
 	public String getpopupmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		ExcelReader reader = new ExcelReader();
-		String Excelpath = ConfigReader.excelpath();
 		System.out.println(Excelpath);
 		LoggerLoad.info("Set the path");
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
-		
+
 		String popupmsg = testData.get(Rownumber).get("ErrorMessage");
 		return popupmsg;
-		
-		
+
+
 	}
 }

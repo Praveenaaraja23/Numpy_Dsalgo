@@ -1,14 +1,14 @@
 @DsalgoLogin
-Feature: Testing Login
+Feature: Testing Loginpage
   I want to Enter details and Login
   
-  @Login1 @madhu @pusuluri
+  @Login1
   Scenario Outline:Verify that user is able to land on Login Page
   	Given The user is on the DS Algo Home Page
   	When The user should click the Sign in link
   	Then The user should be redirected to Sign in page
   	
-  @Login2 @madhu @pusuluri
+  @Login2 
   Scenario Outline:Verify that user able to land on Home page after entering valid Username and Password fields
   	Given The user is on the DS Algo Sign in Page
   	When The user clicks login button after entering valid <Username> and <Password>
@@ -21,7 +21,7 @@ Feature: Testing Login
       | Vidya    | Kanaka@185 | You are logged in|
       
       
-   @Login3 @madhu @pusuluri
+   @Login3
    Scenario Outline: user able to land on Home page after entering invalid Username and Password fields
     Given The user is on the DS Algo Sign in Page	
     When The user clicks login button after entering invalid <Username> and <Password>
@@ -33,7 +33,7 @@ Feature: Testing Login
  |madhu    | chandu   | Invalid Username and Password |
  |Vidya    | sri      | Invalid Username and Password |
  
-  @Login3 @madhu @pusuluri
+  @Login4 
    Scenario Outline: user able to land on Home page after entering invalid Username and Password fields
     Given The user is on the DS Algo Sign in Page	
     When The user clicks login button after entering invalid <Username> and <Password>
@@ -45,7 +45,7 @@ Feature: Testing Login
  |Vidya    |          | Please fill out this field.    |
  |          |          | Please fill out this field.    |
       
-  @Login4 @madhu @pusuluri
+  @Login5 
   Scenario Outline: user able to land on Home page after entering valid Username and Password fields from excel sheet
     Given The user is on the DS Algo Sign in Page	
     When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>
@@ -57,7 +57,7 @@ Feature: Testing Login
       
       
 
-   @Login5 @madhu @pusuluri
+   @Login6 
   Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
     Given The user is on the DS Algo Sign in Page	
     When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>
@@ -70,7 +70,7 @@ Feature: Testing Login
       |Login1     | 2         |
      
       
-       @Login5 @madhu @pusuluri
+       @Login7 
   Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
     Given The user is on the DS Algo Sign in Page	
     When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>

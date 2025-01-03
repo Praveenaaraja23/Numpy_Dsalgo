@@ -1,15 +1,22 @@
 package dsalgo_pagefactory;
 
-
-
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
+import dsalgo_utils.ExcelReader;
+import dsalgo_utils.LoggerLoad;
 
 
 public class Queue_pf {
@@ -53,7 +60,11 @@ public class Queue_pf {
 	//signout
 	@FindBy(xpath="//a[text()='Sign out']")WebElement sign_out;
 	
-
+	@FindBy(xpath= "//a[text()='NumpyNinja']")WebElement hometext;
+	
+	String result;
+	
+//--------------------------------------------Methods ----------------------------------------------------------//
 	
 	WebDriver driver= DriverManager.getdriver();
 	ConfigReader configFileReader=DriverManager.configReader();
@@ -108,7 +119,7 @@ public class Queue_pf {
 	}
   
   
-  public void click_Tryherebtn() {
+  public void Tryherebtn() {
 		
 	  tryHere.click();
 
@@ -123,37 +134,61 @@ public class Queue_pf {
 	  
   }
   
-
+  public String getCodefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		LoggerLoad.info("Set the path");
+		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
+		LoggerLoad.info("To read the Data from Excelsheet");
+		String pythoncode  = testData.get(Rownumber).get("pythoncode");
+		System.out.println(pythoncode);
+		LoggerLoad.info("To get data from excel sheet");
+		return pythoncode;
+	}
+ 
+  public String getoutputfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
+		ExcelReader reader = new ExcelReader();
+		String Excelpath = ConfigReader.excelpath();
+		LoggerLoad.info("Set the path");
+		
+		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
+		LoggerLoad.info("To read the Data from Excelsheet");
+		String Expectedresult1 = testData.get(Rownumber).get("ExpectedOutput");
+		LoggerLoad.info("To get data from excel sheet");
+       return Expectedresult1;
+	}
   
-	public void Entercode_Tryeditor(String samplecode)  {
+  
 
-		System.out.println(samplecode);
-		tryEditor.sendKeys(samplecode);
+	public String getActualResult() {
+		result = output.getText();
+		return result;
+	}
+ 
+  
+  public void Entercode_Tryeditor(String excelValue)  {
+
+		System.out.println();
+		tryEditor.sendKeys(excelValue);
 
 
 	}
-	
-	public String ActualOutput() {
-		String result;
-		try {
+  
+  
+  public String getErrormsg() {
+		LoggerLoad.info("Entered getErrormsg-");
+		
 		Alert alert = driver.switchTo().alert();	
 		result=alert.getText();
-		if(result != null)
-		{
-				System.out.println(result);
-				Thread.sleep(2000);
-				alert.accept();			
-		}
-		}catch(Exception e){
-		 result = output.getText();
-		 System.out.println("No Alert");
-		}
+		LoggerLoad.info("Result Alert-"+result);
+		alert.accept();
+		LoggerLoad.info("popup alert is :" + result);
+		          
 		return result;
 	}
   
-	
-	
-	public void click_Practice_Questions() {
+
+		public void click_Practice_Questions() {
 		
 		driver.manage().window().maximize();
 		PracticeQuestionsLink.click();
@@ -168,50 +203,20 @@ public class Queue_pf {
 	}
 		
 	
-	public  void ValidateQueueHomepage() {
-
-		String current_url = driver.getCurrentUrl();
-		if(current_url.equals("https://dsportalapp.herokuapp.com/queue/")) {
-			System.out.println("Validation Successfull");
-		}
-		else {
-			System.out.println("Validation UnSuccessfull and the address bar url is:" + current_url);
-		}
-	}
-
-	
-	public String Homepagetext()
+	public String pagetitle()
 	{
 		
 			return driver.getTitle();
-		}
-	
-	public String Queuepagetext()
-	{
-			return driver.getTitle();
 	}
 	
 	
-	public String impQuepagetext()
+	public String Homepagetext1() 
 	{
-		return driver.getTitle();
+		String hometitle=hometext.getText();
+		return hometitle;
+	
 	}
-	
-	public String tryeditorpage()
-	{
-		return driver.getTitle();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 }
 	

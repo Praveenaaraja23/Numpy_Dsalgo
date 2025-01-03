@@ -1,4 +1,4 @@
-@home
+@Home
 Feature: User launch dsalgo application and test Home page
 
   @TS_home_01
@@ -7,13 +7,12 @@ Feature: User launch dsalgo application and test Home page
     When The user clicks the Get Started button
     Then The user should be redirected to homepage
     
-    
-
+  
   @TS_home_02
   Scenario Outline: User is on Home page and click getstarted link <option> on home page without sign in
     Given The user is on Home page
     When The user clicks on Get Started link on homepage <option> without login
-    Then The user get <warningmessage> 
+    Then The user gets <warningmessage> 
 
     Examples: 
       | option         |warningmessage				|
@@ -29,7 +28,7 @@ Feature: User launch dsalgo application and test Home page
   Scenario Outline: User is on Home page and click on dropdown <option> without sign in
     Given The user is on Home page
     When The user clicks on dropdown <option> without signin
-    Then The user get <warningmessage>
+    Then The user gets <warningmessage>
 
     Examples: 
       | option         |warningmessage				|
@@ -52,6 +51,9 @@ Feature: User launch dsalgo application and test Home page
     When The user clicks on register link
     Then The user redirected to Registration page
     
+
     
     
     
+    
+

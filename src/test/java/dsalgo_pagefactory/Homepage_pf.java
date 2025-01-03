@@ -1,9 +1,9 @@
 package dsalgo_pagefactory;
 
 	import java.time.Duration;
-import java.util.logging.Logger;
 
-import org.openqa.selenium.Alert;
+	import java.util.logging.Logger;
+	import org.openqa.selenium.Alert;
 	import org.openqa.selenium.JavascriptExecutor;
 	import org.openqa.selenium.StaleElementReferenceException;
 	import org.openqa.selenium.WebDriver;
@@ -74,8 +74,6 @@ import org.openqa.selenium.Alert;
 	
 	public void buttonselect(String option) {
 		
-		
-	
 	switch (option) {
 	
 	case "Datastructures":
@@ -106,8 +104,8 @@ import org.openqa.selenium.Alert;
 		LoggerLoad.info("click " + getstarted_graph.getText() + "link on Graph ");
 		getstarted_graph.click();
 		break;
+		}
 	}
-}
 	
 	
 	public String printwarnmsg( String warningmessage) {
@@ -179,22 +177,18 @@ import org.openqa.selenium.Alert;
 	
 	}
 
-	public String Dspage()
+	public String alert() {
+
+		String msg =buttonwarningmsg.getText();
+		return msg;
+
+	}
+	
+
+	public String pagetitle()
 	{
 		return driver.getTitle();
 	}
-	
-	public String Gethome()
-	{
-		return driver.getTitle();
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

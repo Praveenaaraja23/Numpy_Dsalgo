@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+allure-results/
+logs/
+target/
+test-output/
+=======
 /target/
 allure-results/
 logs/
 test-output/
 
+>>>>>>> main

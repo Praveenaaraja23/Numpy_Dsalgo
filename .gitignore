@@ -1,13 +1,7 @@
-<<<<<<< Updated upstream
-/target/
 allure-results/
 logs/
-test-output/
-
-=======
-allure-results/
-logs/
-src/test/resources/Exceldata/
 target/
 test-output/
->>>>>>> Stashed changes
+
+
+

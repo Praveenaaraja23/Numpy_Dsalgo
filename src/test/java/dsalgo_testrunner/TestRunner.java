@@ -1,12 +1,8 @@
 package dsalgo_testrunner;
-    import org.junit.runner.RunWith;
+    import org.testng.annotations.DataProvider;
 
-	import org.testng.annotations.DataProvider;
-	import org.testng.annotations.Parameters;
-
-	import io.cucumber.junit.Cucumber;
-	import io.cucumber.testng.AbstractTestNGCucumberTests;
-	import io.cucumber.testng.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 
 

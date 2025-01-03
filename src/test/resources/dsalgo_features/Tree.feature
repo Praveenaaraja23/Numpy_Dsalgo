@@ -1,6 +1,6 @@
 @Tree
-Feature: Testing Login
-  I want to Enter details and Login
+Feature: Testing Treepage
+  I want to use this template for my feature file
 
   Background: The user able to land on Home page after entering valid Username and Password fields
     Given The user is on the DS Algo Sign in Page

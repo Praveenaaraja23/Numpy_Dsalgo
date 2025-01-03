@@ -7,7 +7,7 @@ Feature: Testing Register Page functionality in dsportalapp.herokuapp.
     Then User should be navigated to home page
     
     
-     #@TS_Register_invalidblank
+     @TS_Register_invalidblank
     Scenario Outline: The user Registers with blank field invalid Details
     Given User initiates by clicking on Register link in home page
     When The user verifies with "<UserName>" and "<Password>" and "<Passwordconfirmation>" and click on login button.
@@ -15,28 +15,28 @@ Feature: Testing Register Page functionality in dsportalapp.herokuapp.
 
     Examples:
       | UserName    | Password      | Passwordconfirmation |Message                      |
-      |             |               |                      |Please fill out this field.   |
-      |             |navtej@12      |navtej@12             |Please fill out this field.    |
-      |vidya        |               |                      |Please fill out this field.   |
-      |vidya        |veena@12       |                      |Please fill out this field. |   
+      |             |               |                      |Please fill out this field.  |
+      |             |navtej@12      |navtej@12             |Please fill out this field.  |
+      |vidya        |               |                      |Please fill out this field.  |
+      |vidya        |veena@12       |                      |Please fill out this field.  |   
      
 
- #@TS_Register_Invalid 
+ @TS_Register_Invalid 
     Scenario Outline: The user Registers with invalid Details
     Given User initiates by clicking on Register link in home page
     When The user verifies with "<UserName>" and "<Password>" and "<Passwordconfirmation>" and click on login button.
     Then User must be able to see the error msg "<Message>"
 
     Examples:
-      |UserName    | Password        | Passwordconfirmation | Message                     |                              
-      |veena*2$     |veena@12        |veena@12              |password_mismatch:The two password fields didn’t match.|
-      |vidya        |123185          |123185                |password_mismatch:The two password fields didn’t match.  |
-      |divya        |priya           |priya                 |password_mismatch:The two password fields didn’t match.|
-      |priya        |kanaka@23       |kanaka@12             |password_mismatch:The two password fields didn’t match. |
-      |praveena     |praveena12      |praveena12            |password_mismatch:The two password fields didn’t match.|
-      |vidya        |welcome@123     |welcome@123           |password_mismatch:The two password fields didn’t match. |
+      |UserName     | Password        | Passwordconfirmation | Message                     |                              
+      |veena*2$     |veena@12        |veena@12              |password_mismatch:The two password fields didnâ€™t match.|
+      |vidya        |123185          |123185                |password_mismatch:The two password fields didnâ€™t match.|
+      |divya        |priya           |priya                 |password_mismatch:The two password fields didnâ€™t match.|
+      |priya        |kanaka@23       |kanaka@12             |password_mismatch:The two password fields didnâ€™t match.|
+      |praveena     |praveena12      |praveena12            |password_mismatch:The two password fields didnâ€™t match.|
+      |vidya        |welcome@123     |welcome@123           |password_mismatch:The two password fields didnâ€™t match.|
    
-  #@TS_Register_valid
+  @TS_Register_valid
   
     Scenario Outline: User Registers with valid Details in register page
     Given The user navigates to Register Page in home page
@@ -48,7 +48,7 @@ Feature: Testing Register Page functionality in dsportalapp.herokuapp.
     |  vidya       | Kanaka@185     | Kanaka@185           |  New Account Created. You are logged in as <username> |
 
 
-    # @Ts_Register01_emptyexcel 
+     @Ts_Register01_emptyexcel 
 
     Scenario Outline: The user Registers with Invalid(blank) credentials
     Given User initiates by clicking on Register link in home page
@@ -63,7 +63,7 @@ Feature: Testing Register Page functionality in dsportalapp.herokuapp.
       |Register    |         3|
    
    
-    # @Ts_Register02_invalidexcel
+     @Ts_Register02_invalidexcel
    
     Scenario Outline: The user Registers with Invalid credentials
     Given User initiates by clicking on Register link in home page
@@ -80,7 +80,7 @@ Feature: Testing Register Page functionality in dsportalapp.herokuapp.
       |Register    |         8|
       |Register    |         9|
       
-    #@Ts_Register0_validexcel 
+    @Ts_Register0_validexcel 
 
     Scenario Outline: The user Registers with Valid credentials
     Given User initiates by clicking on Register link in home page

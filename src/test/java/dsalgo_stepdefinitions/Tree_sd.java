@@ -85,9 +85,7 @@ public class Tree_sd {
 		tree_pf.GetStarted();
 		tree_pf.click_overview_tree();
 		tree_pf.click_Tryherebtn();
-
-
-	}
+		}
 
 	@When("^The user enter the valid and invalid pythoncode input from sheet (.*) and (.*) in trees$")
 	public void the_user_enters_the_valid_and_invalid_pythoncode_and_clicks_run_button(String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
@@ -182,9 +180,7 @@ public class Tree_sd {
 
 	}
 
-
-
-	@When("The user clicks on the \"Traversals-Illustration\" link")
+    @When("The user clicks on the \"Traversals-Illustration\" link")
 	public void the_user_clicks_on_the_traversals_illustration_link() {
 		tree_pf.click_Traversals_Illustration();
 

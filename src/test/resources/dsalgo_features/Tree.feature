@@ -37,7 +37,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_06
-   Scenario Outline: The user is able to run code in tryEditor for Overview of Trees page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Overview of Trees page
     Given The user is in the tryEditor page for Overview of Trees page
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -72,7 +72,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_10
-   Scenario Outline: The user is able to run code in tryEditor for Tree -Terminologies Page page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Tree -Terminologies Page page
     Given The user is in the tryEditor page for Tree -Terminologies Page
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -107,7 +107,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_14
-   Scenario Outline: The user is able to run code in tryEditor for Tree -Types of Tree page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Tree -Types of Tree page
     Given The user is in the tryEditor page for Tree -Types of Tree page
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -142,7 +142,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_18
-   Scenario Outline: The user is able to run code in tryEditor for Tree -Tree Traversals
+   Scenario Outline: The user is able to run invalid code in tryEditor for Tree -Tree Traversals
     Given The user is in the tryEditor page for Tree -Tree Traversals
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -176,7 +176,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_22
-   Scenario Outline: The user is able to run code in tryEditor for Traversals-Illustration page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Traversals-Illustration page
     Given The user is in the tryEditor page for Traversals-Illustration 
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -211,7 +211,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_26
-   Scenario Outline: The user is able to run code in tryEditor for Binary Trees page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Binary Trees page
     Given The user is in the tryEditor page for Binary Trees 
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -245,7 +245,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_30
-   Scenario Outline: The user is able to run code in tryEditor for Types of Binary Trees page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Types of Binary Trees page
     Given The user is in the tryEditor page for Types of Binary Trees 
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -279,7 +279,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_34
-   Scenario Outline: The user is able to run code in tryEditor for Implementation in Python page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Implementation in Python page
     Given The user is in the tryEditor page for Implementation in Python
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -313,7 +313,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_38
-   Scenario Outline: The user is able to run code in tryEditor for Binary Tree Traversals page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Binary Tree Traversals page
     Given The user is in the tryEditor page for Binary Tree Traversals
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -347,7 +347,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_42
-   Scenario Outline: The user is able to run code in tryEditor for Implementation of Binary Trees page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Implementation of Binary Trees page
     Given The user is in the tryEditor page for Implementation of Binary Trees
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -381,7 +381,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_46
-   Scenario Outline: The user is able to run code in tryEditor for Applications of Binary trees
+   Scenario Outline: The user is able to run invalid code in tryEditor for Applications of Binary trees
     Given The user is in the tryEditor page for Applications of Binary trees
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -415,7 +415,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_50
-   Scenario Outline: The user is able to run code in tryEditor for Binary Search Trees
+   Scenario Outline: The user is able to run invalid code in tryEditor for Binary Search Trees
     Given The user is in the tryEditor page for Binary Search Trees
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>
@@ -449,7 +449,7 @@ Feature: Testing Login
       |phythoncode|         0 |
       
      @TS_tree_54
-   Scenario Outline: The user is able to run code in tryEditor for Implementation Of BST page
+   Scenario Outline: The user is able to run invalid code in tryEditor for Implementation Of BST page
     Given The user is in the tryEditor page for Implementation Of BST
     When The user enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in trees
     Then The user get the error message from excelsheet <Sheetname> and <RowNumber>

@@ -55,14 +55,3 @@ Feature: User launch dsalgo application and test Home page
     
     
     
-
-  @TS_home_05
-  Scenario: User is on Home page and click on Register
-    Given The user is on Home page
-    When The user clicks on register link
-    Then The user redirected to Registration page
-    
-    
-    
-    
-

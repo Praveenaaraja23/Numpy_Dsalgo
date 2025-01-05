@@ -1,23 +1,17 @@
 package dsalgo_pagefactory;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
 import dsalgo_utils.ExcelReader;
-import dsalgo_utils.LoggerLoad;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class Register_pf {
 
@@ -44,8 +38,6 @@ public class Register_pf {
 	WebElement Registerbtn;
 	@FindBy(xpath = "//div[@class='alert alert-primary']")
 	WebElement actualMessage;
-	// @FindBy (xpath="//div[@class='alert alert-primary']") WebElement
-	// sucessMessage;
 
 	public Register_pf() {
 		PageFactory.initElements(driver, this);
@@ -56,10 +48,8 @@ public class Register_pf {
 		try {
 			readExcel();
 		} catch (InvalidFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -111,7 +101,7 @@ public class Register_pf {
 	// Expected message from Excel
 	public String getExpectedMessage(int rowNumber) {
 
-		return getExpectedValue(rowNumber, ("Message")); //listScenarios.get(rowNumber).get("Message");
+		return getExpectedValue(rowNumber, ("Message")); 
 	}
 
 	// Actual message from Register Page
@@ -121,20 +111,6 @@ public class Register_pf {
 				listScenarios.get(rowNumber).get("Password"), listScenarios.get(rowNumber).get("Passwordconfirmation"));
 	}
 
-	
-	/*
-	 * public String getpopupmsgfromExcel(String Sheetname, int Rownumber) throws
-	 * InvalidFormatException, IOException,
-	 * org.apache.poi.openxml4j.exceptions.InvalidFormatException { ExcelReader
-	 * reader = new ExcelReader();
-	 * 
-	 * System.out.println(Excelpath); LoggerLoad.info("Set the path");
-	 * List<Map<String, String>> testData = reader.getData(Excelpath, Sheetname);
-	 * 
-	 * String popupmsg = testData.get(Rownumber).get("Message"); return popupmsg;
-	 * 
-	 * }
-	 */
 
 	public void login(String username, String password, String Passwordconfirmation) {
 

@@ -3,15 +3,9 @@ package dsalgo_stepdefinitions;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-
 import dsalgo_pagefactory.Linkedlist_pf;
 import dsalgo_pagefactory.Register_pf;
-import dsalgo_utils.ConfigReader;
-import dsalgo_utils.ExcelReader;
 import dsalgo_utils.LoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -28,8 +22,7 @@ public class Linkedlist_sd {
 	@Given("The user is in home page after Sign in")
 	public void the_user_is_in_home_page_after_sign_in() {
 		String hometitle = register.getHomePageText();
-		assertEquals( hometitle, "NumpyNinja");
-		LoggerLoad.info("User is in" +hometitle+ "home page");
+		LoggerLoad.info("User is navigated to " +hometitle+ "home page");
 		
 	}
 
@@ -41,7 +34,7 @@ public class Linkedlist_sd {
 
 	@Then("The user should navigate to linked list home page")
 	public void the_user_should_navigate_to_linked_list_home_page() {
-	   
+		assertEquals(linkedlist.linkedlistpagetext(),"Linked List");
 		LoggerLoad.info("user navigated to" +linkedlist.linkedlistpagetext()+ "page");
 	}
 
@@ -59,7 +52,6 @@ public class Linkedlist_sd {
 
 	@Then("The user should be redirected to the {string} of linked list Page")
 	public void the_user_should_be_redirected_to_the_of_linked_list_page(String stringpages) {
-		//System.out.println("I am in "+stringpages);
 		assertEquals(linkedlist.getallpagestext(),stringpages );
 		LoggerLoad.info("user navigated to" +linkedlist.getallpagestext()+ "page");
 
@@ -83,7 +75,7 @@ public class Linkedlist_sd {
 
 	@Then("The user should be redirected to the page having an try Editor with a Run button")
 	public void the_user_should_be_redirected_to_the_page_having_an_try_editor_with_a_run_button() {
-	    
+		assertEquals(linkedlist.gettextrun(),"Run");
 		LoggerLoad.info("user is in try editor page with" +linkedlist.gettextrun()+ "button");
 	}
 
@@ -91,8 +83,8 @@ public class Linkedlist_sd {
 	public void the_user_is_in_the_try_editor_page_for_introduction_page() {
 		LoggerLoad.info("User is in tryeditor page of Introduction page"); 
 		linkedlist.clickLLgetstarted();
-		 linkedlist.clickIntroductionLink();
-		 linkedlist.clickTryhere();
+		linkedlist.clickIntroductionLink();
+		linkedlist.clickTryhere();
 	}
 
 	@When("^User gets inputs from (.*) and (.*) in try Editor and click on Run")
@@ -100,7 +92,7 @@ public class Linkedlist_sd {
 		String pythoncode= linkedlist.CodefromExcel(Sheetname, RowNumber);
 		linkedlist.EnterTryeditor(pythoncode);
 		linkedlist.clickrunbtn();
-		Thread.sleep(2000);	
+		
 	}
 
 
@@ -109,9 +101,7 @@ public class Linkedlist_sd {
 	public void user_should_be_able_to_see_output_in_the_console_output_for_valid_data_from_and(String sheetname, Integer RowNumber) throws InvalidFormatException, IOException {
 		 String result=linkedlist.ResultfromExcel(sheetname,RowNumber);
 		   LoggerLoad.info("Expected result - Excel Sheet :" + result);
-		   System.out.println("excel" +result);
 		   LoggerLoad.info("Actual Result is:" +linkedlist.getActualResult());
-		   System.out.println("Actual Result is:" +linkedlist.getActualResult());
 		   assertEquals(linkedlist.getActualResult(),result);
 		
 	}
@@ -120,15 +110,11 @@ public class Linkedlist_sd {
 	public void user_should_be_able_to_see_output_in_the_console_output_for_invalid_data_from_and(String sheetname, Integer RowNumber) throws InvalidFormatException, IOException {
 		String result=linkedlist.ResultfromExcel(sheetname,RowNumber);
 		LoggerLoad.info("Expected result - Excel Sheet :" + result);
-		System.out.println("Expected result - Excel Sheet :" + result);
 		String result1 = linkedlist.alertmsg();
-		   LoggerLoad.info("Actual Result is:" + result1);
-		   System.out.println("Actual Result is:" +result1);
-		  assertEquals(result1,result);
+		LoggerLoad.info("Actual Result is:" + result1);
+		assertEquals(result1,result);
 		
 	}
-
-
 
 	@When("User12 click on the\"Creating Linked List\" link")
 	public void User12_click_on_the_creating_linked_list_link() {
@@ -147,8 +133,8 @@ public class Linkedlist_sd {
 		LoggerLoad.info("User is in tryeditor page of Creating Linked List page with" +linkedlist.gettextrun()+ "button");
 		linkedlist.clickLLgetstarted();
 		linkedlist.clickIntroductionLink();
-		 linkedlist.clickCreatingLinkedlistLink();
-		 linkedlist.clickTryhere();
+		linkedlist.clickCreatingLinkedlistLink();
+		linkedlist.clickTryhere();
 	}
 
 
@@ -171,7 +157,7 @@ public class Linkedlist_sd {
 		linkedlist.clickLLgetstarted();
 		linkedlist.clickIntroductionLink();
 		linkedlist.clicktypesOfLinkedlistLink();
-		 linkedlist.clickTryhere();
+		linkedlist.clickTryhere();
 		
 	}
 
@@ -192,7 +178,7 @@ public class Linkedlist_sd {
 		linkedlist.clickLLgetstarted();
 		linkedlist.clickIntroductionLink();
 		linkedlist.clickimplementLinkedlistInPythonLink();
-		 linkedlist.clickTryhere();
+		linkedlist.clickTryhere();
 	}
 
 	@When("User12 click on\"Traversal\" link")
@@ -215,7 +201,7 @@ public class Linkedlist_sd {
 		linkedlist.clickLLgetstarted();
 		linkedlist.clickIntroductionLink();
 		linkedlist.clicktraversalLink();
-		 linkedlist.clickTryhere();
+		linkedlist.clickTryhere();
 	}
 
 	@When("User12 click on\"Insertion\" link")

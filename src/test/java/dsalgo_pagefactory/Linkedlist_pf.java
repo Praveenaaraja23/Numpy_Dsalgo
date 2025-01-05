@@ -3,14 +3,12 @@ package dsalgo_pagefactory;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
 import dsalgo_utils.ExcelReader;
@@ -44,7 +42,7 @@ public class Linkedlist_pf {
 		@FindBy(id = "output")WebElement output;
 		@FindBy(xpath= "//h4[text()='Linked List']") WebElement linkedlisthometext;
 		@FindBy(xpath= "//div[@class='col-sm']/strong/p[@class='bg-secondary text-white']") WebElement allliststext;
-		 
+		
 		 public Linkedlist_pf() {
 		    	
 				PageFactory.initElements(driver,this);
@@ -56,10 +54,10 @@ public class Linkedlist_pf {
 			 try {
 					readExcel();
 				} catch (InvalidFormatException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+			
 					e.printStackTrace();
 				}
 			}
@@ -142,15 +140,6 @@ return rbtn;
 }
 
 
-// public String alertmsg() {
-//	 
-//	 String getalertmsg=driver.switchTo().alert().getText();
-//	 driver.switchTo().alert().accept();
-//     return getalertmsg;
-//	
-//}
-
-
 public String alertmsg() {
     try {
         Alert alert = driver.switchTo().alert();
@@ -158,8 +147,7 @@ public String alertmsg() {
         alert.accept();
         return getalertmsg;
     } catch (Exception e) {
-        // Handle case where no alert is present
-        System.out.println("No alert present.");
+    	
         return "No alert found.";
     }
 }
@@ -187,25 +175,7 @@ public String alertmsg() {
  public String getActualResult() {
 		return output.getText();
 	}
- /*
-public String ActualOutput(String expectedresults) {
-	String result;
-	try {
-	Alert alert = driver.switchTo().alert();	
-	result=alert.getText();
-	if(result.equals(expectedresults))
-	{
-			System.out.println(result);
-			alert.accept();			
-	}
-	}catch(Exception e){
-	 result = output.getText();
-	 System.out.println("No Alert");
-	}
-	
-	return result;
-}
- */
+ 
  
  public void clickpracticeQuestion() {
 	 practicequestionLink.click();

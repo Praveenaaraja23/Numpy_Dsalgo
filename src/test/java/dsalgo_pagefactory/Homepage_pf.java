@@ -1,15 +1,8 @@
 package dsalgo_pagefactory;
 
-	import java.time.Duration;
 
-	import java.util.logging.Logger;
-	import org.openqa.selenium.Alert;
-	import org.openqa.selenium.JavascriptExecutor;
-	import org.openqa.selenium.StaleElementReferenceException;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.chrome.ChromeDriver;
-	import org.openqa.selenium.remote.RemoteWebDriver;
 	import org.openqa.selenium.support.FindBy;
 	import org.openqa.selenium.support.PageFactory;
 	import dsalgo_utils.ConfigReader;
@@ -22,11 +15,8 @@ package dsalgo_pagefactory;
 		WebDriver driver= DriverManager.getdriver();
 		ConfigReader configFileReader=DriverManager.configReader();
 		
-		// get started
 		@FindBy(xpath = "//button[text()='Get Started']") WebElement getStarted_home;
 		
-		
-		// getstared for modules
 		@FindBy	(xpath = "//a[@href='data-structures-introduction']") WebElement getStarted_datastructure;
 		@FindBy (xpath ="//a[@href='array']")WebElement getstarted_array;
 		@FindBy (xpath ="//a[@href='linked-list']")WebElement getstarted_linkedlist;
@@ -35,9 +25,6 @@ package dsalgo_pagefactory;
 		@FindBy (xpath ="//a[@href='tree']")WebElement getstarted_tree;
 		@FindBy (xpath ="//a[@href='graph']")WebElement getstarted_graph;
 
-		
-		
-			//dropdown for modules
 		@FindBy (xpath ="//a[text()='Data Structures']")WebElement dropdown_datastructure;
 		@FindBy (xpath ="//div[@class='dropdown-menu show']/a[text()='Arrays']")WebElement dropdown_arrays;
 		@FindBy (xpath ="//div[@class='dropdown-menu show']/a[text()='Linked List']")WebElement dropdown_linkedlist;
@@ -46,29 +33,20 @@ package dsalgo_pagefactory;
 		@FindBy (xpath ="//div[@class='dropdown-menu show']/a[text()='Tree']")WebElement dropdown_tree;
 		@FindBy (xpath ="//div[@class='dropdown-menu show']/a[text()='Graph']")WebElement dropdown_graph;		
 		
-		
-	
-		// register and login
 		@FindBy (xpath ="//a[@href='/register']")WebElement register;
 		@FindBy (xpath ="//a[@href='/login']")WebElement signin;
 		
-		//warning msg
 		@FindBy(xpath = "//div[contains(text(),'You are not logged in')]") WebElement buttonwarningmsg;
 
 		
 	public Homepage_pf() {
-
-			
+	
 		PageFactory.initElements(driver , this);
-
 	}
-		
-		
+			
 	public void GetStarted() {
 		
 		getStarted_home.click();
-
-
 	}
 	
 	
@@ -113,12 +91,10 @@ package dsalgo_pagefactory;
 			if(buttonwarningmsg.getText().equals(warningmessage)) {
 				
 				System.out.println(buttonwarningmsg.getText());		
-
-			}
+				}
 			else  {
 				System.out.println("Title Not matched");
-
-			}
+				}
 		}catch (Exception e) {
 			System.out.println("Element doesnt exists");
 		}
@@ -132,9 +108,7 @@ package dsalgo_pagefactory;
 		dropdown_datastructure.click();
 		
 		switch (option) 
-		
 		{
-	
 		case "Arrays":
 			LoggerLoad.info("User click on " + option);
 			dropdown_arrays.click();

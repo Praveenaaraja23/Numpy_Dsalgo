@@ -1,6 +1,8 @@
 package dsalgo_stepdefinitions;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import static org.testng.Assert.assertEquals;
@@ -47,7 +49,8 @@ public class Login_sd {
 	
 	@When("^The user clicks login button after entering valid (.*) and (.*)$")
 	public void the_user_clicks_login_button_after_entering_valid_and(String Username, String Password) throws InvalidFormatException, IOException {
-		login.login(Username , Password);	
+
+		login.login2(Username , Password);	
 	}
 
 	@When("user clicks login to DsAlgo application for valid with {string} and {int}")

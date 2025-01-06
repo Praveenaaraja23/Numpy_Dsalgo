@@ -4,9 +4,9 @@ Feature: Array module
 
   Background: The user able to land on Home page after entering valid Username and Password fields
     Given The user is on the DS Algo Sign in Page
-    When The user clicks login button after entering valid Vidya and Kanaka@185
+    When The user clicks login button after entering valid Username and Password
 
-  @Array1
+   @Array1
   Scenario: Verify that user is able to navigate to Array data structure page
     Given The user is in the Home page after Sign in for Arrays
     When The user clicks the Getting Started button in Array Panel OR The user select Array item from the drop down menu

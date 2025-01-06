@@ -3,7 +3,7 @@ Feature: Testing linked list Page
 
   Background: The user able to land on Home page after entering valid Username and Password fields
     Given The user is on the DS Algo Sign in Page
-    When The user clicks login button after entering valid Vidya and Kanaka@185
+    When The user clicks login button after entering valid Username and Password
 
   @TS_linkedlist_01
   Scenario: Verify that user is able to navigate to linked list page

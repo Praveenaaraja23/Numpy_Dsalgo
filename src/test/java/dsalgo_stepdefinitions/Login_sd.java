@@ -43,6 +43,12 @@ public class Login_sd {
 		login.clicksign();   
 		LoggerLoad.info("User is on Signin Page");
 	}
+	
+	
+	@When("^The user clicks login button after entering valid (.*) and (.*)$")
+	public void the_user_clicks_login_button_after_entering_valid_and(String Username, String Password) throws InvalidFormatException, IOException {
+		login.login(Username , Password);	
+	}
 
 	@When("user clicks login to DsAlgo application for valid with {string} and {int}")
 	public void user_clicks_login_to_ds_algo_application_for_valid_with_and(String Sheetname, Integer Rownumber) throws InvalidFormatException, IOException {

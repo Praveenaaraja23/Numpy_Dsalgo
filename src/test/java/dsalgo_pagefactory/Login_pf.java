@@ -55,7 +55,11 @@ public class Login_pf {
 
 		Signin.click();
 	}
-	public void  login(String Username, String Password ){
+	public void  login(String Username, String Password ) throws org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException{
+		List<Map<String,String>> testData = 
+				reader.getData(Excelpath, "Login");
+		Username = testData.get(0).get("Username");
+		Password = testData.get(0).get("Password");
 		username1.clear();
 		username1.sendKeys(Username);
 		password1.clear();

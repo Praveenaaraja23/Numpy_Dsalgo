@@ -77,14 +77,10 @@ public class Tree_sd {
 
 	@When("^The user enter the valid and invalid pythoncode input from sheet (.*) and (.*) in trees$")
 	public void the_user_enters_the_valid_and_invalid_pythoncode_and_clicks_run_button(String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
-
-
-
-		String excelValue=tree_pf.getCodefromExcel(Sheetname, Rownumber);
+       String excelValue=tree_pf.getCodefromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
 				+ " and row number : " + Rownumber);
-
-		tree_pf.Entercode_Tryeditor(excelValue);
+        tree_pf.Entercode_Tryeditor(excelValue);
 		tree_pf.runbtn();
 
 	}

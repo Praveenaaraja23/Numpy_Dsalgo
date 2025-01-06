@@ -65,6 +65,7 @@ public class Tree_pf {
 	WebDriver driver= DriverManager.getdriver();
 	ConfigReader configFileReader=DriverManager.configReader();
 	public Object alert;
+	String   excelValue;
 
 	public Tree_pf() {
 
@@ -139,9 +140,10 @@ public class Tree_pf {
 
 	}
 
-	public void Entercode_Tryeditor(String excelValue)  {
+	public String Entercode_Tryeditor(String excelValue)  {
 
-		TryEditor.sendKeys(excelValue);
+		 TryEditor.sendKeys(excelValue);
+		  return  excelValue;
 	}
 
 	public void runbtn() {

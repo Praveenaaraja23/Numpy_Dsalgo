@@ -23,17 +23,17 @@ public class Stack_sd {
 	
 	@Given("The user is in the Home page after Sign in for Stack page")
 	public void the_user_is_in_the_home_page_after_sign_in_for_stack_page() {
-//		System.out.println("The user is in Stack Page");
+
 		LoggerLoad.info("The user is in Stack Page");
 	  
 	}	
 
 	@When("The user clicks the Getting Started button in Stack Panel of the page OR The user select Stack item from the drop down menu")
-	public void the_user_clicks_the_getting_started_button_in_stack_panel_of_the_page_or_the_user_select_stack_item_from_the_drop_down_menu() throws InterruptedException {
+	public void the_user_clicks_the_getting_started_button_in_stack_panel_of_the_page_or_the_user_select_stack_item_from_the_drop_down_menu() {
 	 
 		
 		stack.GetStarted_Stack();
-		Thread.sleep(2000);
+		
 	}
 
 	@Then("The user be directed to Stack Data Structure Page")
@@ -41,7 +41,7 @@ public class Stack_sd {
 		String Title = stack.getStackPageTitle();
 		LoggerLoad.info("Title of current page is : " + Title);
 		assertEquals(Title, "Stack", "Title do not match");
-	    System.out.println("the user is on Stack page");
+	    LoggerLoad.info("the user is on Stack page");
 	}
 
 	
@@ -61,7 +61,7 @@ public class Stack_sd {
 
 	@Then("The user should be redirected to Operations in Stack page")
 	public void the_user_should_be_redirected_to_operations_in_stack_page() {
-	    System.out.println("the user is on OPerations Stack Page");
+	    LoggerLoad.info("the user is on OPerations Stack Page");
 	    String Title = stack.getStackPageTitle();
 		LoggerLoad.info("Title of current page is :" + Title);
 		assertEquals(Title, "Operations in Stack", "Title do not match");
@@ -71,7 +71,7 @@ public class Stack_sd {
 	//@Try_Editor_in_Operations_in_Stack1
 	@Given("The user is on the Operations in Stack page")
 	public void the_user_is_on_the_operations_in_stack_page() {
-		System.out.println("the user is on the OPerations Stack Page");
+		LoggerLoad.info("the user is on the OPerations Stack Page");
 	}
 
 	@When("The user clicks Try Here button in Operations in Stack page")
@@ -83,34 +83,13 @@ public class Stack_sd {
 
 	@Then("The user should be redirected to a page having an TryEditor with a Run button to test in Operations in Stack page")
 	public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_run_button_to_test_in_operations_in_stack_page() {
-//		System.out.println("the user is on Editor Page");
+
 		String Title = stack.getStackPageTitle();
 		LoggerLoad.info("Title of current page is :" + Title);
 		assertEquals(Title, "Assessment", "Title do not match");
 	}
-//@Try_Editor_in_Operations_in_Stack2
-	
-	@Given("The user is in the tryEditor pageof Operations in Stack page")
-	public void the_user_is_in_the_try_editor_pageof_operations_in_stack_page() {
-	   stack.GetStarted_Stack();
-	   stack.Operations_in_Stack_Link();
-	   stack.TryHere_Link();
-	}
-	@When("^The user enters code in (.*) and clicks Run button in Python page$")
-	public void the_user_enters_code_in_print_hello_and_clicks_run_button_in_operations_in_stack_in_python_page(String TryEditor1) {
-       stack.TryEditorbox(TryEditor1);
-       stack.RunButton();
-       
-	}
-	@Then("The user should able to see output in the console Stack tryeditor page")
-	public void the_user_should_able_to_see_output_in_the_console_operations_in_stack_tryeditor_page() {
-		String actualMsg = stack.ActualOutput();	
-		LoggerLoad.info("Actual result  :" + actualMsg);
 
-		System.out.println(" the user is on try editor in Python page");
-	}
-	
-	
+		
 	//Try_Editor_in_Operations_in_Stack_in_DataDriven
 	@Given("The user1 is in the tryEditor page for Operations in Stack")
 	public void the_user_is_in_the_try_editor_page_for_operations_in_stack() {
@@ -150,14 +129,14 @@ public class Stack_sd {
 	
 	//@Implementations_in_Stack
 	@When("The user clicks Implementation button")
-	public void the_user_clicks_implementation_button() throws InterruptedException {
+	public void the_user_clicks_implementation_button() {
 	   stack.Implementations_Link();
-	   Thread.sleep(1000);
+	   
 	}
 	@Then("The user should be redirected to Implementation page")
 	public void the_user_should_be_redirected_to_implementation_page() {
 	  
-	   System.out.println("THe user is in Implementaion page");
+	   LoggerLoad.info("THe user is on Implementaion page");
 	   String Title = stack.getStackPageTitle();
 		LoggerLoad.info("Title of current page is :" + Title);
 		assertEquals(Title, "Implementation", "Title do not match");
@@ -181,19 +160,14 @@ public class Stack_sd {
 	
 	@Then("The user should be redirected to a page having an TryEditor with a Run button to test of the Implementation page")
 	public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_run_button_to_test_of_the_implementation_page() {
-	  System.out.println("THe user is on try editor page");
+	  
+	  String Title = stack.getStackPageTitle();
+		LoggerLoad.info("Title of current page is :" + Title);
+		assertEquals(Title, "Assessment", "Title do not match");
+		LoggerLoad.info("The user is on Question Page");
 	}
 	
-	//@Try_Editor_in_Implementation_in_Stack2
-	
-		@Given("The user is in the tryEditor page of Implementation Page in Stack Module")
-		public void the_user_is_in_the_try_editor_page_of_implementation_page_in_stack_module() {
-			 stack.GetStarted_Stack();
-			   stack.Implementations_Link();
-			   stack.TryHere_Link();
-		   
-		}
-		
+
 		//Try_Editor_in_Implementaion_in_Stack_in_DataDriven
 		@Given("The user1 is in the tryEditor page for Implementaion in Stack")
 		public void the_user1_is_in_the_try_editor_page_for_implementaion_in_stack() {
@@ -232,7 +206,7 @@ public class Stack_sd {
 //@Try_Editor_in_Application_in_Stack1
 	@Given("The user is on the Application in Stack page")
 	public void the_user_is_on_the_application_in_stack_page() {
-		 System.out.println("The user is on Application page");
+		 LoggerLoad.info("The user is on Application page");
 	}
 
 	@When("The user clicks Try Here button in Application in Stack page")
@@ -244,17 +218,13 @@ public class Stack_sd {
 
 	@Then("The user should be redirected to a page having an TryEditor with a Run button to test of the Application in Stack page")
 	public void the_user_should_be_redirected_to_a_page_having_an_try_editor_with_a_run_button_to_test_of_the_application_in_stack_page() {
-	    System.out.println("the user is on Try here Editor");
+	    
+	    String Title = stack.getStackPageTitle();
+		LoggerLoad.info("Title of current page is :" + Title);
+		assertEquals(Title, "Assessment", "Title do not match");
+		LoggerLoad.info("The user is on Question Page");
 	}
 
-	@Given("The user is in the tryEditor page of Application in Stack2")
-	public void the_user_is_in_the_try_editor_page_of_application_in_stack2() {
-		
-		stack.GetStarted_Stack();
-	    stack.Applications_Link();
-	    stack.TryHere_Link();
-	   
-	}
 
 	//Try_Editor_in_Application_in_Stack_in_DataDriven
 	@Given("The user1 is in the tryEditor page for Application in Stack")
@@ -284,7 +254,7 @@ public class Stack_sd {
 	}
 	@Then("The user should be redirected to Practice page")
 	public void the_user_should_be_redirected_to_practice_page() {
-		System.out.println("THe user is in Practice questions page");
+
 		LoggerLoad.info("No practice Questions blank page is displayed");
 		assertEquals(stack.Homepagetext(),"practice Questions");
 		LoggerLoad.info("NO questions found ");

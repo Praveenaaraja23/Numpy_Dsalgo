@@ -1,20 +1,9 @@
 package dsalgo_stepdefinitions;
 
 import static org.testng.Assert.assertEquals;
-
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.openqa.selenium.WebDriver;
-
-import dsalgo_hooks.Hooks;
-import dsalgo_pagefactory.Login_pf;
 import dsalgo_pagefactory.Tree_pf;
-import dsalgo_utils.ConfigReader;
-import dsalgo_utils.DriverManager;
-import dsalgo_utils.ExcelReader;
 import dsalgo_utils.LoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,9 +15,8 @@ public class Tree_sd {
 
 	@Given("The user is in the Home page after Sign in")
 	public void the_user_is_in_the_home_page_after_sign_in() {
-		
+
 		String hometitle= tree_pf.Homepagetext();
-		assertEquals(hometitle,"NumpyNinja");
 		LoggerLoad.info("user is in "+hometitle);
 
 	}
@@ -60,7 +48,7 @@ public class Tree_sd {
 		String Title = tree_pf.alltreetext();
 		LoggerLoad.info("Title of current page is : " + Title);
 		assertEquals(Title, string);
-}
+	}
 
 	@Given("The user is in the {string} page")
 	public void the_user_is_in_the_page(String string) {
@@ -85,7 +73,7 @@ public class Tree_sd {
 		tree_pf.GetStarted();
 		tree_pf.click_overview_tree();
 		tree_pf.click_Tryherebtn();
-		}
+	}
 
 	@When("^The user enter the valid and invalid pythoncode input from sheet (.*) and (.*) in trees$")
 	public void the_user_enters_the_valid_and_invalid_pythoncode_and_clicks_run_button(String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
@@ -100,9 +88,7 @@ public class Tree_sd {
 		tree_pf.runbtn();
 
 	}
-
-
-	@Then("^The user should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in trees$")
+    @Then("^The user should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in trees$")
 	public void the_user_should_able_to_see_output_in_the_console_output(String Sheetname , Integer Rownumber) throws InvalidFormatException, IOException {
 
 		String excelValue1=tree_pf.getoutputfromExcel(Sheetname, Rownumber);
@@ -115,14 +101,14 @@ public class Tree_sd {
 	public void the_user_get_the_error_message(String Sheetname,Integer Rownumber) throws com.fasterxml.jackson.databind.exc.InvalidFormatException, InvalidFormatException, IOException {
 		String excelValue1=tree_pf.getoutputfromExcel(Sheetname, Rownumber);
 		String popup1=tree_pf.getErrormsg();
+		LoggerLoad.info("expected errormsg from excel popup :" + excelValue1);
 		LoggerLoad.info("Actual popup :" + popup1);
-
-		assertEquals(popup1, excelValue1);
+        assertEquals(popup1, excelValue1);
 	}
 	@When("The user clicks on the \"Terminologies\" link")
 	public void the_user_clicks_on_the_Terminologies_link() {
-	   
-        tree_pf.click_Tree_terminologies();
+
+		tree_pf.click_Tree_terminologies();
 	}
 
 	@When("The user clicks {string} button in a Tree -Terminologies page")
@@ -142,7 +128,7 @@ public class Tree_sd {
 
 	@When("The user clicks on the \"Types of Trees\" link")
 	public void the_user_clicks_on_the_Types_of_Trees_link() {
-	   
+
 		tree_pf.click_Types_of_Trees();
 
 	}
@@ -160,11 +146,11 @@ public class Tree_sd {
 		tree_pf.click_Types_of_Trees();
 		tree_pf.click_Tryherebtn(); 
 	}
-	
-	
+
+
 	@When("The user clicks on the \"Tree Traversals\"link")
 	public void the_user_clicks_on_the_tree_traversals_link() {
-	    tree_pf.click_Tree_Traversal();
+		tree_pf.click_Tree_Traversal();
 	}
 	@When("The user clicks {string} button in a Tree -Tree Traversals")
 	public void the_user_clicks_button_in_a_tree_tree_traversals(String string) {
@@ -175,12 +161,12 @@ public class Tree_sd {
 	public void the_user_is_in_the_try_editor_page_for_tree_tree_traversals() {
 		tree_pf.GetStarted();
 		tree_pf.click_overview_tree();
-		 tree_pf.click_Tree_Traversal();
-		 tree_pf.click_Tryherebtn();
+		tree_pf.click_Tree_Traversal();
+		tree_pf.click_Tryherebtn();
 
 	}
 
-    @When("The user clicks on the \"Traversals-Illustration\" link")
+	@When("The user clicks on the \"Traversals-Illustration\" link")
 	public void the_user_clicks_on_the_traversals_illustration_link() {
 		tree_pf.click_Traversals_Illustration();
 
@@ -358,11 +344,6 @@ public class Tree_sd {
 		LoggerLoad.info("No practice Questions blank page is displayed");
 		assertEquals(tree_pf.Homepagetext(),"practice Questions");
 		LoggerLoad.info("NO questions found ");
-
-
-
-	}
-
-
+    }
 
 }

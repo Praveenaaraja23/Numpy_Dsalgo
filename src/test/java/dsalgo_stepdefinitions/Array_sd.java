@@ -9,12 +9,10 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
-
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
 import dsalgo_pagefactory.Arrays_pf;
-import dsalgo_pagefactory.Tree_pf;
+
 import dsalgo_utils.LoggerLoad;
 
 public class Array_sd {
@@ -27,18 +25,19 @@ public class Array_sd {
 //Background
 @Given("The user is in the Home page after Sign in for Arrays")
 public void the_user_is_in_the_home_page_after_sign_in_for_Arrays() {
-//	arrays.getStarted_Arrays();
-	String hometitle= arrays.Homepagetext();
-	assertEquals(hometitle,"NumpyNinja");
+
+	String hometitle= arrays.Homepagetext();	
 	LoggerLoad.info("user is in "+hometitle);
-	System.out.println("in the home page Action Done");
+	
 }
 
 //Array1
+
 @When("The user clicks the Getting Started button in Array Panel OR The user select Array item from the drop down menu")
 public void the_user_clicks_the_getting_started_button_in_array_panel_or_the_user_select_array_item_from_the_drop_down_menu() {
+	
 	arrays.getStarted_Arrays();
-	LoggerLoad.info(" Action Done");
+	LoggerLoad.info("The user clicks Getting Started button");
 }
 
 @Then("The user be directed to ARRAY Data Structure Page")
@@ -46,7 +45,7 @@ public void the_user_be_directed_to_array_data_structure_page() {
 	String Title = arrays.getArrayPageTitle();
 	LoggerLoad.info("Title of current page is : " + Title);
 	assertEquals(Title, "Array", "Title do not match");
-    System.out.println("the user is on Array page");
+   
 }
 // @Arrays_in_Python
 @Given("The user is in the Array page after Sign in")
@@ -72,7 +71,7 @@ public void the_user_should_be_redirected_to_arrays_in_python_page() {
 // @Try_Editor_in_Arrays_in_Python1
 @Given("The user is on the Arrays in Python page")
 public void the_user_is_on_the_arrays_in_python_page() {
-	System.out.println(" the user is on Arrays in Python page");
+	LoggerLoad.info(" the user is on Arrays in Python page");
 }
 
 @When("The user clicks Try Here button in Arrays in Python page")
@@ -84,40 +83,12 @@ public void the_user_clicks_try_here_button_in_arrays_in_python_page() {
 
 @Then("The user should be redirected to a page having a Try Editor with a Run button to test in Array in Python page")
 public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test_in_array_in_python_page() {
-	//System.out.println(" the user is on try editor in Python page");
+	
 	String Title = arrays.getArrayPageTitle();
 	LoggerLoad.info("Title of current page is :" + Title);
 	assertEquals(Title, "Assessment", "Title do not match");
+	LoggerLoad.info("The user is on Question Page");
 }
-
-
-//@Try_Editor_in_Arrays_in_Python2
-@Given("The user is in the tryEditor page of Arrays in Python")
-public void the_user_is_in_the_try_editor_page_of_arrays_in_python() {
-	arrays.getStarted_Arrays();
-	arrays.Arrays_in_Python_Link();
-	arrays.TryHere_Link();
-	System.out.println(" the user is on try editor in Python page");
-}
-
-
-@When("^The user enters code in (.*) and clicks Run button in Arrays in Python page$")
-public void the_user_enters_code_in_and_clicks_run_button_in_arrays_in_python_page(String TryEditor) {
-
-	arrays.TryEditorbox(TryEditor);
-	arrays.RunbuttonLink();
-  
-}
-@Then("The user should able to see output in the console Arrays in Python tryeditor page")
-public void the_user_should_able_to_see_output_in_the_console_arrays_in_python_tryeditor_page() {
-	String actualMsg = arrays.ActualOutput();
-	LoggerLoad.info("Actual result  :" + actualMsg);
-
-	System.out.println(" the user is on try editor in Python page");
-
-	
-}
-
 
 //Try_Editor_in_Arrays_in_DataDriven
 @Given("The user is in the tryEditor page for Arrays in Python")
@@ -137,6 +108,7 @@ public void the_user_enter_the_valid_pythoncode_input_from_sheet_and_in_arrays(S
 	arrays.Entercode_Tryeditor(excelValue);
 	arrays.RunbuttonLink();
 }
+
 @Then("^The user should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Arrays$")
 public void the_user_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_arrays(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 	String excelValue1=arrays.getoutputfromExcel(Sheetname, Rownumber);
@@ -168,22 +140,12 @@ public void the_user_clicks_arrays_using_list_button_in_array_page() {
 }
 @Then("The user should be redirected to Arrays Using List page")
 public void the_user_should_be_redirected_to_arrays_using_list_page() {
-  //System.out.println("THe user is on Arrays_Using_list page");
+
 	String Title = arrays.getArrayPageTitle();
 	LoggerLoad.info("Title of current page is :" + Title);
 	assertEquals(Title, "Arrays Using List", "Title do not match");
 }
 
-// @Try_Editor_in_Arrays_Using_List2
-
-@Given("The user is in the tryEditor page of Arrays Using List")
-public void the_user_is_in_the_try_editor_page_of_arrays_using_list() {
-	arrays.getStarted_Arrays();
-	 
-	arrays.Arrays_Using_List_Link();
-	arrays.TryHere_Link();
-    System.out.println("THe user in on try editor page of arrays_using_list");
-}
 
 //    @Try_Editor_in_Arrays_Using_List1
 @Given("The user is on the Arrays Using List page")
@@ -202,7 +164,11 @@ public void the_user_clicks_try_here_button_in_arrays_using_list_page(){
 }
 @Then("The user should be redirected to a page having a Try Editor with a Run button to test in Arrays Using List page")
 public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test_in_arrays_using_list_page() {
-    System.out.println("the user is on try editor page");
+	String Title = arrays.getArrayPageTitle();
+	LoggerLoad.info("Title of current page is :" + Title);
+	LoggerLoad.info("The user is on Question page with Run button");
+	assertEquals(Title, "Assessment", "Title do not match");
+
 }
 
 //Try_Editor_in_ArraysUsingList_in_DataDriven
@@ -259,14 +225,7 @@ public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_r
 	assertEquals(Title, "Assessment", "Title do not match");
 }
 
-//@Try_Editor_in_Basic_Operations_in_Lists2
-@Given("The user is in the tryEditor page of Basic Operations in Lists")
-public void the_user_is_in_the_try_editor_page_of_basic_operations_in_lists() {
-	arrays.getStarted_Arrays();
-	arrays.Basic_Operations_in_Lists_Link();
-	arrays.TryHere_Link();
-	
-}
+
 //Try_Editor_in_BasicOperationsofArray_in_DataDriven
 @Given("The user is in the tryEditor page for BasicOperationsofArray")
 public void the_user_is_in_the_try_editor_page_for_basic_operationsof_array() {
@@ -329,15 +288,11 @@ public void the_user_clicks_try_here_button_in_applications_of_arrays_page(){
 @Then("The user should be redirected to a page having a Try Editor with a Run button to test in Applications of Array page")
 public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test_in_applications_of_array_page() {
 	arrays.RunbuttonLink();
+	String Title = arrays.getArrayPageTitle();
+	LoggerLoad.info("Title of current page is :" + Title);
+	assertEquals(Title, "Assessment", "Title do not match");
+	LoggerLoad.info("The user is on Question Page");
  
-}
-@Given("The user is in the tryEditor page of Applications of Array")
-public void the_user_is_in_the_try_editor_page_of_applications_of_array(){
-	arrays.getStarted_Arrays();
-	arrays.Applications_of_Array_Link();
-	arrays.TryHere_Link();
-	
-    
 }
 
 @Given("The user is in the tryEditor page for Applications of Arrays")
@@ -370,8 +325,7 @@ public void the_user_clicks_practice_questions_button_in_array_page() {
 	}
 @Then("The user should be redirected to Practice pageof Array page")
 public void the_user_should_be_redirected_to_practice_pageof_array_page() {
-	 //System.out.println("The user is on practice questions page");
-	
+		
 	String Title = arrays.getArrayPageTitle();
 	LoggerLoad.info("Title of current page is :" + Title);
 	assertEquals(Title, "Practice Questions", "Title do not match");
@@ -431,10 +385,7 @@ public void the_user_should_able_to_see_output_in_the_console_for_question_page(
 }
 
 //@Code_Editor_for_Search_the_array_link_Submit_Button-4
-//@Given("User is on Question page of Search the array")
-//public void user_is_on_question_page_of_search_the_array() {
-//  
-//}
+
 @When("clicks Submit button in Question Page")
 public void clicks_submit_button_in_question_page() {
   arrays.Practicequestion_Submitbutton();

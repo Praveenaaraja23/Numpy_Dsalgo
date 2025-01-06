@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
 import dsalgo_utils.ExcelReader;
-import dsalgo_utils.LoggerLoad;
+
 import dsalgo_utils.Practicequestionutil;
 
 public class Arrays_pf {
@@ -34,19 +34,19 @@ public class Arrays_pf {
 	@FindBy (xpath="//pre[@id='output']")WebElement Console_Output;
 	@FindBy (xpath="//a[@href='/array/practice']")WebElement Practicequestions_button;
 	@FindBy(xpath= "//a[text()='NumpyNinja']")	WebElement hometext;
-	//@FindBy(xpath= "//a[text()='NumpyNinja']")	WebElement hometext;
+	
 	String result;
 	@FindBy (xpath="//textarea[@tabindex='0']")WebElement editorInput;
 	@FindBy (xpath="//button[text()='Run']")WebElement Practicequestions_Run_button;	
 	@FindBy (xpath="//*[@id='answer_form']")WebElement Practicequestion_Editorinput;
 	@FindBy (xpath="//input[@value='Submit']")WebElement Practicequestion_Submitbutton;
-//	@FindBy (xpath="//pre[@id='output']") WebElement Practicequestion_Editoroutput;
+
 	@FindBy (xpath="//a[@href='/question/1']") WebElement SearchtheArrayLink;
 	@FindBy (xpath="//a[@href='/question/2']") WebElement findMaxConsecutiveOnesLink;
 	@FindBy (xpath="//a[@href='/question/3']") WebElement FindNumberswithEvenNumberofDigits;
 	@FindBy (xpath="//a[@href='/question/4']") WebElement SquaresofaSortedArray;
 	@FindBy (id="output")WebElement output;
-//	@FindBy (xpath="//*[@id='answer_form']")WebElement answerform;
+
 	
 	
 	WebDriver driver= DriverManager.getdriver();
@@ -134,12 +134,6 @@ public class Arrays_pf {
 		
 	}
 	
-public void TryEditorbox(String TryEditor) {
-		
-	TryEditorbox.sendKeys(TryEditor);
-		
-		
-	}
 
 
 public void RunbuttonLink() {
@@ -164,7 +158,7 @@ public void Practicequestion_Submitbutton() {
 
 public void Entercode_Tryeditor(String excelValue)  {
 
-	System.out.println();
+	
 	TryEditorbox.sendKeys(excelValue);
 
 
@@ -184,38 +178,43 @@ public String getActualResult() {
 public String getCodefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
 	ExcelReader reader = new ExcelReader();
 	String Excelpath = ConfigReader.excelpath();
-	LoggerLoad.info("Set the path");
+	
    List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
-	LoggerLoad.info("To read the Data from Excelsheet");
+	
      String pythoncode  = testData.get(Rownumber).get("pythoncode");
-     System.out.println(pythoncode);
-	 LoggerLoad.info("To get data from excel sheet");
+     
+	
 return pythoncode;
 }
 
 public String getoutputfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
 	ExcelReader reader = new ExcelReader();
 	String Excelpath = ConfigReader.excelpath();
-	LoggerLoad.info("Set the path");
+	
 	
 	List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
-	LoggerLoad.info("To read the Data from Excelsheet");
+
      String Expectedresult1 = testData.get(Rownumber).get("ExpectedOutput");
-	 LoggerLoad.info("To get data from excel sheet");
+	
 return Expectedresult1;
 }
 
+
 public String getErrormsg() {
-	LoggerLoad.info("Entered getErrormsg-");
+    try {
+   	 
+       Alert alert = driver.switchTo().alert();	
+		result=alert.getText();
+
+		alert.accept();
 	
-	Alert alert = driver.switchTo().alert();	
-		   result=alert.getText();
-		   LoggerLoad.info("Result Alert-"+result);
-	           alert.accept();
-	           LoggerLoad.info("popup alert is :" + result);
-	          
-	return result;
-}
+       
+    }catch(NoAlertPresentException e) {
+   	 result=" ";
+   	
+   	  }
+    return result;
+    }
 
 public String ActualOutput() {
 	String result;
@@ -224,13 +223,12 @@ public String ActualOutput() {
 	result=alert.getText();
 	if(result != null || result == null)
 	{
-			System.out.println(result);
-			Thread.sleep(2000);
+					
 			alert.accept();			
 	}
 	}catch(Exception e){
 	 result = Console_Output.getText();
-	 System.out.println("No Alert");
+
 	}
 	return result;
 }

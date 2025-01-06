@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +16,7 @@ import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
 import dsalgo_utils.ExcelReader;
-import dsalgo_utils.LoggerLoad;
+
 
 public class Stack_pf {	
 	
@@ -84,11 +85,7 @@ public class Stack_pf {
 		
 		
 	}
-   
-   public void TryEditorbox(String TryEditor1) {
-		
-		TryEditorbox.sendKeys(TryEditor1);
-   }
+
    
    public void RunButton() {
 	   
@@ -107,13 +104,13 @@ public class Stack_pf {
 		result=alert.getText();
 		if(result != null)
 		{
-				System.out.println(result);
+				
 				Thread.sleep(2000);
 				alert.accept();			
 		}
 		}catch(Exception e){
 		 result = Console_Output.getText();
-		 System.out.println("No Alert");
+		
 		}
 		return result;
 	}
@@ -121,42 +118,47 @@ public class Stack_pf {
    public String getCodefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
 		ExcelReader reader = new ExcelReader();
 		String Excelpath = ConfigReader.excelpath();
-		LoggerLoad.info("Set the path");
+		
 	   List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
-		LoggerLoad.info("To read the Data from Excelsheet");
+	
 	     String pythoncode  = testData.get(Rownumber).get("pythoncode");
-	     System.out.println(pythoncode);
-		 LoggerLoad.info("To get data from excel sheet");
+	    
+		
 	return pythoncode;
 	}
 
 	public String getoutputfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {
 		ExcelReader reader = new ExcelReader();
 		String Excelpath = ConfigReader.excelpath();
-		LoggerLoad.info("Set the path");
+	
 		
 		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
-		LoggerLoad.info("To read the Data from Excelsheet");
+		
 	     String Expectedresult1 = testData.get(Rownumber).get("ExpectedOutput");
-		 LoggerLoad.info("To get data from excel sheet");
+		
 	return Expectedresult1;
 	}
 
+
 	public String getErrormsg() {
-		LoggerLoad.info("Entered getErrormsg-");
+	    try {
+	   	 
+	       Alert alert = driver.switchTo().alert();	
+			result=alert.getText();
+
+			alert.accept();
 		
-		Alert alert = driver.switchTo().alert();	
-			   result=alert.getText();
-			   LoggerLoad.info("Result Alert-"+result);
-		           alert.accept();
-		           LoggerLoad.info("popup alert is :" + result);
-		          
-		return result;
-	}
+	       
+	    }catch(NoAlertPresentException e) {
+	   	 result=" ";
+	   	
+	   	  }
+	    return result;
+	    }
 	
 	public void Entercode_Tryeditor(String excelValue)  {
 
-		System.out.println();
+	
 		TryEditorbox.sendKeys(excelValue);
 
 

@@ -1,22 +1,13 @@
 package dsalgo_pagefactory;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
-
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-
 import dsalgo_utils.ConfigReader;
 import dsalgo_utils.DriverManager;
 import dsalgo_utils.ExcelReader;
@@ -29,8 +20,6 @@ public class Login_pf {
 
 	@FindBy(xpath = "//button[@class='btn']")
 	WebElement getstarted;
-	@FindBy(xpath="//div[@class='navbar-nav']/ul[1]/a[3]")
-	WebElement SigninSingnout;
 	@FindBy(xpath="//a[@href='/login']")
 	WebElement Signin;
 	@FindBy(id = "id_username")
@@ -43,7 +32,6 @@ public class Login_pf {
 	WebElement successmsg;
 	@FindBy(xpath="//a[text()='Sign out']")
 	WebElement signout;
-	//public  WebDriver driver;
 	@FindBy(xpath ="//div[@role='alert']")
 	WebElement errormessage;
 	@FindBy(xpath="//label[@for='id_username']")
@@ -51,50 +39,31 @@ public class Login_pf {
 	@FindBy(xpath="//label[@for='id_password']")
 	WebElement passwordfield;
 	@FindBy(xpath="//a[text()=' Vidya ']")
-	WebElement loginpage;
-	String expectedname = "Sign in";
-	String expectedname2 = "Sign out";
 	ExcelReader reader = new ExcelReader();
 	String Excelpath = ConfigReader.excelpath();
 
 	public Login_pf() {
-
-		System.out.println("inside login_pf driver initialized for :"+((RemoteWebDriver) driver).getCapabilities().getBrowserName());
 		PageFactory.initElements(driver , this);
 
 	}
 
 	public void GetStarted() {
 		getstarted.click();
-     }
+	}
 
 	public void clicksign() {
-		System.out.println("User is about to enter sign in");
-		try {	
-			Signin.click();
-		}catch (Exception e) {
-			System.out.println("Already Signed in");
-		}
+
+		Signin.click();
 	}
-
-
 	public void  login(String Username, String Password ){
-		try {
-			username1.clear();
-			username1.sendKeys(Username);
-			password1.clear();
-			password1.sendKeys(Password);
-			Login.click();	
-		}catch (Exception e) {
-			System.out.println("Already Logged in");
-		}
-
+		username1.clear();
+		username1.sendKeys(Username);
+		password1.clear();
+		password1.sendKeys(Password);
+		Login.click();	
 	}
-
-    public String printsuccessmessage() {
-
+	public String printsuccessmessage() {
 		String succesmsg=successmsg.getText();
-
 		return succesmsg;
 
 	}
@@ -103,7 +72,7 @@ public class Login_pf {
 		signout.click();
 	}	
 
-     public String printErrormessage() {
+	public String printErrormessage() {
 		String errormsg;
 		errormsg=errormessage.getText();
 		return errormsg;
@@ -121,17 +90,13 @@ public class Login_pf {
 		return popupmessage;	
 	}
 
-    public String validatesigninpage() {
+	public String validatesigninpage() {
 		String username=usernamefield.getText();
 		return username;
 
 	}
 
-    public String getsuccessmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		
-		LoggerLoad.info("Set the path");
-		LoggerLoad.info("ExcelPath-"+Excelpath);
-		LoggerLoad.info("Sheetname-"+Sheetname);
+	public String getsuccessmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
 		List<Map<String,String>> testData = reader.getData(Excelpath, Sheetname);
 		LoggerLoad.info("To read the Data from Excelsheet");
 		String SuccessMessage = testData.get(Rownumber).get("SuccessMessage");
@@ -139,8 +104,7 @@ public class Login_pf {
 
 	}
 	public String getusernamefromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		
-		LoggerLoad.info("Set the path");
+
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
 
@@ -149,8 +113,7 @@ public class Login_pf {
 	}
 
 	public String getpasswordfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		
-		LoggerLoad.info("Set the path");
+
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
 
@@ -159,7 +122,6 @@ public class Login_pf {
 	}
 
 	public String geterrormsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		LoggerLoad.info("Set the path");
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
 
@@ -168,8 +130,6 @@ public class Login_pf {
 
 	}
 	public String getpopupmsgfromExcel(String Sheetname, int Rownumber)  throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException  {	
-		System.out.println(Excelpath);
-		LoggerLoad.info("Set the path");
 		List<Map<String,String>> testData = 
 				reader.getData(Excelpath, Sheetname);
 

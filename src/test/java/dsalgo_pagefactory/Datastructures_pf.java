@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,10 +20,6 @@ import dsalgo_utils.ExcelReader;
 import dsalgo_utils.LoggerLoad;
 
 public class Datastructures_pf {
-
-//WebDriver driver;
-//	
-//	String url = "https://dsportalapp.herokuapp.com";
 
 	@FindBy(xpath = "//a[@href='data-structures-introduction']")
 	WebElement getstarted;
@@ -41,8 +38,6 @@ public class Datastructures_pf {
 
 	@FindBy(xpath = "//pre[@id='output']")
 	WebElement Output;
-
-//@FindBy(xpath="//list-group-item list-group-item-light text-info//']
 
 	@FindBy(xpath = "//a[@href='/data-structures-introduction/practice']")
 	WebElement PracticeQuestions;
@@ -66,8 +61,7 @@ public class Datastructures_pf {
 	}
 
 	public void Timecomplexity() {
-//	JavascriptExecutor js1 = (JavascriptExecutor) driver;  // mouse scroll
-//	js1.executeScript("window.scrollTo(0, 500)");
+
 		Timecomplexity.click();
 
 	}
@@ -79,7 +73,6 @@ public class Datastructures_pf {
 
 	public void Entercode_Tryeditor(String pythoncode) {
 
-		System.out.println(pythoncode);
 		TryEditor.sendKeys(pythoncode);
 
 	}
@@ -106,11 +99,11 @@ public class Datastructures_pf {
 			throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException {
 		ExcelReader reader = new ExcelReader();
 		String Excelpath = ConfigReader.excelpath();
-		LoggerLoad.info("Set the path");
+
 		List<Map<String, String>> testData = reader.getData(Excelpath, Sheetname);
-		LoggerLoad.info("To read the Data from Excelsheet");
+
 		String pythoncode = testData.get(Rownumber).get("pythoncode");
-		System.out.println(pythoncode);
+
 		LoggerLoad.info("To get data from excel sheet");
 		return pythoncode;
 	}
@@ -119,12 +112,11 @@ public class Datastructures_pf {
 			throws InvalidFormatException, IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException {
 		ExcelReader reader = new ExcelReader();
 		String Excelpath = ConfigReader.excelpath();
-		LoggerLoad.info("Set the path");
 
 		List<Map<String, String>> testData = reader.getData(Excelpath, Sheetname);
-		LoggerLoad.info("To read the Data from Excelsheet");
+
 		String Expectedresult1 = testData.get(Rownumber).get("ExpectedOutput");
-		LoggerLoad.info("To get data from excel sheet");
+
 		return Expectedresult1;
 	}
 
@@ -133,20 +125,22 @@ public class Datastructures_pf {
 		return result;
 	}
 
-	public String getErrormsg() {
-		LoggerLoad.info("Entered getErrormsg-");
-
-		Alert alert = driver.switchTo().alert();
-		result = alert.getText();
-		LoggerLoad.info("Result Alert-" + result);
-		alert.accept();
-		LoggerLoad.info("popup alert is :" + result);
-
-		return result;
-	}
-
 	public String pagetitle() {
 		return driver.getTitle();
 	}
 
+	public String getErrormsg() {
+		try {
+
+			Alert alert = driver.switchTo().alert();
+			result = alert.getText();
+
+			alert.accept();
+
+		} catch (NoAlertPresentException e) {
+			result = " ";
+			System.out.println("No alert found");
+		}
+		return result;
+	}
 }

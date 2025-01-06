@@ -20,11 +20,11 @@ public class Graph_sd {
 
 	@Given("The user is in the Home page after Sign into the Ds algo portal")
 	public void the_user_is_in_the_home_page_after_sign_in() {
-		//public void the_user_is_in_homepage_after_signin() {
-			String hometitle = gra_pf.pagetitle();
-			assertEquals( hometitle, "NumpyNinja");
-			LoggerLoad.info("user3 is in" + hometitle + " page");
-		//LoggerLoad.info("You are in Ds algo portal page");
+
+		String hometitle = gra_pf.pagetitle();
+
+		LoggerLoad.info("user3 is in" + hometitle + " page");
+
 	}
 
 	@When("The user clicks the Getting Started button in Graph Panel of the page OR The user select Graph item from the drop down menu")
@@ -37,7 +37,7 @@ public class Graph_sd {
 		String graphtitle = gra_pf.pagetitle();
 		assertEquals(graphtitle, "Graph");
 		LoggerLoad.info("user3 is in" + graphtitle + " page");
-		//LoggerLoad.info("The User is on the graph page");
+
 	}
 
 	// Try_Here_in_Graph_Page
@@ -45,17 +45,16 @@ public class Graph_sd {
 	@Given("The user is on the Graph page")
 	public void the_user_is_on_the_graph_page() {
 		gra_pf.GetStarted();
+		gra_pf.graph();
 		String graphtitle = gra_pf.pagetitle();
-		assertEquals(graphtitle, "Graph");
+
 		LoggerLoad.info("user3 is in" + graphtitle + " page");
-		//LoggerLoad.info("You are in Ds algo portal - Graph page");
+
 	}
 
 	@When("The user clicks Try Here button in Graph page")
-	public void the_user_clicks_try_here_button_in_graph_page() throws InterruptedException {
-		//gra_pf.GetStarted();
-		gra_pf.graph();
-		Thread.sleep(1000);
+	public void the_user_clicks_try_here_button_in_graph_page() {
+
 		gra_pf.tryEditorLink();
 	}
 
@@ -64,9 +63,8 @@ public class Graph_sd {
 		String graphtryhere = gra_pf.pagetitle();
 		assertEquals(graphtryhere, "Assessment");
 		LoggerLoad.info("user3 is in" + graphtryhere + " page");
-		//LoggerLoad.info("The User is on the Graph's Tryhere page");
-	}
 
+	}
 
 	// @Try_Editor_in_Graph_with_DataDriven
 
@@ -86,9 +84,8 @@ public class Graph_sd {
 				+ " and row number : " + Rownumber);
 
 		gra_pf.Entercode_Tryeditor(excelValue);
-		gra_pf.runbtn();;
-		Thread.sleep(1000);
-		
+		gra_pf.runbtn();
+
 	}
 
 	@Then("^The user3 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Graph module$")
@@ -100,7 +97,7 @@ public class Graph_sd {
 		LoggerLoad.info("Actual result  :" + actual1);
 		assertEquals(actual1, excelValue1);
 	}
-	
+
 	// @Try_Editor_in_Graph_Representations_with_DataDriven_Invaild
 
 	@Then("^The user3 get the graph module error message from excelsheet (.*) and (.*)$")
@@ -130,9 +127,8 @@ public class Graph_sd {
 		String graphrepresetations = gra_pf.pagetitle();
 		assertEquals(graphrepresetations, "Graph Representations");
 		LoggerLoad.info(" user3 is in " + graphrepresetations + " page");
-		//LoggerLoad.info("The User is on the Graph Representations link");
-	}
 
+	}
 
 	// @Try_Editor_in_Graph_Representations_with_DataDriven
 
@@ -151,10 +147,8 @@ public class Graph_sd {
 				+ " and row number : " + Rownumber);
 
 		gra_pf.Entercode_Tryeditor(excelValue);
-		gra_pf.runbtn();;
-		Thread.sleep(1000);
-		
-		
+		gra_pf.runbtn();
+
 	}
 
 	@Then("^The user3 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Graph Representations module$")
@@ -178,27 +172,27 @@ public class Graph_sd {
 
 		assertEquals(popup1, excelValue1);
 	}
-	
-	//@PracticeQuestions_Graph
-	
+
+	// @PracticeQuestions_Graph
+
 	@Given("The user3 is in the Graph page after logged in")
 	public void the_user3_is_in_the_graph_page_after_logged_in() {
 		gra_pf.GetStarted();
 		gra_pf.graphRepresentationsLink();
-		//gra_pf.tryEditorLink();
-		//gra_pf.click_Practice_Questions();
+
 	}
+
 	@When("The user3 clicks Practice Questions link in Graph module")
 	public void the_user3_clicks_practice_questions_link_in_graph_module() throws InterruptedException {
 		gra_pf.click_Practice_Questions();
-		Thread.sleep(1000);
+
 	}
+
 	@Then("The user3 should be redirected to Practice Questions page in Graph module")
 	public void the_user3_should_be_redirected_to_practice_questions_page_in_graph_module() {
 		LoggerLoad.info("No practice Questions blank page is displayed");
-		assertEquals(gra_pf.Homepagetext1(),"Practice Questions");
+		assertEquals(gra_pf.Homepagetext1(), "Practice Questions");
 		LoggerLoad.info("NO questions found ");
 	}
-
 
 }

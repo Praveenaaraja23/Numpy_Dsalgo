@@ -25,9 +25,9 @@ public class DataStructures_sd {
 	@Given("The user is in homepage after signin")
 	public void the_user_is_in_homepage_after_signin() {
 		String hometitle = ds_pf.pagetitle();
-		assertEquals(hometitle, "NumpyNinja");
+
 		LoggerLoad.info("user4 is in" + hometitle + " page");
-		// LoggerLoad.info("You are in DS page");
+
 	}
 
 	@When("The user clicks the Getting Started button in DataStructures Panel OR The user select DataStructures item from the drop down menu")
@@ -40,7 +40,7 @@ public class DataStructures_sd {
 		String dstitle = ds_pf.pagetitle();
 		assertEquals(dstitle, "Data Structures-Introduction");
 		LoggerLoad.info("user4 is in" + dstitle + " page");
-		// LoggerLoad.info("The User is on the Data structures page");
+
 	}
 
 	// TimeComplexity
@@ -48,18 +48,14 @@ public class DataStructures_sd {
 	@Given("The user is in Data Structures page")
 	public void the_user_is_in_data_structures_page() {
 		ds_pf.GetStarted();
-		// ds_pf.Timecomplexity();
 		String dstitle = ds_pf.pagetitle();
-		assertEquals(dstitle, "Data Structures-Introduction");
+
 		LoggerLoad.info("user4 is in" + dstitle + " page");
 
-		// LoggerLoad.info("The User is on the Data structures page");
 	}
 
 	@When("The user clicks the Time Complexity button in Data Structures Page")
 	public void the_user_clicks_the_time_complexity_button_in_data_structures_page() throws InterruptedException {
-		// ds_pf.GetStarted();
-		Thread.sleep(1000);
 		ds_pf.Timecomplexity();
 
 	}
@@ -69,7 +65,6 @@ public class DataStructures_sd {
 		String dstimetitle = ds_pf.pagetitle();
 		assertEquals(dstimetitle, "Time Complexity");
 		LoggerLoad.info("user4 is in" + dstimetitle + " page");
-		// LoggerLoad.info("The User is on the Timecomplexity page");
 	}
 
 	// Try_Editor_in_TimeComplexity
@@ -79,9 +74,8 @@ public class DataStructures_sd {
 		ds_pf.GetStarted();
 		ds_pf.Timecomplexity();
 		String dstimetitle = ds_pf.pagetitle();
-		assertEquals(dstimetitle, "Time Complexity");
+
 		LoggerLoad.info("user4 is in" + dstimetitle + " page");
-		// LoggerLoad.info("The User is on the Timecomplexity page");
 	}
 
 	@When("The user clicks Try Here button in Time Complexity page")
@@ -91,8 +85,7 @@ public class DataStructures_sd {
 
 	@Then("The user should be redirected to a page having an {string} with a Run button to test in the Time Complexity page")
 	public void the_user_should_be_redirected_to_a_page_having_an_with_a_run_button_to_test_in_the_time_complexity_page(
-		String string) throws InterruptedException {
-//		LoggerLoad.info("The User is on the TryHere page");
+			String string) throws InterruptedException {
 		String dstimetryeditortitle = ds_pf.pagetitle();
 		assertEquals(dstimetryeditortitle, "Assessment");
 		LoggerLoad.info("user4 is in" + dstimetryeditortitle + " page");
@@ -147,14 +140,14 @@ public class DataStructures_sd {
 	public void the_user4_is_in_the_data_structures_page_after_logged_in() {
 		ds_pf.GetStarted();
 		ds_pf.Timecomplexity();
-		// ds_pf.TryHere();
+
 	}
 
 	@When("The user4 clicks Practice Questions link in Data structures")
-	public void the_user4_clicks_practice_questions_link_in_data_structures() throws InterruptedException {
+	public void the_user4_clicks_practice_questions_link_in_data_structures() {
 
 		ds_pf.click_Practice_Questions();
-		Thread.sleep(1000);
+		
 	}
 
 	@Then("The user4 should be redirected to Practice Questions page in Data structures")

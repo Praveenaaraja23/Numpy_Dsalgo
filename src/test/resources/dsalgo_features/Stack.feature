@@ -4,9 +4,9 @@ Feature: Stack Module
 
   Background: The user able to land on Home page after entering valid Username and Password fields
     Given The user is on the DS Algo Sign in Page
-    When The user clicks login button after entering valid Vidya and Kanaka@185
-
-  @StackPage
+    When The user clicks login button after entering valid Username and Password
+      
+   @StackPage
   Scenario: Verify that user is able to navigate to Stack data structure page
     Given The user is in the Home page after Sign in for Stack page
     When The user clicks the Getting Started button in Stack Panel of the page OR The user select Stack item from the drop down menu

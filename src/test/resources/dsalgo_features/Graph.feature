@@ -4,8 +4,8 @@ Feature: Graph Module
   
 Background: The user able to land on Home page after entering valid Username and Password fields
     Given The user is on the DS Algo Sign in Page
-    When The user clicks login button after entering valid Vidya and Kanaka@185
- 
+    When The user clicks login button after entering valid Username and Password
+
     @NavigatetoGraph
     Scenario: Verify that user is able to navigate to Graph data structure page
     Given The user is in the Home page after Sign into the Ds algo portal

@@ -3,10 +3,9 @@
 
   Background: The user able to land on Home page after entering valid Username and Password fields
     Given The user is on the DS Algo Sign in Page
-    When The user clicks login button after entering valid Vidya and Kanaka@185
-    
- 
- @DataStructures_Introduction
+    When The user clicks login button after entering valid Username and Password
+
+   @DataStructures_Introduction
   Scenario: The user is able to navigate to DataStructures Page
     Given The user is in homepage after signin
     When The user clicks the Getting Started button in DataStructures Panel OR The user select DataStructures item from the drop down menu

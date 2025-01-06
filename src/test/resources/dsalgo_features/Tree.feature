@@ -4,7 +4,7 @@ Feature: Testing Treepage
 
   Background: The user able to land on Home page after entering valid Username and Password fields
     Given The user is on the DS Algo Sign in Page
-    When The user clicks login button after entering valid Vidya and Kanaka@185
+    When The user clicks login button after entering valid Username and Password
 
   @TS_tree_02
   Scenario: Verify that user is able to navigate to "Tree  page" data structure page

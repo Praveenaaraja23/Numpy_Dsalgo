@@ -55,7 +55,7 @@ public class Home_sd
 		}
 
 
-		@Then("^The home user gets (.*)$")
+		@Then("^The user wants to see (.*)$")
 		public void The_home_user_gets(String warningmessage) {
 	
 		home.printwarnmsg(warningmessage);

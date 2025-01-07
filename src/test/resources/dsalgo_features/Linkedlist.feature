@@ -15,7 +15,7 @@ Feature: Testing linked list Page
   @TS_linkedlist_02
   Scenario: Verify that user is able to navigate to "Introduction" page
     Given The user is on the "Linked list" page after clicks on get started
-    When User12 click on"Introduction" link
+    When User has to click on"Introduction" link
     Then The user should be redirected to the "Introduction" of linked list Page
 
   @TS_linkedlist_03
@@ -49,7 +49,7 @@ Feature: Testing linked list Page
   @TS_linkedlist_05
   Scenario: Verify that user is able to navigate to "Creating Linked List" page
     Given User is in "Introduction" page
-    When User12 click on the"Creating Linked List" link
+    When User has to clicks on the"Creating Linked List" link
     Then The user should be redirected to the "Creating Linked List" of linked list Page
 
   @TS_linkedlist_06
@@ -83,7 +83,7 @@ Feature: Testing linked list Page
   @TS_linkedlist_09
   Scenario: Verify that user is able to navigate to "Types of Linked List" page
     Given User is in "Creating Linked List" page
-    When User12 click on"Types of Linked List" link
+    When User has to click on"Types of Linked List" link
     Then The user should be redirected to the "Types of Linked List" of linked list Page
 
   @TS_linkedlist_10
@@ -116,7 +116,7 @@ Feature: Testing linked list Page
   @TS_linkedlist_12
   Scenario: Verify that user is able to navigate to "Implement Linked List in Python" page
     Given User is in "Types of Linked List" page
-    When User12 click on"Implement Linked List in Python" link
+    When User has to click on"Implement Linked List in Python" link
     Then The user should be redirected to the "Implement Linked List in Python" of linked list Page
 
   @TS_linkedlist_13
@@ -150,7 +150,7 @@ Feature: Testing linked list Page
   @TS_linkedlist_16
   Scenario: Verify that user is able to navigate to "Traversal" page
     Given User is in "Implement Linked List in Python" page
-    When User12 click on"Traversal" link
+    When User has to click on"Traversal" link
     Then The user should be redirected to the "Traversal" of linked list Page
 
   @TS_linkedlist_17
@@ -184,7 +184,7 @@ Feature: Testing linked list Page
   @TS_linkedlist_20
   Scenario: Verify that user is able to navigate to "Insertion" page
     Given User is in "Traversal" page
-    When User12 click on"Insertion" link
+    When User has to click on"Insertion" link
     Then The user should be redirected to the "Insertion" of linked list Page
 
   @TS_linkedlist_21
@@ -218,7 +218,7 @@ Feature: Testing linked list Page
   @TS_linkedlist_25
   Scenario: Verify that user is able to navigate to "Deletion" page
     Given User is in "Insertion" page
-    When User12 click on"Deletion" link
+    When User has to click on"Deletion" link
     Then The user should be redirected to the "Deletion" of linked list Page
 
   @TS_linkedlist_26
@@ -251,6 +251,6 @@ Feature: Testing linked list Page
   #Practice questions
   @TS_linkedlist_29
   Scenario: Verify that user is able to navigate to "Practice Questions" Page for Linked List page
-    Given User12 clicks "Introduction" link
-    When The user13 clicks on the "Practice Questions" link
+    Given User has to clicks "Introduction" link
+    When The user clicked on the "Practice Questions" link
     Then The user should be redirected to Practice Questions of Linked List Page

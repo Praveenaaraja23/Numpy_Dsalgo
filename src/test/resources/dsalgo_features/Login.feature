@@ -23,7 +23,7 @@ Feature: Testing Login
   Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
     Given The user is on the DS Algo Sign in Page
     When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>
-    Then user14 should see an <Sheetname> and <Rownumber>
+    Then user can see an <Sheetname> and <Rownumber>
 
     Examples: 
       | Sheetname | Rownumber |
@@ -35,7 +35,7 @@ Feature: Testing Login
   Scenario Outline: user able to land on Home page after entering invalid Username and Password fields from excel sheet
     Given The user is on the DS Algo Sign in Page
     When user clicks login to DsAlgo application for valid with "<Sheetname>" and <Rownumber>
-    Then user15 should see an <Sheetname> and <Rownumber>
+    Then user can able to see an <Sheetname> and <Rownumber>
 
     Examples: 
       | Sheetname | Rownumber |

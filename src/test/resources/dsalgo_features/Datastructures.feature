@@ -27,9 +27,9 @@
      
     @Try_Editor_in_DS_with_DataDriven 
     Scenario Outline: The user is able to run code in tryEditor for DataStructures page
-    Given The user4 is in the tryEditor page for DataStructures page
-    When The user4 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in DataStructures
-    Then The user4 should able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in DataStructures
+    Given The user lands in the tryEditor page for DataStructures page
+    When The user enters the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in DataStructures
+    Then The user able to see output in the console with valid and invalid from excelsheet <Sheetname> and <RowNumber> in DataStructures
     
    
      Examples: 
@@ -39,9 +39,9 @@
       
     @Try_Editor_in_DS_with_DataDriven_Invaild
    Scenario Outline: The user is able to run code in tryEditor for DataStructures page
-    Given The user4 is in the tryEditor page for DataStructures page
-    When The user4 enter the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in DataStructures
-    Then The user4 get the error message from excelsheet <Sheetname> and <RowNumber>
+    Given The user lands in the tryEditor page for DataStructures page
+    When The user enters the valid and invalid pythoncode input from sheet <Sheetname> and <RowNumber> in DataStructures
+    Then The user gets the error message from excelsheet <Sheetname> and <RowNumber>
     Examples:
       |Sheetname  |RowNumber  |
       |phythoncode|         1 |
@@ -50,9 +50,9 @@
     
     @PracticeQuestions_DS
     Scenario: Go to Practice Questions page from Data structures page
-    Given The user4 is in the Data structures page after logged in
-    When The user4 clicks Practice Questions link in Data structures
-    Then The user4 should be redirected to Practice Questions page in Data structures
+    Given The user lands in the Data structures page after logged in
+    When The user clicks Practice Questions link in Data structures
+    Then The user should be redirected to Practice Questions page in Data structures
     
     
     

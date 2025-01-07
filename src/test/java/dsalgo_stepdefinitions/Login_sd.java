@@ -74,8 +74,8 @@ public class Login_sd {
 	public void the_user_should_logout_from_ds_algo_page() {
 		login.Signout();	    
 	}
-	@Then("^user14 should see an (.*) and (.*)$")
-	public void user14_should_see_an_and_row_number(String Sheetname, Integer Rownumber) throws com.fasterxml.jackson.databind.exc.InvalidFormatException, InvalidFormatException, IOException {
+	@Then("^user can see an (.*) and (.*)$")
+	public void user_can_see_an_and_row_number(String Sheetname, Integer Rownumber) throws com.fasterxml.jackson.databind.exc.InvalidFormatException, InvalidFormatException, IOException {
 		String errorMessage=login.geterrormsgfromExcel(Sheetname, Rownumber);
 		String actualError=login.printErrormessage();
 		assertEquals(actualError,errorMessage);
@@ -84,8 +84,8 @@ public class Login_sd {
 
 	}
 
-	@Then("^user15 should see an (.*) and (.*)$")
-	public void user15_should_see_an(String Sheetname ,Integer Rownumber) throws com.fasterxml.jackson.databind.exc.InvalidFormatException, InvalidFormatException, IOException {
+	@Then("^user can able to see an (.*) and (.*)$")
+	public void user_can_able_to_see_an(String Sheetname ,Integer Rownumber) throws com.fasterxml.jackson.databind.exc.InvalidFormatException, InvalidFormatException, IOException {
 		String username =login.getusernamefromExcel(Sheetname, Rownumber);
 		String password =login.getpasswordfromExcel(Sheetname, Rownumber);
 		String popupmsg=login.getpopupmsgfromExcel(Sheetname, Rownumber);

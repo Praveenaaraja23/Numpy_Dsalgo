@@ -17,44 +17,44 @@ WebDriver driver;
 Queue_pf queue= new Queue_pf();
 
 
-	@Given("The user1 is in homepage")
-	public void the_user1_is_in_homepage() {
+	@Given("The user navigate to homepage")
+	public void the_user_navigate_to_homepage() {
 		
 		String hometitle = queue.pagetitle();
 		LoggerLoad.info("User1 is in" +hometitle+ "home page");
 		}
 
-	@When("The user1 clicks the Getting Started button in Queue Panel OR The user select Queue item from the drop down menu")
-	public void the_user1_clicks_the_getting_started_button_in_queue_panel_or_the_user_select_queue_item_from_the_drop_down_menu() {
+	@When("The user clicks the Getting Started button in Queue Panel OR The user select Queue item from the drop down menu")
+	public void the_user_clicks_the_getting_started_button_in_queue_panel_or_the_user_select_queue_item_from_the_drop_down_menu() {
 		
 		LoggerLoad.info("User1 clicks on Getstarted button under linked list in home page");
 		queue.GetStarted_Queue();
 		}
 
-	@Then("The user1 be directed to Queue Data Structure Page")
-	public void the_user1_be_directed_to_queue_data_structure_page() {
+	@Then("The user be directed to Queue Data Structure Page")
+	public void the_user_be_directed_to_queue_data_structure_page() {
 	    
 		String queuetitle = queue.pagetitle();
 		assertEquals( queuetitle, "Queue");
 		LoggerLoad.info("The user1 be directed to " +queuetitle+ "Data Structure Page");
 		}
 	
-	@Given("The user1 in queue page")
-	public void the_user1_in_queue_page() {
+	@Given("The user navigate queue page")
+	public void the_user_navigate_queue_page() {
 		
 		queue.GetStarted_Queue();
 		String queuetitle = queue.pagetitle();
 		LoggerLoad.info("The user1 be directed to " +queuetitle+ "Data Structure Page");
 		}
 
-	@When("The user1 clicks on Implementation of queue in python link")
+	@When("The user clicks on Implementation of queue in python link")
 	public void the_user_clicks_on_implementation_of_queue_in_python_link() {
 		
 		LoggerLoad.info("The user1 clicks on Implementation of queue in python link");
 		queue.implelink_Queue();
 		}
 
-	@Then("The user1 should be directed to Implementation of Queue in Python page")
+	@Then("The user could be directed to Implementation of Queue in Python page")
 	public void the_user1_should_be_directed_to_implementation_of_queue_in_python_page() {
 		 
 		String impqueue = queue.pagetitle();
@@ -62,14 +62,14 @@ Queue_pf queue= new Queue_pf();
 		LoggerLoad.info("The user1 be directed to " +impqueue+ " of Queue in Python");
 		}
 
-	@Given("The user1 is on the Implementation of Queue in Python page")
-	public void the_user1_is_on_the_implementation_of_queue_in_python_page() {
+	@Given("The user navigate the Implementation of Queue in Python page")
+	public void the_user_navigate_the_implementation_of_queue_in_python_page() {
 		
 		queue.GetStarted_Queue();
 		queue.implelink_Queue();
 		}
 
-	@Then("The user1 should be redirected to a page having an try Editor with a Run button to test Queue")
+	@Then("The user could be redirected to a page having an try Editor with a Run button to test Queue")
 	public void the_user1_should_be_redirected_to_a_page_having_an_try_editor_with_a_run_button_to_test_Queue() {
 		
 		String tryeditor = queue.pagetitle();
@@ -77,15 +77,15 @@ Queue_pf queue= new Queue_pf();
 		LoggerLoad.info("The user1 be directed to " +tryeditor+ " Queue in Python");
 		}
 	
-	@Given("The user1 is in the tryEditor page for Implementation of Queue page")
+	@Given("The user landing in the tryEditor page for Implementation of Queue page")
 	public void the_user_is_in_the_try_editor_page_for_Implementation_of_queue_page() {
 		queue.GetStarted_Queue();
 		queue.implelink_Queue();
 		queue.Tryherebtn();
 		}
 	
-	@When("^The user1 enter the valid and invalid pythoncode input from sheet (.*) and (.*) in Queue Clicks_run_button$")
-	public void the_user1_enter_the_valid_pythoncode_input_from_sheet_and_in_queue_clicks_run_button(String Sheetname, Integer Rownumber) throws IOException, InvalidFormatException, IOException {
+	@When("^The user just enter the valid and invalid pythoncode input from sheet (.*) and (.*) in Queue Clicks_run_button$")
+	public void the_user_just_enter_the_valid_pythoncode_input_from_sheet_and_in_queue_clicks_run_button(String Sheetname, Integer Rownumber) throws IOException, InvalidFormatException, IOException {
 		
 		String excelValue=queue.getCodefromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname + " and row number : " + Rownumber);
@@ -94,8 +94,8 @@ Queue_pf queue= new Queue_pf();
 		queue.runbutton();
 		}
 
-	@Then("^The user1 should able to see output in the console output from excelsheet (.*) and (.*) in Queue$")
-	public void the_user1_should_able_to_see_output_in_the_console_output(String Sheetname , Integer Rownumber) throws InvalidFormatException, IOException {
+	@Then("^The user checks output in the console output from excelsheet (.*) and (.*) in Queue$")
+	public void the_user_checks_output_in_the_console_output(String Sheetname , Integer Rownumber) throws InvalidFormatException, IOException {
 	   
 		String excelValue1=queue.getoutputfromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
@@ -104,8 +104,8 @@ Queue_pf queue= new Queue_pf();
 		assertEquals(actual1, excelValue1);
 		}
 
-	@Then("^The user1 get the error message from excelsheet (.*) and (.*)$")
-	public void the_user1_get_the_error_message(String Sheetname,Integer Rownumber) throws com.fasterxml.jackson.databind.exc.InvalidFormatException, InvalidFormatException, IOException {
+	@Then("^The user could get error message from excelsheet (.*) and (.*)$")
+	public void the_user_could_get_error_message(String Sheetname,Integer Rownumber) throws com.fasterxml.jackson.databind.exc.InvalidFormatException, InvalidFormatException, IOException {
 		
 		String excelValue1=queue.getoutputfromExcel(Sheetname, Rownumber);
 		String popup1=queue.getErrormsg();
@@ -113,36 +113,36 @@ Queue_pf queue= new Queue_pf();
 		assertEquals(popup1, excelValue1);
 		}
 		
-		@When("The user1 clicks Implementation using collections.deque  link")
-		public void the_user1_clicks_implementation_using_collections_deque_link() {
+		@When("The user wanted to click Implementation using collections.deque  link")
+		public void the_user_wanted_to_click_implementation_using_collections_deque_link() {
 			
 			queue.Queuecollection();
 		}
 		
 
-		@Then("The user1 should be directed to Implementation using collections.deque Page")
-		public void the_user1_should_be_directed_to_implementation_using_collections_deque_page() {
+		@Then("The user could be directed to Implementation using collections.deque Page")
+		public void the_user_could_be_directed_to_implementation_using_collections_deque_page() {
 			
 			String dqueue = queue.pagetitle();
 			assertEquals( dqueue, "Implementation using collections.deque");
 			LoggerLoad.info("The user1 be directed to " +dqueue+ " page");
 		  }
 
-		@Given("The user1 is in the Queue implementation of queue  page after logged in")
-		public void the_user1_is_in_the_queue_implementation_of_queue_page_after_logged_in() {
+		@Given("The user is in the Queue implementation of queue  page after logged in")
+		public void the_user_is_in_the_queue_implementation_of_queue_page_after_logged_in() {
 		  
 			queue.GetStarted_Queue();
 			queue.Queuecollection();
 		  }
 
-		@When("The user1 clicks Try Here button in deque Queue in Python page")
-		public void the_user1_clicks_try_here_button_in_deque_queue_in_python_page() {
+		@When("The user clicks Try Here button in deque Queue in Python page")
+		public void the_user_clicks_try_here_button_in_deque_queue_in_python_page() {
 			
 			queue.Tryherebtn();
 		 }
 		
-		@Then("The user1 should be redirected to a page having an try Editor with a Run button to test dqueue")
-		public void The_user1_should_be_redirected_to_a_page_having_an_try_Editor_with_a_Run_button_to_test_dqueue() {
+		@Then("The user should be redirected to a page having an try Editor with a Run button to test dqueue")
+		public void The_user_should_be_redirected_to_a_page_having_an_try_Editor_with_a_Run_button_to_test_dqueue() {
 			
 			String tryeditor = queue.pagetitle();
 			assertEquals( tryeditor, "Assessment");
@@ -150,28 +150,28 @@ Queue_pf queue= new Queue_pf();
 		}
 
 			
-		@Given("The user1 is in the try editor page of dqueue")
-		public void the_user1_is_in_the_try_editor_page_of_dqueue() {
+		@Given("The user is in the try editor page of dqueue")
+		public void the_user_is_in_the_try_editor_page_of_dqueue() {
 			
 			queue.GetStarted_Queue();
 			queue.Queuecollection();
 			queue.Tryherebtn();
 		}
 		
-		@Given("The user1 is in the Queue page after logged in")
-		public void The_user1_is_in_the_Queue_page_after_logged_in() {
+		@Given("The user navigate the Queue page after logged in")
+		public void The_user_navigate_the_Queue_page_after_logged_in() {
 			queue.GetStarted_Queue();
 		}
 
-		@When("The user1 click Implementation using Array link")
-		public void The_user1_click_Implementation_using_Array_link() {
+		@When("The user wanted to click Implementation using Array link")
+		public void The_user_wanted_to_click_Implementation_using_Array_link() {
 		
 			
 			queue.implelinkArray();
 		}
 		
-		@Then("The user1 should be on Implementation using Array Page")
-		public void The_user1_should_be_on_Implementation_using_Array_page() {
+		@Then("The user could be Implementation using Array Page")
+		public void The_user_could_be_Implementation_using_Array_page() {
 			
 			String imparray = queue.pagetitle();
 			assertEquals( imparray, "Implementation using array");
@@ -185,8 +185,8 @@ Queue_pf queue= new Queue_pf();
 			queue.implelinkArray();
 		}
 
-		@When("The user1 clicks Try Here button in Queue in Python page")
-		public void The_user1_clicks_Try_Here_button_in_Queue_in_Python_page() {
+		@When("The user wanted to click Try Here button in Queue in Python page")
+		public void The_user_wanted_to_click_Try_Here_button_in_Queue_in_Python_page() {
 			
 			queue.Tryherebtn();
 		}
@@ -259,8 +259,8 @@ Queue_pf queue= new Queue_pf();
 		    
 		}
 
-		@Then("The user1 should be redirected to Practice page")
-		public void the_user1_should_be_redirected_to_practice_page() {
+		@Then("The user redirected to Practice page")
+		public void the_user_redirected_to_practice_page() {
 		    
 			LoggerLoad.info("No practice Questions blank page is displayed");
 			assertEquals(queue.Homepagetext1(),"Practice Questions");

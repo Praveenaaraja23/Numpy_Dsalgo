@@ -68,16 +68,16 @@ public class Graph_sd {
 
 	// @Try_Editor_in_Graph_with_DataDriven
 
-	@Given("The user3 is in the tryEditor page for Graph page module")
-	public void the_user3_is_in_the_try_editor_page_for_graph_page_module() {
+	@Given("The user land in the tryEditor page for Graph page module")
+	public void the_user_land_in_the_try_editor_page_for_graph_page_module() {
 		gra_pf.GetStarted();
 		gra_pf.graph();
 		gra_pf.tryEditorLink();
 		LoggerLoad.info("The User is on the Graph's TryEditor page");
 	}
 
-	@When("^The user3 enter the valid and invalid pythoncode input from sheet (.*) and (.*) in Graph module$")
-	public void the_user3_enter_the_valid_and_invalid_pythoncode_input_from_sheet_and_in_graph_module(String Sheetname,
+	@When("^The user entered the valid and invalid pythoncode input from sheet (.*) and (.*) in Graph module$")
+	public void the_user_entered_the_valid_and_invalid_pythoncode_input_from_sheet_and_in_graph_module(String Sheetname,
 			Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
 		String excelValue = gra_pf.getCodefromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
@@ -88,8 +88,8 @@ public class Graph_sd {
 
 	}
 
-	@Then("^The user3 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Graph module$")
-	public void the_user3_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_graph_module(
+	@Then("^The user will able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Graph module$")
+	public void the_user_will_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_graph_module(
 			String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
 		String excelValue1 = gra_pf.getoutputfromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
@@ -100,8 +100,8 @@ public class Graph_sd {
 
 	// @Try_Editor_in_Graph_Representations_with_DataDriven_Invaild
 
-	@Then("^The user3 get the graph module error message from excelsheet (.*) and (.*)$")
-	public void the_user3_get_the_graph_module_error_message_from_excelsheet_and(String Sheetname, Integer Rownumber)
+	@Then("^The user getting the graph module error message from excelsheet (.*) and (.*)$")
+	public void the_user_getting_the_graph_module_error_message_from_excelsheet_and(String Sheetname, Integer Rownumber)
 			throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 		String excelValue1 = gra_pf.getoutputfromExcel(Sheetname, Rownumber);
 		String popup1 = gra_pf.getErrormsg();
@@ -132,15 +132,15 @@ public class Graph_sd {
 
 	// @Try_Editor_in_Graph_Representations_with_DataDriven
 
-	@Given("The user3 is in the tryEditor page for Graph Representations page module")
-	public void the_user3_is_in_the_try_editor_page_for_graph_representations_page_module() {
+	@Given("The user land in the tryEditor page for Graph Representations page module")
+	public void the_user_land_in_the_try_editor_page_for_graph_representations_page_module() {
 		gra_pf.GetStarted();
 		gra_pf.graphRepresentationsLink();
 		gra_pf.tryEditorLink();
 	}
 
-	@When("^The user3 enter the valid and invalid pythoncode input from sheet (.*) and (.*) in Graph Representations module$")
-	public void the_user3_enter_the_valid_and_invalid_pythoncode_input_from_sheet_and_in_graph_representations_module(
+	@When("^The user entered the valid and invalid pythoncode input from sheet (.*) and (.*) in Graph Representations module$")
+	public void the_user_entered_the_valid_and_invalid_pythoncode_input_from_sheet_and_in_graph_representations_module(
 			String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
 		String excelValue = gra_pf.getCodefromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
@@ -151,8 +151,8 @@ public class Graph_sd {
 
 	}
 
-	@Then("^The user3 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Graph Representations module$")
-	public void the_user3_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_Graph_Representations_module(
+	@Then("^The user will able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Graph Representations module$")
+	public void the_user_will_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_Graph_Representations_module(
 			String Sheetname, Integer Rownumber) throws InterruptedException, InvalidFormatException, IOException {
 		String excelValue1 = gra_pf.getoutputfromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
@@ -163,7 +163,7 @@ public class Graph_sd {
 
 	// @Try_Editor_in_Graph_Representations_with_DataDriven_Invaild
 
-	@Then("^The user3 get the invaild error message from excelsheet (.*) and (.*)$")
+	@Then("^The user getting the invaild error message from excelsheet (.*) and (.*)$")
 	public void The_user3_get_the_invaild_error_message_from_excelsheet(String Sheetname, Integer Rownumber)
 			throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 		String excelValue1 = gra_pf.getoutputfromExcel(Sheetname, Rownumber);
@@ -175,21 +175,21 @@ public class Graph_sd {
 
 	// @PracticeQuestions_Graph
 
-	@Given("The user3 is in the Graph page after logged in")
-	public void the_user3_is_in_the_graph_page_after_logged_in() {
+	@Given("The user land in the Graph page after logged in")
+	public void the_user_land_in_the_graph_page_after_logged_in() {
 		gra_pf.GetStarted();
 		gra_pf.graphRepresentationsLink();
 
 	}
 
-	@When("The user3 clicks Practice Questions link in Graph module")
-	public void the_user3_clicks_practice_questions_link_in_graph_module() throws InterruptedException {
+	@When("The user shall click Practice Questions link in Graph module")
+	public void the_user_shall_click_practice_questions_link_in_graph_module() throws InterruptedException {
 		gra_pf.click_Practice_Questions();
 
 	}
 
-	@Then("The user3 should be redirected to Practice Questions page in Graph module")
-	public void the_user3_should_be_redirected_to_practice_questions_page_in_graph_module() {
+	@Then("The user might be redirected to Practice Questions page in Graph module")
+	public void the_user_might_be_redirected_to_practice_questions_page_in_graph_module() {
 		LoggerLoad.info("No practice Questions blank page is displayed");
 		assertEquals(gra_pf.Homepagetext1(), "Practice Questions");
 		LoggerLoad.info("NO questions found ");

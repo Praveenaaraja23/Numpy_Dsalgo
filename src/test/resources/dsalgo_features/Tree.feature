@@ -463,7 +463,7 @@ Feature: Testing Treepage
   @TS_tree_55
   Scenario: Verify that user is able to navigate to "Practice Questions" Page for "Tree - Overview of Trees" page
     Given The user is in the "overview of trees" page
-    When The User clicks  " Practice questions"  link
+    When The user clicks  " Practice questions"  link
     Then The user should be redirected to "Practice" page
 
 

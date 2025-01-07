@@ -330,7 +330,7 @@ public class Tree_sd {
 		tree_pf.click_Tryherebtn(); 
 	}
 
-	@When("The User clicks  {string}  link")
+	@When("The user clicks  {string}  link")
 	public void the_user_clicks_link(String string) {
 		tree_pf.click_Practice_Questions();
 	}

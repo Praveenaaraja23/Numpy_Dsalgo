@@ -91,15 +91,15 @@ public class Stack_sd {
 
 		
 	//Try_Editor_in_Operations_in_Stack_in_DataDriven
-	@Given("The user1 is in the tryEditor page for Operations in Stack")
-	public void the_user_is_in_the_try_editor_page_for_operations_in_stack() {
+	@Given("The user navigates on to the tryEditor page for Operations in Stack")
+	public void the_user_navigates_on_to_the_try_editor_page_for_operations_in_stack() {
 		
 		   stack.GetStarted_Stack();
 		   stack.Operations_in_Stack_Link();
 		   stack.TryHere_Link();
 	   	}
-	@When("^The user1 enter the valid pythoncode input from sheet (.*) and (.*) in Operations in Stack$")
-	public void the_user_enter_the_valid_pythoncode_input_from_sheet_and_in_operations_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+	@When("^The user tries to enter the valid pythoncode input from sheet (.*) and (.*) in Operations in Stack$")
+	public void the_user_tries_to_enter_the_valid_pythoncode_input_from_sheet_and_in_operations_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 		String excelValue=stack.getCodefromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname
 				+ " and row number : " + Rownumber);
@@ -107,8 +107,8 @@ public class Stack_sd {
 		stack.Entercode_Tryeditor(excelValue);
 		stack.RunButton();
 	}
-	@Then("^The user1 should able to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Stack$")
-	public void the_user_should_able_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+	@Then("^The user needs to see output in the console with valid and invalid from excelsheet (.*) and (.*) in Stack$")
+	public void the_user_needs_to_see_output_in_the_console_with_valid_and_invalid_from_excelsheet_and_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 		String excelValue1=stack.getoutputfromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("Expected result - Excel Sheet :  " + excelValue1);
 		String actual1=stack.getActualResult();
@@ -117,8 +117,8 @@ public class Stack_sd {
 	}
 	
 	
-	@Then("^in Stack The user1 gets error message from excelsheet (.*) and (.*)$")
-	public void in_stack_the_user_gets_error_message_from_excelsheet_and(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+	@Then("^The user sees error message from excelsheet (.*) and (.*)$")
+	public void the_user_sees_error_message_from_excelsheet_and(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 		String excelValue1=stack.getoutputfromExcel(Sheetname, Rownumber);
 		String popup1=stack.getErrormsg();
 		LoggerLoad.info("Actual popup :" + popup1);
@@ -169,8 +169,8 @@ public class Stack_sd {
 	
 
 		//Try_Editor_in_Implementaion_in_Stack_in_DataDriven
-		@Given("The user1 is in the tryEditor page for Implementaion in Stack")
-		public void the_user1_is_in_the_try_editor_page_for_implementaion_in_stack() {
+		@Given("The user navigates on the tryEditor page for Implementaion in Stack")
+		public void the_user_navigates_on_the_try_editor_page_for_implementaion_in_stack() {
 			   stack.GetStarted_Stack();
 			   stack.Implementations_Link();
 			   stack.TryHere_Link();
@@ -227,14 +227,14 @@ public class Stack_sd {
 
 
 	//Try_Editor_in_Application_in_Stack_in_DataDriven
-	@Given("The user1 is in the tryEditor page for Application in Stack")
-	public void the_user1_is_in_the_try_editor_page_for_application_in_stack() {
+	@Given("The user navigates on to the tryEditor page for Application in Stack")
+	public void the_user_navigates_on_to_the_try_editor_page_for_application_in_stack() {
 		stack.GetStarted_Stack();
 	    stack.Applications_Link();
 	    stack.TryHere_Link();
 	}
-	@When("^The user1 enter the valid pythoncode input from sheet (.*) and (.*) in Application in Stack$")
-	public void the_user1_enter_the_valid_pythoncode_input_from_sheet_and_in_application_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
+	@When("^The user tries to enter the valid pythoncode input from sheet (.*) and (.*) in Application in Stack$")
+	public void the_user_tries_to_enter_the_valid_pythoncode_input_from_sheet_and_in_application_in_stack(String Sheetname, Integer Rownumber) throws InvalidFormatException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, IOException {
 		
 		String excelValue=stack.getCodefromExcel(Sheetname, Rownumber);
 		LoggerLoad.info("The user enter valid python code in tryEditor from sheetname :" + Sheetname

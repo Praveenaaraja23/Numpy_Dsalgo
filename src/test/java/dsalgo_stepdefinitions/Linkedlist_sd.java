@@ -1,3 +1,4 @@
+
 package dsalgo_stepdefinitions;
 
 import static org.testng.Assert.assertEquals;
@@ -45,8 +46,8 @@ public class Linkedlist_sd {
 	    
 	}
 
-	@When("User12 click on\"Introduction\" link")
-	public void User12_click_on_introduction_link() {
+	@When("User has to click on\"Introduction\" link")
+	public void User_has_to_click_on_introduction_link() {
 	   linkedlist.clickIntroductionLink();
 	}
 
@@ -114,10 +115,10 @@ public class Linkedlist_sd {
 		LoggerLoad.info("Actual Result is:" + result1);
 		assertEquals(result1,result);
 		
-	}
+	}  
 
-	@When("User12 click on the\"Creating Linked List\" link")
-	public void User12_click_on_the_creating_linked_list_link() {
+	@When("User has to clicks on the\"Creating Linked List\" link")
+	public void User_has_to_click_on_the_creating_linked_list_link() {
 		
 		linkedlist.clickCreatingLinkedlistLink();
 	}
@@ -138,8 +139,8 @@ public class Linkedlist_sd {
 	}
 
 
-	@When("User12 click on\"Types of Linked List\" link")
-	public void User12_click_on_types_of_linked_list_link() {
+	@When("User has to click on\"Types of Linked List\" link")
+	public void User_has_to_click_on_types_of_linked_list_link() {
 		
 		linkedlist.clicktypesOfLinkedlistLink();
 	}
@@ -161,8 +162,8 @@ public class Linkedlist_sd {
 		
 	}
 
-	@When("User12 click on\"Implement Linked List in Python\" link")
-	public void User12_click_on_implement_linked_list_in_python_link() {
+	@When("User has to click on\"Implement Linked List in Python\" link")
+	public void User_has_to_click_on_implement_linked_list_in_python_link() {
 	  
 		linkedlist.clickimplementLinkedlistInPythonLink();
 	}
@@ -181,8 +182,8 @@ public class Linkedlist_sd {
 		linkedlist.clickTryhere();
 	}
 
-	@When("User12 click on\"Traversal\" link")
-	public void User12_click_on_traversal_link() {
+	@When("User has to click on\"Traversal\" link")
+	public void User_has_to_click_on_traversal_link() {
 		
 		linkedlist.clicktraversalLink();
 	   
@@ -204,8 +205,8 @@ public class Linkedlist_sd {
 		linkedlist.clickTryhere();
 	}
 
-	@When("User12 click on\"Insertion\" link")
-	public void User12_click_on_insertion_link() {
+	@When("User has to click on\"Insertion\" link")
+	public void User_has_to_click_on_insertion_link() {
 	  
 		linkedlist.clickinsertion();
 	}
@@ -225,8 +226,8 @@ public class Linkedlist_sd {
 		linkedlist.clickTryhere();
 	}
 
-	@When("User12 click on\"Deletion\" link")
-	public void User12_click_on_deletion_link() {
+	@When("User has to click on\"Deletion\" link")
+	public void User_has_to_click_on_deletion_link() {
 	  
 		linkedlist.clickdeletionLink();
 	}
@@ -246,15 +247,15 @@ public class Linkedlist_sd {
 		linkedlist.clickTryhere();
 	}
 
-	@Given("User12 clicks {string} link")
-	public void User12_clicks_link(String string) {
+	@Given("User has to clicks {string} link")
+	public void User_has_to_clicks_link(String string) {
 		linkedlist.clickLLgetstarted();
 		linkedlist.clickIntroductionLink();
 	   
 	}
 
-	@When("The user13 clicks on the {string} link")
-	public void the_user_clicks_on_the_link(String string) {
+	@When("The user clicked on the {string} link")
+	public void the_user_clicked_on_the_link(String string) {
 	   linkedlist.clickpracticeQuestion();
 	}
 

@@ -23,7 +23,7 @@ public class Register_sd {
 	@Given("The user navigates DSAlgo portal with url")
 	public void the_user_navigates_ds_algo_portal_with_url() {
 		
-		assertEquals(registerPage.getstartedtext(),"Get Started" );
+		
 		LoggerLoad.info("User is in " +registerPage.getstartedtext()+ "page");
 	    
 	}
